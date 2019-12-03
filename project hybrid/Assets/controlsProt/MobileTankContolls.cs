@@ -8,8 +8,13 @@ public class MobileTankContolls : MonoBehaviour
     public float rightAxis;
 
     [Range(0,1f),SerializeField] private float amountOfScreenUsedForControls = 3;
+    [SerializeField] bool debugControls = false;
 
     void Update() {
+        if (debugControls) {
+            dbugControls();
+        }
+
         if (Input.touchCount > 0) {
             Touch touch = Input.touches[0];
             Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? (touch.position.y / (Screen.height / 10))/amountOfScreenUsedForControls : 10);
@@ -37,6 +42,18 @@ public class MobileTankContolls : MonoBehaviour
         }
         if (pos.x > 0) {
             rightAxis -= (pos.x / 5);
+        }
+    }
+
+    void dbugControls() {
+        leftAxis = 0;
+        rightAxis = 0;
+
+        if (Input.GetKey(KeyCode.A)) {
+            leftAxis = 1;
+        }
+        if (Input.GetKey(KeyCode.D)) {
+            rightAxis = 1;
         }
     }
 }
