@@ -13,7 +13,7 @@ public class Orbiter : MonoBehaviour
     void Start()
     {
         transform.position = (transform.position - target.position).normalized * radius + target.position;
-        radius = 2.0f;
+        //radius = 2.0f;
     }
 
     void Update()
