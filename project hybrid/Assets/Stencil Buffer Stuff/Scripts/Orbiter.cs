@@ -1,23 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class Orbiter : MonoBehaviour
 {
     public Transform target;
-    public float speed = 10;
+    public Vector3 axis = Vector3.up;
+    public Vector3 desiredPosition;
+    public float radius = 2.0f;
+    public float radiusSpeed = 0.5f;
+    public float rotationSpeed = 80.0f;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        transform.position = (transform.position - target.position).normalized * radius + target.position;
+        radius = 2.0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * Time.deltaTime * speed);
-        Vector3 direction = target.position - transform.position;
-        transform.rotation = Quaternion.LookRotation(direction);
+        transform.RotateAround(target.position, axis, rotationSpeed * Time.deltaTime);
+        desiredPosition = (transform.position - target.position).normalized * radius + target.position;
+        transform.position = Vector3.MoveTowards(transform.position, desiredPosition, Time.deltaTime * radiusSpeed);
     }
 }
