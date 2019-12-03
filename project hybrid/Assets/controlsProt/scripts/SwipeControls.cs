@@ -52,6 +52,14 @@ public class SwipeControls : MonoBehaviour
             Vertical = 1;
         }
         if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow)) {
+            Horizontal = 0;
+        }
+        if(Input.GetKey(KeyCode.UpArrow))
+        {
+            Vertical = 1;
+        }
+        else
+        {
             Vertical = 0;
         }
     }
