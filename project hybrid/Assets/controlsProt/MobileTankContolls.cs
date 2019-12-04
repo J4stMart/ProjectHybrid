@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class MobileTankContolls : MonoBehaviour
 {
-    public float leftAxis;
-    public float rightAxis;
+    float leftAxis;
+    float rightAxis;
+
+    public float horizontal;
+    public float vertical;
 
     [Range(0,1f),SerializeField] private float amountOfScreenUsedForControls = 3;
     [SerializeField] bool debugControls = false;
@@ -21,13 +24,13 @@ public class MobileTankContolls : MonoBehaviour
 
             switch (touch.phase) {
                 case TouchPhase.Began:
-                    posToTankTracks(pos);
+                    setAxes(pos);
                     break;
                 case TouchPhase.Moved:
-                    posToTankTracks(pos);
+                    setAxes(pos);
                     break;
                 case TouchPhase.Ended:
-                    posToTankTracks(pos);
+                    setAxes(Vector2.zero);
                     break;
             }
         }
@@ -43,6 +46,11 @@ public class MobileTankContolls : MonoBehaviour
         if (pos.x > 0) {
             rightAxis -= (pos.x / 5);
         }
+    }
+
+    void setAxes(Vector2 pos) {
+        horizontal = pos.x / 5;
+        vertical = pos.y / 10;
     }
 
     void dbugControls() {
