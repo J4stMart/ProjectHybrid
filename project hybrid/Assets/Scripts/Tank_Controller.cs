@@ -13,6 +13,7 @@ public class Tank_Controller : MonoBehaviour
     private float tankSpeed = 15f;
     [SerializeField]
     private float tankRotationSpeed = 20f;
+    public Transform referenceCylinder;
 
     private Rigidbody rb;
     //private TANK_INPUT_SCRIPT input;
@@ -25,7 +26,9 @@ public class Tank_Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(rb /* && input*/)
+        Physics.gravity = -referenceCylinder.transform.up*9f;
+
+        if (rb /* && input*/)
         {
             HandleMovement();
         }
