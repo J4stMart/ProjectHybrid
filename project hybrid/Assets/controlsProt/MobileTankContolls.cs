@@ -10,19 +10,24 @@ public class MobileTankContolls : MonoBehaviour
     public float horizontal;
     public float vertical;
 
-    [Range(0,1f),SerializeField] private float amountOfScreenUsedForControls = 3;
+    [Range(0, 1f), SerializeField] private float amountOfScreenUsedForControls = 3;
     [SerializeField] bool debugControls = false;
 
-    void Update() {
-        if (debugControls) {
+    void Update()
+    {
+        if (debugControls)
+        {
             dbugControls();
         }
 
-        if (Input.touchCount > 0) {
+        if (Input.touchCount > 0)
+        {
             Touch touch = Input.touches[0];
-            Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? (touch.position.y / (Screen.height / 10))/amountOfScreenUsedForControls : 10);
+            Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? (touch.position.y / (Screen.height / 10)) / amountOfScreenUsedForControls : 10);
+            Debug.Log(pos);
 
-            switch (touch.phase) {
+            switch (touch.phase)
+            {
                 case TouchPhase.Began:
                     setAxes(pos);
                     break;
@@ -36,32 +41,45 @@ public class MobileTankContolls : MonoBehaviour
         }
     }
 
-    void posToTankTracks(Vector2 pos) {
+    void posToTankTracks(Vector2 pos)
+    {
         leftAxis = pos.y / 10;
-        rightAxis = pos.y/ 10;
+        rightAxis = pos.y / 10;
 
-        if (pos.x < 0) {
+        if (pos.x < 0)
+        {
             leftAxis -= (-pos.x / 5);
         }
-        if (pos.x > 0) {
+        if (pos.x > 0)
+        {
             rightAxis -= (pos.x / 5);
         }
     }
 
-    void setAxes(Vector2 pos) {
+    void setAxes(Vector2 pos)
+    {
         horizontal = pos.x / 5;
         vertical = pos.y / 10;
     }
 
-    void dbugControls() {
-        leftAxis = 0;
-        rightAxis = 0;
+    void dbugControls()
+    {
 
-        if (Input.GetKey(KeyCode.A)) {
-            leftAxis = 1;
+        Vector2 pos = new Vector2();
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            pos.y = 2;
         }
-        if (Input.GetKey(KeyCode.D)) {
-            rightAxis = 1;
+        if (Input.GetKey(KeyCode.A))
+        {
+            pos.x = -4;
         }
+        if (Input.GetKey(KeyCode.D))
+        {
+            pos.x = 4;
+        }
+
+        setAxes(pos);
     }
 }

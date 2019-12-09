@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class Movement : MonoBehaviour
 {
-    private Transform trackposition = null;
+    public Transform trackposition = null;
 
     private Vector3 startPos;
 
