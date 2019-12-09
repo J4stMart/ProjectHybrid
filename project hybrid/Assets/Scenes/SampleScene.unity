@@ -120,34 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &40919614
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'CylinderMarkerMk4.Body_scaledMaterial
-
-    13120'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 74285ca69c874624bfbbf6e5fead286a, type: 3}
-        m_Scale: {x: -1, y: -1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &96985392 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8716077787040961814, guid: e858598ab850d7f45a7f6eae24c97152,
@@ -195,7 +167,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105455387}
-  m_Mesh: {fileID: 1114040580}
+  m_Mesh: {fileID: 1076506179}
 --- !u!23 &105455389
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -213,8 +185,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 40919614}
-  - {fileID: 223974226}
+  - {fileID: 1036731206}
+  - {fileID: 1988238666}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -308,36 +280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d73ab4757744f449e8b90a70788f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &223974226
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'CylinderMarkerMk4.Body_scaledMaterial
-
-    13120Bright
-
-    13120'
-  m_Shader: {fileID: 4800000, guid: 7e6d3c0df88f3ab458512f8282e449af, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 74285ca69c874624bfbbf6e5fead286a, type: 3}
-        m_Scale: {x: -1, y: -1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &379608814
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,62 +419,41 @@ Transform:
   m_Father: {fileID: 1190033883}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50.000004, y: 39.382, z: 0}
---- !u!1 &1092497538
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+--- !u!21 &1036731206
+Material:
   serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1092497540}
-  - component: {fileID: 1092497539}
-  m_Layer: 0
-  m_Name: ReferenceScript
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1092497539
-MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1092497538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 577bb30f0b66c064da650a8bd3acf443, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arTarget: {fileID: 105455393}
-  arTargetReference: {fileID: 1172470633}
-  arCameraReference: {fileID: 379608815}
-  arCamera: {fileID: 1735816050}
-  newTargetLocation: {fileID: 0}
-  newCamera: {fileID: 0}
---- !u!4 &1092497540
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1092497538}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4257393, y: -0.54953194, z: 59.077328}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1114040580
+  m_Name: 'CylinderMarkerMk4.Body_scaledMaterial
+
+    13814'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 74285ca69c874624bfbbf6e5fead286a, type: 3}
+        m_Scale: {x: -1, y: -1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+--- !u!43 &1076506179
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CylinderMesh13120
+  m_Name: CylinderMesh13814
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -699,6 +620,55 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1092497538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1092497540}
+  - component: {fileID: 1092497539}
+  m_Layer: 0
+  m_Name: ReferenceScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1092497539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092497538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577bb30f0b66c064da650a8bd3acf443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arTarget: {fileID: 105455393}
+  arTargetReference: {fileID: 1172470633}
+  arCameraReference: {fileID: 379608815}
+  arCamera: {fileID: 1735816050}
+  newTargetLocation: {fileID: 0}
+  newCamera: {fileID: 0}
+--- !u!4 &1092497540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092497538}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4257393, y: -0.54953194, z: 59.077328}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1172470632
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +771,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4448703631256202975, guid: f01fe83ef953d274a8bafc4c2a4adc1c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.05209218
+      objectReference: {fileID: 0}
     - target: {fileID: 2834359101901565632, guid: f01fe83ef953d274a8bafc4c2a4adc1c,
         type: 3}
       propertyPath: m_Enabled
@@ -830,6 +805,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ReflectionProbeUsage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834359101901565646, guid: f01fe83ef953d274a8bafc4c2a4adc1c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 13.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834359101901565646, guid: f01fe83ef953d274a8bafc4c2a4adc1c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 9.537211
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834359101901565646, guid: f01fe83ef953d274a8bafc4c2a4adc1c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 13.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834359101901565646, guid: f01fe83ef953d274a8bafc4c2a4adc1c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834359102430815703, guid: f01fe83ef953d274a8bafc4c2a4adc1c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834359102430815703, guid: f01fe83ef953d274a8bafc4c2a4adc1c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 13.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834359102430815703, guid: f01fe83ef953d274a8bafc4c2a4adc1c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 9.537211
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834359102430815703, guid: f01fe83ef953d274a8bafc4c2a4adc1c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 13.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834359102245207877, guid: f01fe83ef953d274a8bafc4c2a4adc1c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.71
       objectReference: {fileID: 0}
     - target: {fileID: 2834359101901565634, guid: f01fe83ef953d274a8bafc4c2a4adc1c,
         type: 3}
@@ -1027,6 +1047,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1988238666
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'CylinderMarkerMk4.Body_scaledMaterial
+
+    13814Bright
+
+    13814'
+  m_Shader: {fileID: 4800000, guid: 7e6d3c0df88f3ab458512f8282e449af, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 74285ca69c874624bfbbf6e5fead286a, type: 3}
+        m_Scale: {x: -1, y: -1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1001 &2123220302
 PrefabInstance:
   m_ObjectHideFlags: 0
