@@ -10,6 +10,8 @@ namespace Multiplayer
     public class GameManager : MonoBehaviourPunCallbacks
     {
         public GameObject playerPrefab;
+        public InputManager inputManager;
+        public Transform cylinder;
 
         // Start is called before the first frame update
         void Start()
@@ -20,11 +22,15 @@ namespace Multiplayer
             }
             else
             {
-                if (CarMultiplayer.localPlayerInstance == null)
+                if (TankMultiplayer.localPlayerInstance == null)
                 {
                     Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
 
-                    PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 2, 0), Quaternion.identity, 0);
+                    Vector3 spawnpoint = new Vector3(Mathf.Cos(PhotonNetwork.CountOfPlayers * Mathf.PI) * 8, 2, 0);
+                    var instance = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnpoint, Quaternion.identity, 0);
+                    var tankScript = instance.GetComponent<TankMultiplayer>();
+                    tankScript.SetInputManager(inputManager);
+                    tankScript.SetCylinder(cylinder);
                 }
                 else
                 {

@@ -144,7 +144,6 @@ MonoBehaviour:
   FR_R: {fileID: 6141216097724701028}
   RE_L: {fileID: 5486916637174815127}
   RE_R: {fileID: 8173861902588687219}
-  controlable: 1
 --- !u!114 &7698414031977570560
 MonoBehaviour:
   m_ObjectHideFlags: 0
