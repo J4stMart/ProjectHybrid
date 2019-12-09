@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Movement : MonoBehaviour
 {
-    public Transform tarckposition;
+    private Transform trackposition = null;
 
     private Vector3 startPos;
 
@@ -16,7 +17,12 @@ public class Movement : MonoBehaviour
     void Update()
     {
         //transform.position = new Vector3(tarckposition.position.x + startPos.x, tarckposition.position.y + startPos.y, tarckposition.position.z + startPos.z);
-        transform.LookAt(tarckposition);
+        if (transform != null)
+            transform.LookAt(trackposition);
+    }
 
+    public void LookAt(Transform car)
+    {
+        trackposition = car;
     }
 }
