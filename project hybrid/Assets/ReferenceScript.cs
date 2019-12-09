@@ -24,6 +24,6 @@ public class ReferenceScript : MonoBehaviour
         arTargetReference.position = arTarget.position;
         arCameraReference.position = arCamera.position;
         referenceVector = arTargetReference.position - arCameraReference.position;
-        Debug.Log(referenceVector);
+        //Debug.Log(referenceVector);
     }
 }
