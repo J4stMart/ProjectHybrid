@@ -10,7 +10,7 @@ public class MobileTankContolls : MonoBehaviour
     public float horizontal;
     public float vertical;
 
-    [Range(0,1f),SerializeField] private float amountOfScreenUsedForControls = 3;
+    [Range(0,10f),SerializeField] private float amountOfScreenUsedForControls = 3;
     [SerializeField] bool debugControls = false;
 
     void Update() {
