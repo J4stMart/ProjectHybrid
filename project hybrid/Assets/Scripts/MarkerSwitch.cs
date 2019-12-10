@@ -61,17 +61,21 @@ public class MarkerSwitch : MonoBehaviour, ITrackableEventHandler
         {
             Debug.Log("Main");
             //GameWorld.gameObject.GetComponent<BoxCollider>().enabled = true;
-            //GameWorld.gameObject.GetComponent<MeshRenderer>().enabled = true;
+            foreach(Transform child in GameWorld.transform)
+            {
+                GameWorld.gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+            }
             GameWorld.transform.SetParent(MainARMarker.transform);
-            Debug.Log(GameWorld.transform.parent.name);
         }
         else if (s1TrackableBehaviour.CurrentStatus == TrackableBehaviour.Status.DETECTED || s1TrackableBehaviour.CurrentStatus == TrackableBehaviour.Status.TRACKED || s1TrackableBehaviour.CurrentStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
             Debug.Log("S1");
             //GameWorld.gameObject.GetComponent<BoxCollider>().enabled = true;
-            //GameWorld.gameObject.GetComponent<MeshRenderer>().enabled = true;
+            foreach (Transform child in GameWorld.transform)
+            {
+                GameWorld.gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+            }
             GameWorld.transform.SetParent(SecondaryARMarker1.transform);
-            Debug.Log(GameWorld.transform.parent.name);
         }/*
         else if (s2TrackableBehaviour.CurrentStatus == TrackableBehaviour.Status.DETECTED)
         {
