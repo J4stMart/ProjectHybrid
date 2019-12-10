@@ -615,10 +615,10 @@ MonoBehaviour:
   c1: {r: 1, g: 1, b: 1, a: 1}
   c2: {r: 1, g: 1, b: 1, a: 1}
   lengthOfLineRenderer: 400
-  startHeight: 1
   initialUpWardSpeed: 5
   initialForwardSpeed: 1
   aimDirection: 0
+  offsetPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1883620250
 Transform:
   m_ObjectHideFlags: 0
