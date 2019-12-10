@@ -6,6 +6,9 @@
 [Ll]ogs/
 Assets/AssetStoreTools*
 
+#Project specific
+project hybrid/QCAR/
+
 # Never ignore Asset meta data
 ![Aa]ssets/**/*.meta
 
