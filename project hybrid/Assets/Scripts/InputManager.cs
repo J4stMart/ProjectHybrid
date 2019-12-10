@@ -67,7 +67,7 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D))
         {
-            pos.x = 4;
+            pos.x = 10;
         }
 
         setAxes(pos);

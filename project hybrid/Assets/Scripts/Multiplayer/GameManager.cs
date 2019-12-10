@@ -26,7 +26,7 @@ namespace Multiplayer
                 {
                     Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
 
-                    Vector3 spawnpoint = new Vector3(Mathf.Cos(PhotonNetwork.CountOfPlayers * Mathf.PI) * 8, 2, 0);
+                    Vector3 spawnpoint = new Vector3(Mathf.Cos(PhotonNetwork.CountOfPlayers * Mathf.PI) * 15, 2, 0);
                     var instance = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnpoint, Quaternion.identity, 0);
                     var tankScript = instance.GetComponent<TankMultiplayer>();
                     tankScript.SetInputManager(inputManager);

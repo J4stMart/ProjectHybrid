@@ -659,7 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd01614633a65d84e8bae4c04034bbf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 3684427739913743178, guid: 902441c606e19094e893aab4ad796ee5,
+  playerPrefab: {fileID: 8716077787040961814, guid: dc483e83d1dc0c447b17100a39cc6231,
     type: 3}
   inputManager: {fileID: 1478719720}
   cylinder: {fileID: 358942670}

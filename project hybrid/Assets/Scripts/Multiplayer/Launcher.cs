@@ -95,7 +95,7 @@ namespace Multiplayer
 
             if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
             {
-                PhotonNetwork.LoadLevel("MultiplayerGame");
+                PhotonNetwork.LoadLevel("ArMultiplayer");
             }
         }
 

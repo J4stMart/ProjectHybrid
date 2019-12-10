@@ -33,13 +33,6 @@ public class TankMultiplayer : MonoBehaviourPun
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
-        var camera = GameObject.FindGameObjectWithTag("MainCamera");
-
-        if (photonView.IsMine)
-        {
-            camera.GetComponent<Movement>().LookAt(transform);
-        }
     }
 
     void FixedUpdate()
