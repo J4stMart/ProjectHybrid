@@ -10,7 +10,23 @@
 	}
 		SubShader{
 			Tags{ "RenderType" = "Opaque" "Queue" = "Geometry"}
-			
+
+			LOD 200
+			Alphatest Greater 0
+			ZWrite Off
+			AlphaToMask True
+			ColorMask RGB
+			Fog { Color[_AddFog] }
+			Blend DstColor Zero
+
+			Stencil{
+				Ref[_StencilRef]
+				Comp Equal
+			}
+
+			//ZTest Greater
+
+
 			CGPROGRAM
 
 			#pragma surface surf Standard fullforwardshadows
