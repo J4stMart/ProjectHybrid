@@ -9,10 +9,11 @@ public class ArcPredictor : MonoBehaviour
     public Color c1 = Color.white;
     public Color c2 = Color.white;
     public int lengthOfLineRenderer = 20;
-    public float startHeight = 1f;
     public float initialUpWardSpeed = 5f;
     public float initialForwardSpeed = 1f;
     public float aimDirection = 0f;
+    public Vector3 offsetPosition;
+    
 
     void Start()
     {
@@ -40,8 +41,8 @@ public class ArcPredictor : MonoBehaviour
         Quaternion aimAngle = Quaternion.Euler(0f, aimDirection, 0f);
         for (int i = 0; i < lengthOfLineRenderer; i++)
         {
-            points[i] = new Vector3(i * initialForwardSpeed, startHeight + initialUpWardSpeed * (i* 0.1f) - 0.5f * gravity * (i * 0.1f) * (i * 0.1f), 0.0f);
-            points[i] = aimAngle * points[i];
+            points[i] = new Vector3((i * 0.1f) * initialForwardSpeed, initialUpWardSpeed * (i* 0.1f) - 0.5f * gravity * (i * 0.1f) * (i * 0.1f), 0.0f);
+            points[i] = (aimAngle * points[i]) + transform.position + offsetPosition;
         }
         lineRenderer.SetPositions(points);
     }

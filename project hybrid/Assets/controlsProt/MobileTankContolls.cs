@@ -10,7 +10,7 @@ public class MobileTankContolls : MonoBehaviour
     public float horizontal;
     public float vertical;
 
-    [Range(0, 1f), SerializeField] private float amountOfScreenUsedForControls = 3;
+    [Range(0, 10f), SerializeField] private float amountOfScreenUsedForControls = 3;
     [SerializeField] bool debugControls = false;
 
     void Update()
@@ -24,7 +24,6 @@ public class MobileTankContolls : MonoBehaviour
         {
             Touch touch = Input.touches[0];
             Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? (touch.position.y / (Screen.height / 10)) / amountOfScreenUsedForControls : 10);
-            Debug.Log(pos);
 
             switch (touch.phase)
             {
@@ -32,6 +31,9 @@ public class MobileTankContolls : MonoBehaviour
                     setAxes(pos);
                     break;
                 case TouchPhase.Moved:
+                    setAxes(pos);
+                    break;
+                case TouchPhase.Stationary:
                     setAxes(pos);
                     break;
                 case TouchPhase.Ended:
@@ -64,12 +66,11 @@ public class MobileTankContolls : MonoBehaviour
 
     void dbugControls()
     {
-
         Vector2 pos = new Vector2();
 
         if (Input.GetKey(KeyCode.W))
         {
-            pos.y = 2;
+            pos.y = 4;
         }
         if (Input.GetKey(KeyCode.A))
         {
