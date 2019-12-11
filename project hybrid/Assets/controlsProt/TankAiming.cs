@@ -7,7 +7,6 @@ public class TankAiming : MonoBehaviour
     [SerializeField] private Transform trackingPosition;
     [SerializeField] private Transform TurretTransform;
     [SerializeField] private ArcPredictor arc;
-    [SerializeField] float upwardArcOffset = 5;
     [SerializeField] Transform arcStartPos;
 
     public float aaa;
