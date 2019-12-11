@@ -9,7 +9,7 @@ public class ArcPredictor : MonoBehaviour
 
     public Color c1 = Color.white;
     public Color c2 = Color.white;
-    public int lengthOfLineRenderer = 20;
+    public int lengthOfLineRenderer;
     public float initialUpWardSpeed = 5f;
     public float initialForwardSpeed = 1f;
     public float aimDirection = 0f;
@@ -35,6 +35,15 @@ public class ArcPredictor : MonoBehaviour
     }
 
     void Update() {
+        if(initialForwardSpeed == 0)
+        {
+            targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = false;
+        }
+        else
+        {
+            targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = true;
+        }
+
         LineRenderer lineRenderer = GetComponent<LineRenderer>();
         var points = new Vector3[lengthOfLineRenderer];
         
