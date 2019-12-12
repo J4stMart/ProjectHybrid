@@ -9,14 +9,20 @@ public class TankAiming : MonoBehaviour
     [SerializeField] private ArcPredictor arc;
     [SerializeField] Transform arcStartPos;
 
-    public float aaa;
+    private float aaa;
+    public float chargeUp = 15;
+
+    private void Awake()
+    {
+        trackingPosition = GameObject.FindWithTag("MainCamera").transform;
+    }
 
     void Update() {
 
         //temp input for shooting
         if (Input.GetKey(KeyCode.Space))
         {
-            aaa += 1;
+            aaa += chargeUp * Time.deltaTime;
         }
 
         if (Input.GetKeyUp(KeyCode.Space))

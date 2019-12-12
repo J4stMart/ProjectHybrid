@@ -7,14 +7,17 @@
 		SubShader{
 		//the material is completely non-transparent and is rendered at the same time as the other opaque geometry
 		Tags{ "RenderType" = "Opaque" "Queue" = "Geometry"}
-
+		LOD 200
+		Alphatest Greater 0
+		//ZWrite Off
+		AlphaToMask True
 		ColorMask 0
 		
 		Pass {
 			ZTest Less
 			Stencil{
 			Ref[_StencilRef]
-			Comp Always
+			Comp Equal
 			Pass Replace
 		}
 		}

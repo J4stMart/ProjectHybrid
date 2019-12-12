@@ -8,16 +8,20 @@ public class Tank_Destruction : MonoBehaviour
     public GameObject onderstelFractures;
     public GameObject koepelFractures;
     public GameObject physicsColliders;
-    public Transform ARreference;
-    private bool isDestroyed;
+    public GameObject ArCamera;
+    public bool isDestroyed;
     public bool gotHit;
     public int explosionForce = 0;
+    public Transform target;
     [SerializeField] private List<GameObject> fractures;
+
 
     // Start is called before the first frame update
     void Awake()
     {
         tank = gameObject;
+        ArCamera = GameObject.FindWithTag("MainCamera");
+
         foreach (Transform fracture in onderstelFractures.transform)
         {
             if (fracture.tag == "Fractures")
@@ -42,7 +46,7 @@ public class Tank_Destruction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tank != null && ((Input.GetKey("b") && !isDestroyed) || (gotHit && !isDestroyed)))
+        if (tank != null && ((Input.GetKey("b") && !isDestroyed) || (gotHit && !isDestroyed)) || tank.transform.position.y <-40f)
         {
             isDestroyed = true;
 
@@ -50,11 +54,10 @@ public class Tank_Destruction : MonoBehaviour
             {
                 fractures[i].SetActive(true);
                 fractures[i].GetComponent<Rigidbody>().velocity = tank.GetComponent<Rigidbody>().velocity;
-                fractures[i].transform.parent = ARreference;
+                fractures[i].transform.parent = null;
             }
             Explosion();
             Destroy(tank);
-
         }
     }
 
