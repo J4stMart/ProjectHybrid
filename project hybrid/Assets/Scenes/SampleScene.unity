@@ -959,7 +959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1814920461, guid: 8994244b28efa594489ea6549dcca6c5, type: 3}
       propertyPath: lengthOfLineRenderer
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1814920461, guid: 8994244b28efa594489ea6549dcca6c5, type: 3}
       propertyPath: targetIndicator

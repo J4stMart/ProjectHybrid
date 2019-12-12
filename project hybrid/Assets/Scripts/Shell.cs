@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Shell : MonoBehaviour
 {
+    private void Start()
+    {
+        GetComponent<Rigidbody>().centerOfMass = new Vector3(0,1,0);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Player")
