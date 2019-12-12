@@ -7,13 +7,24 @@ public class TankAiming : MonoBehaviour
     [SerializeField] private Transform trackingPosition;
     [SerializeField] private Transform TurretTransform;
     [SerializeField] private ArcPredictor arc;
-    [SerializeField] float upwardArcOffset = 5;
     [SerializeField] Transform arcStartPos;
 
     public float aaa;
 
     void Update() {
-        
+
+        //temp input for shooting
+        if (Input.GetKey(KeyCode.Space))
+        {
+            aaa += 1;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            GetComponent<Tank_Fire>().shoot(aaa);
+            aaa = 0;
+        }
+
         Vector3 dir = -(trackingPosition.position - transform.position);
         TurretTransform.rotation = Quaternion.LookRotation(dir, transform.up);
         TurretTransform.localRotation = Quaternion.Euler(0,TurretTransform.localRotation.eulerAngles.y,0);
@@ -22,7 +33,6 @@ public class TankAiming : MonoBehaviour
         Vector3 horizontal = new Vector3(arcDir.x, 0, arcDir.z);
         arc.initialUpWardSpeed = Mathf.Sin(Vector3.Angle(arcDir, horizontal) * Mathf.Deg2Rad) * aaa;
         arc.initialForwardSpeed = Mathf.Cos(Vector3.Angle(arcDir, horizontal) * Mathf.Deg2Rad) * aaa;
-       
 
         arc.aimDirection = TurretTransform.rotation.eulerAngles.y - 90;
 
