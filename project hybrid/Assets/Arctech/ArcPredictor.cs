@@ -35,18 +35,21 @@ public class ArcPredictor : MonoBehaviour
     }
 
     void Update() {
-        if(initialForwardSpeed == 0)
-        {
-            targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = false;
-        }
-        else
-        {
-            targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = true;
-        }
 
         LineRenderer lineRenderer = GetComponent<LineRenderer>();
         var points = new Vector3[lengthOfLineRenderer];
-        
+
+        if (initialForwardSpeed != 0)
+        {
+            targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = true;
+            lineRenderer.enabled = true;
+        }
+        else
+        {
+            targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = false;
+            lineRenderer.enabled = false;   
+        }
+
         var t = Time.time;
         float gravity = Physics.gravity.magnitude;
         Quaternion aimAngle = Quaternion.Euler(0f, aimDirection, 0f);
