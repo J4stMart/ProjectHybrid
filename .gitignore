@@ -8,6 +8,8 @@ Assets/AssetStoreTools*
 
 #Project specific
 project hybrid/QCAR/
+project hybrid/Assets/Photon.meta
+project hybrid/Assets/Photon/**/*.meta
 
 # Never ignore Asset meta data
 ![Aa]ssets/**/*.meta
