@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class Shell : MonoBehaviour
 {
+    Rigidbody rb;
+
     private void Start()
     {
-        GetComponent<Rigidbody>().centerOfMass = new Vector3(0,1,0);
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        transform.forward = rb.velocity.normalized;
     }
 
     private void OnCollisionEnter(Collision collision)
