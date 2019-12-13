@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.49641293, b: 0.5748197, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641216, b: 0.5748184, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -905,6 +905,12 @@ Transform:
   m_Father: {fileID: 4448703630163990277}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50.000004, y: 39.382, z: 0}
+--- !u!1 &892549683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1129532058, guid: 4905e4f98ad85e8419929e27d4003100,
+    type: 3}
+  m_PrefabInstance: {fileID: 1029298624705233965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1000440000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,6 +1177,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d73ab4757744f449e8b90a70788f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1035347318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1005083078, guid: 4905e4f98ad85e8419929e27d4003100,
+    type: 3}
+  m_PrefabInstance: {fileID: 1029298624705233965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1092497538
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,6 +2046,42 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!1 &1956640665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1956640666}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: AimingSource
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1956640666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956640665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.181131, y: -45.716362, z: -12.664356}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1980159959 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9201387689953600002, guid: 4905e4f98ad85e8419929e27d4003100,
+    type: 3}
+  m_PrefabInstance: {fileID: 1029298624705233965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2123220302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2290,6 +2338,10 @@ PrefabInstance:
       propertyPath: trackingPosition
       value: 
       objectReference: {fileID: 1735816050}
+    - target: {fileID: 570370641, guid: 4905e4f98ad85e8419929e27d4003100, type: 3}
+      propertyPath: UseCameraToAim
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1029298624705233968, guid: 4905e4f98ad85e8419929e27d4003100,
         type: 3}
       propertyPath: ArCamera
@@ -2300,6 +2352,21 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1777527049}
+    - target: {fileID: 1029298624705233968, guid: 4905e4f98ad85e8419929e27d4003100,
+        type: 3}
+      propertyPath: onderstelFractures
+      value: 
+      objectReference: {fileID: 892549683}
+    - target: {fileID: 1029298624705233968, guid: 4905e4f98ad85e8419929e27d4003100,
+        type: 3}
+      propertyPath: koepelFractures
+      value: 
+      objectReference: {fileID: 1035347318}
+    - target: {fileID: 1029298624705233968, guid: 4905e4f98ad85e8419929e27d4003100,
+        type: 3}
+      propertyPath: physicsColliders
+      value: 
+      objectReference: {fileID: 1980159959}
     - target: {fileID: 5492537965221033517, guid: 4905e4f98ad85e8419929e27d4003100,
         type: 3}
       propertyPath: m_CollisionDetection
@@ -2524,6 +2591,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Convex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 570370640, guid: 4905e4f98ad85e8419929e27d4003100, type: 3}
+      propertyPath: tankSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 570370655, guid: 4905e4f98ad85e8419929e27d4003100, type: 3}
+      propertyPath: raycastAiming
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 570370655, guid: 4905e4f98ad85e8419929e27d4003100, type: 3}
+      propertyPath: aimByPointingCamera
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 570370655, guid: 4905e4f98ad85e8419929e27d4003100, type: 3}
+      propertyPath: amountOfScreenUsedForControls
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4905e4f98ad85e8419929e27d4003100, type: 3}
