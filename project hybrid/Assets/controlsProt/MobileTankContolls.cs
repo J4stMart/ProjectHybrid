@@ -17,10 +17,11 @@ public class MobileTankContolls : MonoBehaviour
 
     [SerializeField] bool raycastAiming;
     [SerializeField] bool aimByPointingCamera;
-    [SerializeField] Transform aimSourcePos;
+    Transform aimSourcePos;
 
     private void Awake() {
         aiming = GetComponent<TankAiming>();
+        aimSourcePos = GameObject.FindGameObjectWithTag("AimingSource").transform;
     }
 
     void Update()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TankAiming : MonoBehaviour
 {
-    [SerializeField] private Transform trackingPosition;
+    private Transform trackingPosition;
     [SerializeField] private Transform TurretTransform;
     [SerializeField] private ArcPredictor arc;
     [SerializeField] Transform arcStartPos;
@@ -20,6 +20,10 @@ public class TankAiming : MonoBehaviour
         if (UseCameraToAim)
         {
             trackingPosition = GameObject.FindWithTag("MainCamera").transform;
+        }
+        else
+        {
+            trackingPosition = GameObject.FindGameObjectWithTag("AimingSource").transform;
         }
     }
 
