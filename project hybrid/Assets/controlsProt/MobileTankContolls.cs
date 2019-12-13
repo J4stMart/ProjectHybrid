@@ -25,6 +25,11 @@ public class MobileTankContolls : MonoBehaviour
 
     void Update()
     {
+        if (aimByPointingCamera)
+        {
+            raycastAim(Vector2.zero);
+        }
+
         if (debugControls)
         {
             dbugControls();
@@ -178,7 +183,13 @@ public class MobileTankContolls : MonoBehaviour
         if (raycastAiming) {
             Ray ray;
             if (aimByPointingCamera) {
-                ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+                Transform camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
+                if (camera == null) {
+                    camera = Camera.main.transform;
+                }
+
+                ray = new Ray(camera.position, camera.forward);
+                Debug.DrawLine(Camera.main.transform.position + Vector3.down, Camera.main.transform.position + Camera.main.transform.forward * 500,Color.green);
             }
             else {
                 ray = Camera.main.ScreenPointToRay(pos);

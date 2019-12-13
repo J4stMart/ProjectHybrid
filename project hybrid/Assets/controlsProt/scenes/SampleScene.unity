@@ -815,6 +815,10 @@ PrefabInstance:
       propertyPath: raycastAiming
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1814920455, guid: 8994244b28efa594489ea6549dcca6c5, type: 3}
+      propertyPath: aimByPointingCamera
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1814920456, guid: 8994244b28efa594489ea6549dcca6c5, type: 3}
       propertyPath: tankSpeed
       value: 5
