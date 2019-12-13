@@ -9,12 +9,18 @@ public class TankAiming : MonoBehaviour
     [SerializeField] private ArcPredictor arc;
     [SerializeField] Transform arcStartPos;
 
-    private float aaa;
+
+    [SerializeField] bool UseCameraToAim = true;
+
+    [HideInInspector]public float aaa;
     public float chargeUp = 15;
 
     private void Awake()
     {
-        trackingPosition = GameObject.FindWithTag("MainCamera").transform;
+        if (UseCameraToAim)
+        {
+            trackingPosition = GameObject.FindWithTag("MainCamera").transform;
+        }
     }
 
     void Update() {
@@ -30,6 +36,8 @@ public class TankAiming : MonoBehaviour
             GetComponent<Tank_Fire>().shoot(aaa);
             aaa = 0;
         }
+
+
 
         Vector3 dir = -(trackingPosition.position - transform.position);
         TurretTransform.rotation = Quaternion.LookRotation(dir, transform.up);
