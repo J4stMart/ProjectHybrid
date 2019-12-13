@@ -16,6 +16,7 @@ public class MobileTankContolls : MonoBehaviour
     [SerializeField] bool debugControls = false;
 
     [SerializeField] bool raycastAiming;
+    [SerializeField] bool aimByPointingCamera;
     [SerializeField] Transform aimSourcePos;
 
     private void Awake() {
@@ -175,11 +176,16 @@ public class MobileTankContolls : MonoBehaviour
 
     void raycastAim(Vector2 pos) {
         if (raycastAiming) {
-            Ray ray = Camera.main.ScreenPointToRay(pos);
+            Ray ray;
+            if (aimByPointingCamera) {
+                ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            }
+            else {
+                ray = Camera.main.ScreenPointToRay(pos);
+            }
+            
             RaycastHit hit = new RaycastHit();
-            Debug.Log("aa");
             if (Physics.Raycast(ray, out hit, 500)) {
-                Debug.Log("hit");
                 aimSourcePos.position = transform.position - (hit.point - transform.position);
             }
         }
