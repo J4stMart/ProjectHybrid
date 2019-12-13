@@ -12,6 +12,16 @@ public class InputManager : MonoBehaviour
     private float horizontal;
     private float vertical;
 
+    [HideInInspector]
+    public delegate void StartShooting();
+    [HideInInspector]
+    public event StartShooting startShooting;
+
+    [HideInInspector]
+    public delegate void EndShooting();
+    [HideInInspector]
+    public event EndShooting endShooting;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,24 +36,47 @@ public class InputManager : MonoBehaviour
             DebugControls();
         }
 
-        if (Input.touchCount > 0)
+
+        for (int i = 0; i < Input.touchCount; i++)
         {
             Touch touch = Input.touches[0];
             Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? (touch.position.y / (Screen.height / 10)) / amountOfScreenUsedForControls : 10);
-            Debug.Log(pos);
 
-            switch (touch.phase)
+            if (touch.position.y / Screen.height < amountOfScreenUsedForControls)
             {
-                case TouchPhase.Began:
-                    setAxes(pos);
-                    break;
-                case TouchPhase.Moved:
-                    setAxes(pos);
-                    break;
-                case TouchPhase.Ended:
-                    setAxes(Vector2.zero);
-                    break;
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
+                        setAxes(pos);
+                        break;
+                    case TouchPhase.Moved:
+                        setAxes(pos);
+                        break;
+                    case TouchPhase.Ended:
+                        setAxes(Vector2.zero);
+                        break;
+                    case TouchPhase.Stationary:
+                        if (debug)
+                            setAxes(pos);
+                        break;
+                }
+
             }
+            else
+            {
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
+                        if (startShooting != null)
+                            startShooting();
+                        break;
+                    case TouchPhase.Ended:
+                        if (endShooting != null)
+                            endShooting();
+                        break;
+                }
+            }
+
         }
     }
 

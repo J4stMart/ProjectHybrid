@@ -15,7 +15,6 @@ public class TankMultiplayer : MonoBehaviourPun
 
     private InputManager controls;
     private Rigidbody rb;
-    private Transform referenceCylinder;
 
     [HideInInspector]
     public static GameObject localPlayerInstance = null;
@@ -33,14 +32,13 @@ public class TankMultiplayer : MonoBehaviourPun
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.centerOfMass = new Vector3(0, -0.5f, 0);
     }
 
     void FixedUpdate()
     {
         if (!photonView.IsMine && PhotonNetwork.IsConnected)
             return;
-
-        Physics.gravity = -referenceCylinder.transform.up * 9f;
 
         if (rb)
         {
@@ -61,10 +59,5 @@ public class TankMultiplayer : MonoBehaviourPun
     public void SetInputManager(InputManager im)
     {
         controls = im;
-    }
-
-    public void SetCylinder(Transform cylinder)
-    {
-        referenceCylinder = cylinder;
     }
 }

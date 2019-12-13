@@ -11,7 +11,7 @@ namespace Multiplayer
     {
         public GameObject playerPrefab;
         public InputManager inputManager;
-        public Transform cylinder;
+        public GameObject arCamera;
 
         // Start is called before the first frame update
         void Start()
@@ -27,10 +27,10 @@ namespace Multiplayer
                     Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
 
                     Vector3 spawnpoint = new Vector3(Mathf.Cos(PhotonNetwork.CountOfPlayers * Mathf.PI) * 15, 2, 0);
-                    var instance = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnpoint, Quaternion.identity, 0);
-                    var tankScript = instance.GetComponent<TankMultiplayer>();
-                    tankScript.SetInputManager(inputManager);
-                    tankScript.SetCylinder(cylinder);
+
+                    var instance = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnpoint, Quaternion.identity);
+                    instance.GetComponent<TankMultiplayer>().SetInputManager(inputManager);
+                    instance.GetComponentInChildren<TankTurret>().SetVariables(arCamera.transform, inputManager);
                 }
                 else
                 {

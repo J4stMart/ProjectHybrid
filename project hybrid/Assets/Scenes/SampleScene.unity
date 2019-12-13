@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.49641293, b: 0.5748197, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641216, b: 0.5748184, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -584,7 +584,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1942804915}
+  - {fileID: 1869069163}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -657,7 +657,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000440000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -12.9, z: 0}
+  m_LocalPosition: {x: 0, y: -12.6, z: 0}
   m_LocalScale: {x: 25.700003, y: 25.700003, z: 25.700003}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1758,6 +1758,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1869069163
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'tank_en_bom_2_output_LRMaterial
+
+    65094'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 628197d1fb034dc798fb0478f3161e1c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!21 &1887171395
 Material:
   serializedVersion: 6
@@ -1818,38 +1846,6 @@ Material:
     m_Floats: []
     m_Colors:
     - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
---- !u!21 &1942804915
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'tank_en_bom_2_output_LRMaterial
-
-    90506'
-  m_Shader: {fileID: 4800000, guid: 18f29274661f941469256830ab394ba0, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 628197d1fb034dc798fb0478f3161e1c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _Metallic: 0
-    - _Smoothness: 0
-    - _StencilRef: 0
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-    - _Emission: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1945710686
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,6 +2286,21 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1777527049}
+    - target: {fileID: 1029298624705233968, guid: 4905e4f98ad85e8419929e27d4003100,
+        type: 3}
+      propertyPath: onderstelFractures
+      value: 
+      objectReference: {fileID: 1029298624705233968}
+    - target: {fileID: 1029298624705233968, guid: 4905e4f98ad85e8419929e27d4003100,
+        type: 3}
+      propertyPath: koepelFractures
+      value: 
+      objectReference: {fileID: 1029298624705233967}
+    - target: {fileID: 1029298624705233968, guid: 4905e4f98ad85e8419929e27d4003100,
+        type: 3}
+      propertyPath: physicsColliders
+      value: 
+      objectReference: {fileID: 1029298624705233966}
     - target: {fileID: 5492537965221033517, guid: 4905e4f98ad85e8419929e27d4003100,
         type: 3}
       propertyPath: m_CollisionDetection
@@ -2517,6 +2528,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4905e4f98ad85e8419929e27d4003100, type: 3}
+--- !u!1 &1029298624705233966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9201387689953600002, guid: 4905e4f98ad85e8419929e27d4003100,
+    type: 3}
+  m_PrefabInstance: {fileID: 1029298624705233965}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1029298624705233967 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1005083078, guid: 4905e4f98ad85e8419929e27d4003100,
+    type: 3}
+  m_PrefabInstance: {fileID: 1029298624705233965}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1029298624705233968 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1129532058, guid: 4905e4f98ad85e8419929e27d4003100,
+    type: 3}
+  m_PrefabInstance: {fileID: 1029298624705233965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1150121568189918567
 GameObject:
   m_ObjectHideFlags: 0
