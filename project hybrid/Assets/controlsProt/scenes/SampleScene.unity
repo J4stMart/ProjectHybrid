@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 764283445}
   m_Layer: 0
   m_Name: AIMING SOURCEPOS
-  m_TagString: Untagged
+  m_TagString: AimingSource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -794,7 +794,7 @@ PrefabInstance:
     - target: {fileID: 1814920457, guid: 8994244b28efa594489ea6549dcca6c5, type: 3}
       propertyPath: trackingPosition
       value: 
-      objectReference: {fileID: 764283445}
+      objectReference: {fileID: 0}
     - target: {fileID: 1814920457, guid: 8994244b28efa594489ea6549dcca6c5, type: 3}
       propertyPath: UseCameraToAim
       value: 0
@@ -810,7 +810,7 @@ PrefabInstance:
     - target: {fileID: 1814920455, guid: 8994244b28efa594489ea6549dcca6c5, type: 3}
       propertyPath: aimSourcePos
       value: 
-      objectReference: {fileID: 764283445}
+      objectReference: {fileID: 0}
     - target: {fileID: 1814920455, guid: 8994244b28efa594489ea6549dcca6c5, type: 3}
       propertyPath: raycastAiming
       value: 1
