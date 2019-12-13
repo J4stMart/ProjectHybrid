@@ -8,12 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WriteOld
-  m_Shader: {fileID: 4800000, guid: 45913977c54fb0b48892f7de8f52d353, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8a31415df372aa74f8033289f7f74af3, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 1
-  m_CustomRenderQueue: 1700
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 1990
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:

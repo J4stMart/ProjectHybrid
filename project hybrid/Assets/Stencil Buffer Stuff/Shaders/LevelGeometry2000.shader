@@ -23,7 +23,7 @@ SubShader{
 			Ref[_StencilRef]
 			Comp Always
 			Pass Replace
-
+	}
 		//ZTest Greater
 
 
