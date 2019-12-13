@@ -8,7 +8,7 @@
 		//the material is completely non-transparent and is rendered at the same time as the other opaque geometry
 		Tags{ "RenderType" = "Transparent" "Queue" = "Geometry"}
 
-		Cull Back
+		//Cull Back
 		ColorMask 0
 		
 		Pass {
