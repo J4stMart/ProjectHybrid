@@ -31,4 +31,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ArMultiplayer.unity
     guid: 1790db1d5380d174dadbb92eadd32bec
+  - enabled: 0
+    path: Assets/Scenes/TankDestructionScene.unity
+    guid: 132ec40fa26372e46b834bf051a1a6a7
   m_configObjects: {}

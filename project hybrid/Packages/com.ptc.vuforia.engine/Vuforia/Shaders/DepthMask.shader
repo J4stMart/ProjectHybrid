@@ -22,7 +22,7 @@ Shader "DepthMask" {
         // Turn off lighting, because it's expensive and the thing is supposed to be
         // invisible anyway.
        
-        Lighting Off
+        Lighting On
 
         // Draw into the depth buffer in the usual way.  This is probably the default,
         // but it doesn't hurt to be explicit.

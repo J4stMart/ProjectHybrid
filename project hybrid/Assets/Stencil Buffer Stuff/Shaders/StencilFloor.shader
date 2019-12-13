@@ -19,13 +19,10 @@
 			Fog { Color[_AddFog] }
 			Blend DstColor Zero
 
-			Stencil{
-				Ref[_StencilRef]
-				Comp Equal
-			}
-
+			ZTest Less
 			//ZTest Greater
-
+			//Blend Zero One
+			ZWrite Off
 
 			CGPROGRAM
 

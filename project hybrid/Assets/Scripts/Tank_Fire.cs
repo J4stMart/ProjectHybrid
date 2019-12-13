@@ -17,7 +17,7 @@ public class Tank_Fire : MonoBehaviour
     Transform spawnLocation;
 
     public void shoot(float Distance){
-        GameObject shell = Instantiate(shellPrefab, spawnLocation.position, turretGameObject.transform.rotation * spawnLocation.rotation);
+        GameObject shell = Instantiate(shellPrefab, spawnLocation.position, spawnLocation.rotation);
         // per unit of distance 105 units of force
         Debug.Log(Distance);
         shell.GetComponent<Rigidbody>().AddForce(shell.transform.up * (Distance * force));

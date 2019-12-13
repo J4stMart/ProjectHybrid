@@ -15,10 +15,11 @@ public class ArcPredictor : MonoBehaviour
     public float aimDirection = 0f;
     public Vector3 offsetPosition;
 
-    [SerializeField] private Transform targetIndicator;
+    private Transform targetIndicator;
     
 
-    void Start() {
+    void Awake() {
+        targetIndicator = GameObject.FindWithTag("TargetRed").transform;
         LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         lineRenderer.widthMultiplier = 0.05f;
