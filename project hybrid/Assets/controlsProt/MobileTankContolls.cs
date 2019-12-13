@@ -15,6 +15,9 @@ public class MobileTankContolls : MonoBehaviour
     [Range(0, 1f), SerializeField] private float amountOfScreenUsedForControls = .3f;
     [SerializeField] bool debugControls = false;
 
+    [SerializeField] bool raycastAiming;
+    [SerializeField] Transform aimSourcePos;
+
     private void Awake() {
         aiming = GetComponent<TankAiming>();
     }
@@ -46,6 +49,7 @@ public class MobileTankContolls : MonoBehaviour
                         setAxes(pos);
                     }
                     else {
+                        raycastAim(touch.position);
                         aiming.aaa += aiming.chargeUp * Time.deltaTime;
                     }
 
@@ -55,6 +59,7 @@ public class MobileTankContolls : MonoBehaviour
                         setAxes(pos);
                     }
                     else {
+                        raycastAim(touch.position);
                         aiming.aaa += aiming.chargeUp * Time.deltaTime;
                     }
                     break;
@@ -63,6 +68,7 @@ public class MobileTankContolls : MonoBehaviour
                         setAxes(pos);
                     }
                     else {
+                        raycastAim(touch.position);
                         aiming.aaa += aiming.chargeUp * Time.deltaTime;
                     }
                     break;
@@ -94,6 +100,7 @@ public class MobileTankContolls : MonoBehaviour
                     }
                     else
                     {
+                        raycastAim(touch.position);
                         aiming.aaa += aiming.chargeUp * Time.deltaTime;
                     }
 
@@ -105,6 +112,8 @@ public class MobileTankContolls : MonoBehaviour
                     }
                     else
                     {
+
+                        raycastAim(touch.position);
                         aiming.aaa += aiming.chargeUp * Time.deltaTime;
                     }
                     break;
@@ -114,6 +123,7 @@ public class MobileTankContolls : MonoBehaviour
                         setAxes(pos);
                     }
                     else {
+                        raycastAim(touch.position); 
                         aiming.aaa += aiming.chargeUp * Time.deltaTime;
                     }
                     break;
@@ -161,5 +171,17 @@ public class MobileTankContolls : MonoBehaviour
         }
 
         setAxes(pos);
+    }
+
+    void raycastAim(Vector2 pos) {
+        if (raycastAiming) {
+            Ray ray = Camera.main.ScreenPointToRay(pos);
+            RaycastHit hit = new RaycastHit();
+            Debug.Log("aa");
+            if (Physics.Raycast(ray, out hit, 500)) {
+                Debug.Log("hit");
+                aimSourcePos.position = transform.position - (hit.point - transform.position);
+            }
+        }
     }
 }
