@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 25150065}
   - component: {fileID: 25150064}
   - component: {fileID: 25150063}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tafel (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2538,7 +2538,6 @@ GameObject:
   - component: {fileID: 1478368466029144812}
   - component: {fileID: 8755652221236296485}
   - component: {fileID: 3763730486475231527}
-  - component: {fileID: 1853035362268861041}
   - component: {fileID: 409718465}
   m_Layer: 0
   m_Name: Tafel
@@ -2582,19 +2581,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 7685086646598201923, guid: 00b5c9f83a9bd0540a1cda94140a9e41, type: 3}
---- !u!65 &1853035362268861041
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1150121568189918567}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2532232294370600736
 GameObject:
   m_ObjectHideFlags: 0
