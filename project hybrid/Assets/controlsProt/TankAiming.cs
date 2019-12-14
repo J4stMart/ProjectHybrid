@@ -8,6 +8,9 @@ public class TankAiming : MonoBehaviour
     [SerializeField] private Transform TurretTransform;
     [SerializeField] private ArcPredictor arc;
     [SerializeField] Transform arcStartPos;
+    public float rotationspeed = 1f;
+    public float startFirepower = 3f;
+    public Transform loopPivot;
 
 
     [SerializeField] bool UseCameraToAim = true;
@@ -38,14 +41,25 @@ public class TankAiming : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             GetComponent<Tank_Fire>().shoot(aaa);
-            aaa = 0;
+            aaa = startFirepower;
         }
 
 
 
         Vector3 dir = -(trackingPosition.position - transform.position);
-        TurretTransform.rotation = Quaternion.LookRotation(dir, transform.up);
-        TurretTransform.localRotation = Quaternion.Euler(0,TurretTransform.localRotation.eulerAngles.y,0);
+               
+        float offset = (TurretTransform.rotation.eulerAngles.y - loopPivot.rotation.eulerAngles.y) % 360;
+        Debug.Log(offset);
+
+        TurretTransform.rotation = Quaternion.Slerp(TurretTransform.rotation, Quaternion.LookRotation(dir, Vector3.up) * Quaternion.Euler(0, -offset, 0f), rotationspeed * Time.deltaTime);
+        TurretTransform.localRotation = Quaternion.Euler(0, TurretTransform.localRotation.eulerAngles.y, 0);
+
+        loopPivot.rotation = Quaternion.Slerp(loopPivot.rotation, Quaternion.LookRotation(dir, transform.up), rotationspeed * Time.deltaTime);
+        float loopRotatieAngle = Mathf.Clamp((loopPivot.localRotation.eulerAngles.x + 180f) % 360, 140f, 220f);
+        loopPivot.localRotation = Quaternion.Euler(loopRotatieAngle + 180, 0, 0);
+
+
+
 
         Vector3 arcDir = arcStartPos.position - TurretTransform.position;
         Vector3 horizontal = new Vector3(arcDir.x, 0, arcDir.z);

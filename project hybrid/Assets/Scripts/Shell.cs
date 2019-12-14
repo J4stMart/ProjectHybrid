@@ -25,7 +25,7 @@ public class Shell : MonoBehaviour
             Destroy(gameObject);
         }
         //dirty check. change to tag later
-        else if (collision.transform.name == "Tafel")
+        else
         {
             Destroy(gameObject);
         }
