@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 public class ArcPredictor : MonoBehaviour
 {
-    // Creates a line renderer that follows a Sin() function
-    // and animates it.
-
     public Color c1 = Color.white;
     public Color c2 = Color.white;
     public int lengthOfLineRenderer;
@@ -37,7 +34,7 @@ public class ArcPredictor : MonoBehaviour
         lineRenderer.colorGradient = gradient;
     }
 
-    void Update() {
+    void FixedUpdate() {
 
         LineRenderer lineRenderer = GetComponent<LineRenderer>();
         var points = new Vector3[lengthOfLineRenderer];
@@ -53,11 +50,10 @@ public class ArcPredictor : MonoBehaviour
             lineRenderer.enabled = false;   
         }
 
-        var t = Time.time;
         float gravity = Physics.gravity.magnitude;
         Quaternion aimAngle = Quaternion.Euler(0f, aimDirection, 0f);
         for (int i = 0; i < lengthOfLineRenderer; i++) {
-            points[i] = new Vector3((i * 0.1f) * initialForwardSpeed, initialUpWardSpeed * (i* 0.1f) - 0.5f * gravity * (i * 0.1f) * (i * 0.1f), 0.0f);
+            points[i] = new Vector3((i * 10 * Time.deltaTime) * initialForwardSpeed, initialUpWardSpeed * (i * 10 * Time.deltaTime) - 0.5f * gravity * (i * 10 * Time.deltaTime) * (i * 10 * Time.deltaTime), 0.0f);
             points[i] = (aimAngle * points[i]) + transform.position + offsetPosition;
         }
 

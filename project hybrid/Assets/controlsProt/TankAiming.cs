@@ -20,6 +20,7 @@ public class TankAiming : MonoBehaviour
 
     private void Awake()
     {
+        aaa = startFirepower;
         if (UseCameraToAim)
         {
             trackingPosition = GameObject.FindWithTag("MainCamera").transform;
@@ -49,7 +50,6 @@ public class TankAiming : MonoBehaviour
         Vector3 dir = -(trackingPosition.position - transform.position);
                
         float offset = (TurretTransform.rotation.eulerAngles.y - loopPivot.rotation.eulerAngles.y) % 360;
-        Debug.Log(offset);
 
         TurretTransform.rotation = Quaternion.Slerp(TurretTransform.rotation, Quaternion.LookRotation(dir, Vector3.up) * Quaternion.Euler(0, -offset, 0f), rotationspeed * Time.deltaTime);
         TurretTransform.localRotation = Quaternion.Euler(0, TurretTransform.localRotation.eulerAngles.y, 0);
@@ -61,10 +61,13 @@ public class TankAiming : MonoBehaviour
 
 
 
-        Vector3 arcDir = arcStartPos.position - TurretTransform.position;
+        Vector3 arcDir = arcStartPos.up;
         Vector3 horizontal = new Vector3(arcDir.x, 0, arcDir.z);
-        arc.initialUpWardSpeed = Mathf.Sin(Vector3.Angle(arcDir, horizontal) * Mathf.Deg2Rad) * aaa;
-        arc.initialForwardSpeed = Mathf.Cos(Vector3.Angle(arcDir, horizontal) * Mathf.Deg2Rad) * aaa;
+        arc.initialUpWardSpeed = arcStartPos.up.y * aaa;
+        arc.initialForwardSpeed = new Vector3(arcStartPos.up.x, 0, arcStartPos.up.z).magnitude * aaa;
+        //arc.initialUpWardSpeed = Mathf.Sin(Vector3.Angle(arcDir, horizontal) * Mathf.Deg2Rad) * aaa;
+        //arc.initialForwardSpeed = Mathf.Cos(Vector3.Angle(arcDir, horizontal) * Mathf.Deg2Rad) * aaa;
+        Debug.Log(Vector3.Angle(arcDir, horizontal));
 
         arc.aimDirection = TurretTransform.rotation.eulerAngles.y - 90;
 

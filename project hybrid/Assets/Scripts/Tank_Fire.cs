@@ -15,11 +15,14 @@ public class Tank_Fire : MonoBehaviour
 
     [SerializeField]
     Transform spawnLocation;
+    [SerializeField] private TankAiming aim;
 
     public void shoot(float Distance){
         GameObject shell = Instantiate(shellPrefab, spawnLocation.position, spawnLocation.rotation);
         // per unit of distance 105 units of force
-        Debug.Log(Distance);
-        shell.GetComponent<Rigidbody>().AddForce(shell.transform.up * (Distance * force));
+        Debug.Log(spawnLocation.up);
+        shell.GetComponent<Rigidbody>().velocity = spawnLocation.up * aim.aaa;
+        //Debug.Log(shell.GetComponent<Rigidbody>().velocity);
+        //shell.GetComponent<Rigidbody>().AddForce(shell.transform.up * (Distance * force));
     }
 }

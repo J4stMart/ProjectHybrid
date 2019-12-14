@@ -114,7 +114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321554021}
   m_LocalRotation: {x: 0.54463905, y: -0, z: -0, w: 0.8386706}
-  m_LocalPosition: {x: 0, y: 0.654, z: 1.446}
+  m_LocalPosition: {x: 0, y: 0.531, z: 1.169}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 562774797552500655}
@@ -597,6 +597,8 @@ MonoBehaviour:
   TurretTransform: {fileID: 2175658523267928026}
   arc: {fileID: 570370645}
   arcStartPos: {fileID: 1321554022}
+  rotationspeed: 2
+  startFirepower: 3
   loopPivot: {fileID: 1006604311458396032}
   UseCameraToAim: 0
   aaa: 0
@@ -667,6 +669,7 @@ MonoBehaviour:
   turretGameObject: {fileID: 945434851369598998}
   force: 105
   spawnLocation: {fileID: 1321554022}
+  aim: {fileID: 570370641}
 --- !u!114 &2033812932
 MonoBehaviour:
   m_ObjectHideFlags: 0
