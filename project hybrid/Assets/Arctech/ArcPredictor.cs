@@ -14,11 +14,13 @@ public class ArcPredictor : MonoBehaviour
     public float initialForwardSpeed = 1f;
     public float aimDirection = 0f;
     public Vector3 offsetPosition;
+    private LayerMask raycastLayerMask;
 
     private Transform targetIndicator;
     
 
     void Awake() {
+        raycastLayerMask = LayerMask.GetMask("Level");
         targetIndicator = GameObject.FindWithTag("TargetRed").transform;
         LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
@@ -62,7 +64,7 @@ public class ArcPredictor : MonoBehaviour
         for (int i = 0; i < lengthOfLineRenderer - 2; i += 2) {
             Ray ray = new Ray(points[i], points[i + 2] - points[i]);
             RaycastHit hit = new RaycastHit();
-            Physics.Raycast(ray, out hit, Vector3.Distance(points[i], points[i + 2]));
+            Physics.Raycast(ray, out hit, Vector3.Distance(points[i], points[i + 2]),raycastLayerMask);
 
             if (hit.collider != null) {
                 points[i] = hit.point;

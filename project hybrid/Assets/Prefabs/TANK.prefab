@@ -114,7 +114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321554021}
   m_LocalRotation: {x: 0.54463905, y: -0, z: -0, w: 0.8386706}
-  m_LocalPosition: {x: 0, y: 0.62479085, z: 1.3802187}
+  m_LocalPosition: {x: 0, y: 0.654, z: 1.446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 562774797552500655}
@@ -525,7 +525,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634010948433752732}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -18.1, y: -12.31, z: 20}
   m_LocalScale: {x: 2.414, y: 2.414, z: 2.414}
   m_Children:
@@ -580,8 +580,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controls: {fileID: 570370655}
-  tankSpeed: 5
-  tankRotationSpeed: 50
+  tankSpeed: 10
+  tankRotationSpeed: 60
 --- !u!114 &570370641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,12 +597,10 @@ MonoBehaviour:
   TurretTransform: {fileID: 2175658523267928026}
   arc: {fileID: 570370645}
   arcStartPos: {fileID: 1321554022}
-  rotationspeed: 1
-  startFirepower: 5
   loopPivot: {fileID: 1006604311458396032}
   UseCameraToAim: 0
   aaa: 0
-  chargeUp: 15
+  chargeUp: 5
 --- !u!114 &570370645
 MonoBehaviour:
   m_ObjectHideFlags: 0

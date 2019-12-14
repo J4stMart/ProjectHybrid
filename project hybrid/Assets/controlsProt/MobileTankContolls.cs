@@ -47,7 +47,7 @@ public class MobileTankContolls : MonoBehaviour
 
                     if (touch.position.y / Screen.height > amountOfScreenUsedForControls) {
                         GetComponent<Tank_Fire>().shoot(aiming.aaa);
-                        aiming.aaa = 0;
+                        aiming.aaa = aiming.startFirepower;
                     }
                     break;
                 case TouchPhase.Began:
@@ -96,7 +96,7 @@ public class MobileTankContolls : MonoBehaviour
                     if (touch.position.y / Screen.height > amountOfScreenUsedForControls)
                     {
                         GetComponent<Tank_Fire>().shoot(aiming.aaa);
-                        aiming.aaa = 0;
+                        aiming.aaa = aiming.startFirepower;
                     }
                     break;
                 case TouchPhase.Began:
