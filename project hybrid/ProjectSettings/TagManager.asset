@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fractures
+  - TankRed
+  - TargetRed
+  - AimingSource
   layers:
   - Default
   - TransparentFX
@@ -15,7 +18,7 @@ TagManager:
   - 
   - 
   - NoCollision
-  - 
+  - Level
   - 
   - 
   - 

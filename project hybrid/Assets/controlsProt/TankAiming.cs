@@ -4,19 +4,35 @@ using UnityEngine;
 
 public class TankAiming : MonoBehaviour
 {
-    [SerializeField] private Transform trackingPosition;
+    private Transform trackingPosition;
     [SerializeField] private Transform TurretTransform;
     [SerializeField] private ArcPredictor arc;
     [SerializeField] Transform arcStartPos;
 
-    public float aaa;
+
+    [SerializeField] bool UseCameraToAim = true;
+
+    [HideInInspector]public float aaa;
+    public float chargeUp = 15;
+
+    private void Awake()
+    {
+        if (UseCameraToAim)
+        {
+            trackingPosition = GameObject.FindWithTag("MainCamera").transform;
+        }
+        else
+        {
+            trackingPosition = GameObject.FindGameObjectWithTag("AimingSource").transform;
+        }
+    }
 
     void Update() {
 
         //temp input for shooting
         if (Input.GetKey(KeyCode.Space))
         {
-            aaa += 0.25f;
+            aaa += chargeUp * Time.deltaTime;
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
@@ -24,6 +40,8 @@ public class TankAiming : MonoBehaviour
             GetComponent<Tank_Fire>().shoot(aaa);
             aaa = 0;
         }
+
+
 
         Vector3 dir = -(trackingPosition.position - transform.position);
         TurretTransform.rotation = Quaternion.LookRotation(dir, transform.up);

@@ -9,7 +9,7 @@
 		[IntRange] _StencilRef("Stencil Reference Value", Range(0,255)) = 0
 	}
 		SubShader{
-			Tags{ "RenderType" = "Opaque" "Queue" = "Geometry"}
+			Tags{ "RenderType" = "Transparent" "Queue" = "Geometry"}
 
 			LOD 200
 			Alphatest Greater 0
@@ -19,13 +19,15 @@
 			Fog { Color[_AddFog] }
 			Blend DstColor Zero
 
-			Stencil{
-				Ref[_StencilRef]
-				Comp Equal
-			}
-
+			//Stencil{
+			//Ref[_StencilRef]
+			//Comp Equal
+			//Pass Replace
+			//}
+			//ZTest Less
 			//ZTest Greater
-
+			//Blend Zero One
+			ZWrite Off
 
 			CGPROGRAM
 

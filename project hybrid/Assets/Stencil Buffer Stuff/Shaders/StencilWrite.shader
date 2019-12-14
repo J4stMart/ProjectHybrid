@@ -6,12 +6,13 @@
 
 		SubShader{
 		//the material is completely non-transparent and is rendered at the same time as the other opaque geometry
-		Tags{ "RenderType" = "Opaque" "Queue" = "Geometry"}
+		Tags{ "RenderType" = "Transparent" "Queue" = "Geometry"}
 
+		//Cull Back
 		ColorMask 0
 		
 		Pass {
-			//ZTest Less
+			ZTest Less
 			Stencil{
 			Ref[_StencilRef]
 			Comp Always
@@ -25,8 +26,8 @@
 		Pass{
 		//don't draw color or depth
 
-		Blend Zero One
-		ZWrite Off
+		//Blend Zero One
+		//ZWrite Off
 
 		CGPROGRAM
 		#include "UnityCG.cginc"
