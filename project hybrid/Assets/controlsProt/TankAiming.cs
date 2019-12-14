@@ -16,7 +16,7 @@ public class TankAiming : MonoBehaviour
         //temp input for shooting
         if (Input.GetKey(KeyCode.Space))
         {
-            aaa += 1;
+            aaa += 0.25f;
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
