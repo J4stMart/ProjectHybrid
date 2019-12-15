@@ -21,8 +21,6 @@ public class TankAiming : MonoBehaviour
     public bool shootInput = false;
     public bool shootInputEnd = false;
 
-    [SerializeField] bool UseCameraToAim = true;
-
     [HideInInspector]public float aaa;
     public float chargeUp = 15;
 
@@ -31,50 +29,21 @@ public class TankAiming : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         canShoot = true;
         aaa = startFirepower;
-        if (UseCameraToAim)
-        {
-            trackingPosition = GameObject.FindWithTag("MainCamera").transform;
-        }
-        else
-        {
-            trackingPosition = GameObject.FindGameObjectWithTag("AimingSource").transform;
-        }
+        trackingPosition = GameObject.FindGameObjectWithTag("AimingSource").transform;
         nozzleflash.Pause();
     }
 
     void Update() {
-
-        if (Input.GetKey(KeyCode.Space)) {
-            shootInput = true;
-        }
-        else
-        {
-            shootInput = false;
-        }
-
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            shootInputEnd = true;
-        }
-        else
-        {
-            shootInputEnd = false;
-        }
-
-        Debug.Log(aaa);
         //temp input for shooting
-        if (shootInput && canShoot)
-        {
+        if (shootInput && canShoot) {
             aaa += chargeUp * Time.deltaTime;
-            if(canPlayCharge)
-            {
+            if(canPlayCharge) {
                 canPlayCharge = false;
                 audioSource.PlayOneShot(chargingSound, 1f);
             }
         }
 
-        if ((shootInputEnd && canShoot) || (aaa > (chargeUp * reloadTime) && canShoot))
-        {
+        if ((shootInputEnd && canShoot) || (aaa > (chargeUp * reloadTime) && canShoot)) {
             audioSource.Stop();
             canPlayCharge = true;
             arc.targetIndicator.gameObject.SetActive(false); 
@@ -85,8 +54,6 @@ public class TankAiming : MonoBehaviour
             aaa = startFirepower;
             StartCoroutine(Shooting());
         }
-
-
 
         Vector3 dir = -(trackingPosition.position - transform.position);
                
@@ -113,22 +80,7 @@ public class TankAiming : MonoBehaviour
         //arc.initialUpWardSpeed = TurretTransform.rotation.eulerAngles.x + upwardArcOffset;
     }
 
-    //Vector2 posOnCircle(int i, int totalPosses, float radius)
-    //{
-    //    float dir = ((2 * Mathf.PI) / totalPosses) * i;
-    //    return new Vector2(Mathf.Cos(dir) * radius, Mathf.Sin(dir) * radius);
-    //}
-
-    //Vector3 RotatePointAroundPivot(Vector3 point, Vector3 pivot, Quaternion angles)
-    //{
-    //    Vector3 dir = point - pivot; // get point direction relative to pivot
-    //    dir = angles * dir; // rotate it
-    //    point = dir + pivot; // calculate rotated point
-    //    return point; // return it
-    //}
-
-    IEnumerator Shooting()
-    {
+    IEnumerator Shooting() {
         nozzleflash.Play();
         yield return new WaitForSeconds(reloadTime - 0.2f);
         audioSource.PlayOneShot(reloadSound, 1f);
