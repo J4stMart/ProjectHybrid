@@ -17,6 +17,7 @@ public class MobileTankContolls : MonoBehaviour
 
     [SerializeField] bool raycastAiming;
     [SerializeField] bool aimByPointingCamera;
+
     Transform aimSourcePos;
 
     private void Awake() {
@@ -25,9 +26,9 @@ public class MobileTankContolls : MonoBehaviour
     }
 
     void Update() {
-        //if (aimByPointingCamera) {
-        //    raycastAim(Vector2.zero);
-        //}
+        if (aimByPointingCamera) {
+            raycastAim(Vector2.zero);
+        }
 
         aiming.shootInputEnd = false;
         aiming.shootInput = false;
