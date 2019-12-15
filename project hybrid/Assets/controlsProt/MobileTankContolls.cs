@@ -19,12 +19,14 @@ public class MobileTankContolls : MonoBehaviour
     [SerializeField] bool aimByPointingCamera;
 
     Transform aimSourcePos;
+    Transform aimingTarget;
     private LayerMask raycastLayerMask;
 
     private void Awake() {
         raycastLayerMask = LayerMask.GetMask("Level", "Aimcatcher");
         aiming = GetComponent<TankAiming>();
         aimSourcePos = GameObject.FindGameObjectWithTag("AimingSource").transform;
+        aimingTarget = GameObject.FindGameObjectWithTag("TargetGreen").transform;
     }
 
     void Update() {
@@ -41,7 +43,7 @@ public class MobileTankContolls : MonoBehaviour
 
         if (Input.touchCount > 0) {
             Touch touch = Input.touches[0];
-            Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? (touch.position.y / (Screen.height / 10)) / amountOfScreenUsedForControls : 10);
+            Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? ((touch.position.y / (Screen.height / 10)) - .6f) / amountOfScreenUsedForControls : 10);
 
             switch (touch.phase) {
 
@@ -91,7 +93,7 @@ public class MobileTankContolls : MonoBehaviour
 
         if (Input.touchCount > 1 && false) {
             Touch touch = Input.touches[1];
-            Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? (touch.position.y / (Screen.height / 10)) / amountOfScreenUsedForControls : 10);
+            Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? (touch.position.y / (Screen.height / 5)) / amountOfScreenUsedForControls : 10);
 
             switch (touch.phase) {
 
@@ -156,7 +158,7 @@ public class MobileTankContolls : MonoBehaviour
 
     void setAxes(Vector2 pos) {
         horizontal = pos.x / 5;
-        vertical = pos.y / 10;
+        vertical = pos.y / 7;
     }
 
     void dbugControls() {
@@ -201,6 +203,9 @@ public class MobileTankContolls : MonoBehaviour
             RaycastHit hit = new RaycastHit();
             if (Physics.Raycast(ray, out hit, 1300, raycastLayerMask)) {
                 aimSourcePos.position = transform.position - (hit.point - transform.position);
+
+                aimingTarget.position = hit.point + (hit.normal /100);
+                aimingTarget.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
             }
         }
     }
