@@ -11,13 +11,15 @@ public class TankAiming : MonoBehaviour
     public float rotationspeed = 1f;
     public float startFirepower = 3f;
     public Transform loopPivot;
-    private float reloadTime = 2f;
+    private float reloadTime = 1.5f;
     public ParticleSystem nozzleflash;
     private bool canShoot = true;
     private AudioSource audioSource;
     public AudioClip chargingSound;
     public AudioClip reloadSound;
     private bool canPlayCharge = true;
+    public bool shootInput = false;
+    public bool shootInputEnd = false;
 
     [SerializeField] bool UseCameraToAim = true;
 
@@ -42,9 +44,26 @@ public class TankAiming : MonoBehaviour
 
     void Update() {
 
+        if (Input.GetKey(KeyCode.Space)) {
+            shootInput = true;
+        }
+        else
+        {
+            shootInput = false;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            shootInputEnd = true;
+        }
+        else
+        {
+            shootInputEnd = false;
+        }
+
         Debug.Log(aaa);
         //temp input for shooting
-        if (Input.GetKey(KeyCode.Space) && canShoot)
+        if (shootInput && canShoot)
         {
             aaa += chargeUp * Time.deltaTime;
             if(canPlayCharge)
@@ -52,10 +71,9 @@ public class TankAiming : MonoBehaviour
                 canPlayCharge = false;
                 audioSource.PlayOneShot(chargingSound, 1f);
             }
-
         }
 
-        if ((Input.GetKeyUp(KeyCode.Space) && canShoot) || (aaa > (chargeUp * reloadTime) && canShoot))
+        if ((shootInputEnd && canShoot) || (aaa > (chargeUp * reloadTime) && canShoot))
         {
             audioSource.Stop();
             canPlayCharge = true;
