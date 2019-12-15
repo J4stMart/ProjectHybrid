@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1005083079}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: fractures koepel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1005083079
 Transform:
   m_ObjectHideFlags: 0
@@ -23,8 +23,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005083078}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.0012243439, y: -0, z: -0, w: 0.9999993}
+  m_LocalPosition: {x: 0, y: -1.2351677, z: -0.06697566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6151662323561987937}
@@ -37,13 +37,9 @@ Transform:
   - {fileID: 2209885317477239223}
   - {fileID: 2879780518065461119}
   - {fileID: 1663117522045608660}
-  - {fileID: 4487265529567784516}
-  - {fileID: 3652740366752820645}
-  - {fileID: 3106211195994028623}
-  - {fileID: 3427947861169678834}
   - {fileID: 4015723161940088717}
-  m_Father: {fileID: 4510122213185994895}
-  m_RootOrder: 4
+  m_Father: {fileID: 2175658523267928026}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1129532058
 GameObject:
@@ -54,13 +50,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1129532059}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: fractures onderstel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1129532059
 Transform:
   m_ObjectHideFlags: 0
@@ -68,8 +64,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129532058}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5983097477779542552}
@@ -87,8 +83,8 @@ Transform:
   - {fileID: 1827404416274401861}
   - {fileID: 2596693419757674272}
   - {fileID: 1883229724093254954}
-  m_Father: {fileID: 4510122213185994895}
-  m_RootOrder: 3
+  m_Father: {fileID: 3684501162439148499}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1321554021
 GameObject:
@@ -99,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1321554022}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ShootPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +130,7 @@ GameObject:
   - component: {fileID: 78010541117845522}
   - component: {fileID: 78010541117845521}
   - component: {fileID: 78010541117845520}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: koepel_Part_8
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -257,7 +253,7 @@ GameObject:
   - component: {fileID: 362795846005521047}
   - component: {fileID: 362795846005521046}
   - component: {fileID: 4089722931715410184}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_2
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -382,7 +378,7 @@ GameObject:
   - component: {fileID: 490306559037710394}
   - component: {fileID: 490306559037710393}
   - component: {fileID: 3311772596407979892}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_6
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -511,7 +507,7 @@ GameObject:
   - component: {fileID: 1980272080}
   - component: {fileID: 2033812932}
   - component: {fileID: 1029298624705233968}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: TANK
   m_TagString: TankRed
   m_Icon: {fileID: 0}
@@ -532,8 +528,6 @@ Transform:
   - {fileID: 3684501162439148499}
   - {fileID: 2175658523267928026}
   - {fileID: 1673830959491407041}
-  - {fileID: 1129532059}
-  - {fileID: 1005083079}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -696,8 +690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onderstelFractures: {fileID: 1129532058}
   koepelFractures: {fileID: 1005083078}
-  physicsColliders: {fileID: 9201387689953600002}
-  ArCamera: {fileID: 0}
+  loopFractures: {fileID: 3305703916986605255}
   isDestroyed: 0
   gotHit: 0
   explosionForce: 100
@@ -712,7 +705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2175658523267928026}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: 'thank koepel '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,6 +726,7 @@ Transform:
   - {fileID: 6263794797699408064}
   - {fileID: 6092724194508624223}
   - {fileID: 1006604311458396032}
+  - {fileID: 1005083079}
   m_Father: {fileID: 4510122213185994895}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -750,7 +744,7 @@ GameObject:
   - component: {fileID: 967975508599263676}
   - component: {fileID: 967975508599263675}
   - component: {fileID: 7809171221335413575}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_11
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -872,7 +866,7 @@ GameObject:
   - component: {fileID: 6092724194508624223}
   - component: {fileID: 2872603244181544154}
   - component: {fileID: 981302439273942691}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: koepel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +949,7 @@ GameObject:
   - component: {fileID: 1533138082954278031}
   - component: {fileID: 1533138082954278030}
   - component: {fileID: 2977323312296897027}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_3
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -1077,7 +1071,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7455587678849666706}
   - component: {fileID: 5342812390337480967}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RightTrack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1126,7 +1120,7 @@ GameObject:
   - component: {fileID: 2355667739626347260}
   - component: {fileID: 2355667739626347259}
   - component: {fileID: 2355667739626347258}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: koepel_Part_6
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -1251,7 +1245,7 @@ GameObject:
   - component: {fileID: 2513670009354869755}
   - component: {fileID: 2513670009354869754}
   - component: {fileID: 2513670009354869753}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: loop_Part_1
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -1265,12 +1259,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2513670009354869752}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.004977974, y: 1.805731, z: 1.148618}
-  m_LocalScale: {x: 0.39196646, y: 0.39196667, z: 0.39196667}
+  m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: 0.0049777534, y: 1.8057312, z: 1.1486182}
+  m_LocalScale: {x: 0.3919665, y: 0.39196706, z: 0.39196706}
   m_Children: []
-  m_Father: {fileID: 1005083079}
-  m_RootOrder: 10
+  m_Father: {fileID: 6132795332366083666}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5030002900385722491
 MeshFilter:
@@ -1375,7 +1369,7 @@ GameObject:
   - component: {fileID: 2905121298388799732}
   - component: {fileID: 2905121298388799731}
   - component: {fileID: 2905121298388799730}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: koepel_Part_3
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -1500,7 +1494,7 @@ GameObject:
   - component: {fileID: 3027936740424264420}
   - component: {fileID: 3027936740424264419}
   - component: {fileID: 3027936740424264418}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: loop_Part_3
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -1514,12 +1508,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3027936740424264417}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.0049779685, y: 1.5695837, z: 0.6321311}
-  m_LocalScale: {x: 0.39196646, y: 0.39196667, z: 0.39196667}
+  m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: 0.0049777534, y: 1.5695837, z: 0.6321312}
+  m_LocalScale: {x: 0.3919665, y: 0.39196706, z: 0.39196706}
   m_Children: []
-  m_Father: {fileID: 1005083079}
-  m_RootOrder: 12
+  m_Father: {fileID: 6132795332366083666}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6061567631534277225
 MeshFilter:
@@ -1624,7 +1618,7 @@ GameObject:
   - component: {fileID: 3067503519878230995}
   - component: {fileID: 3067503519878230994}
   - component: {fileID: 3067503519878230993}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: koepel_Part_7
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -1748,7 +1742,7 @@ GameObject:
   - component: {fileID: 3072015497857931983}
   - component: {fileID: 3072015497857931982}
   - component: {fileID: 3072015497857931981}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: koepel_Part_1
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -1869,7 +1863,7 @@ GameObject:
   - component: {fileID: 3684501162439148499}
   - component: {fileID: 8797379846300969756}
   - component: {fileID: 942375376477973111}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1886,7 +1880,8 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 1.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1129532059}
   m_Father: {fileID: 4510122213185994895}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1939,6 +1934,40 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &3305703916986605255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6132795332366083666}
+  m_Layer: 13
+  m_Name: fractures loop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6132795332366083666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3305703916986605255}
+  m_LocalRotation: {x: -0.0012243439, y: -0, z: -0, w: 0.9999993}
+  m_LocalPosition: {x: 0, y: -1.3603768, z: -0.18675718}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4487265529567784516}
+  - {fileID: 3652740366752820645}
+  - {fileID: 3106211195994028623}
+  - {fileID: 3427947861169678834}
+  m_Father: {fileID: 562774797552500655}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3791887462517784705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,7 +1982,7 @@ GameObject:
   - component: {fileID: 3791887462517784707}
   - component: {fileID: 3791887462517784706}
   - component: {fileID: 6911602044721200055}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_12
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2079,7 +2108,7 @@ GameObject:
   - component: {fileID: 3898348939816606435}
   - component: {fileID: 3898348939816606434}
   - component: {fileID: 3898348939816606433}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: koepel_Part_4
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2204,7 +2233,7 @@ GameObject:
   - component: {fileID: 3929205706741168298}
   - component: {fileID: 3929205706741168297}
   - component: {fileID: 7007457861851083226}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_5
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2330,7 +2359,7 @@ GameObject:
   - component: {fileID: 4312820045134170362}
   - component: {fileID: 4312820045134170361}
   - component: {fileID: 3041362948441783478}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_10
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2455,7 +2484,7 @@ GameObject:
   - component: {fileID: 4524231936053506199}
   - component: {fileID: 4524231936053506198}
   - component: {fileID: 4524231936053506197}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: 'de dude '
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2474,7 +2503,7 @@ Transform:
   m_LocalScale: {x: 0.39196646, y: 0.39196643, z: 0.39196643}
   m_Children: []
   m_Father: {fileID: 1005083079}
-  m_RootOrder: 14
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8135900279178032958
 MeshFilter:
@@ -2581,7 +2610,7 @@ GameObject:
   - component: {fileID: 4661360806172668296}
   - component: {fileID: 4661360806172668295}
   - component: {fileID: 4661360806172668294}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: koepel_Part_5
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2704,7 +2733,7 @@ GameObject:
   - component: {fileID: 4981211756547664323}
   - component: {fileID: 4981211756547664322}
   - component: {fileID: 2192453837931221290}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_4
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2830,7 +2859,7 @@ GameObject:
   - component: {fileID: 5454643748215579562}
   - component: {fileID: 5454643748215579561}
   - component: {fileID: 3473524122553814971}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_14
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2953,7 +2982,7 @@ GameObject:
   - component: {fileID: 5492537965221033517}
   - component: {fileID: 5492537965221033516}
   - component: {fileID: 1632061515983457522}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_1
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -3078,7 +3107,7 @@ GameObject:
   - component: {fileID: 5998593924715013947}
   - component: {fileID: 5998593924715013946}
   - component: {fileID: 2839076300611552149}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_15
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -3204,7 +3233,7 @@ GameObject:
   - component: {fileID: 6013849230666100276}
   - component: {fileID: 6013849230666100275}
   - component: {fileID: 3819062037608488843}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_8
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -3328,7 +3357,7 @@ GameObject:
   - component: {fileID: 6085039137020760448}
   - component: {fileID: 6085039137020760447}
   - component: {fileID: 8189907725191600556}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_9
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -3453,7 +3482,7 @@ GameObject:
   - component: {fileID: 6103723936977208429}
   - component: {fileID: 6103723936977208428}
   - component: {fileID: 6561335214470793479}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_7
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -3575,7 +3604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1608247492138821881}
   - component: {fileID: 8212250095171054106}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RightTrack (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3621,7 +3650,7 @@ GameObject:
   - component: {fileID: 562774797552500655}
   - component: {fileID: 2407992103397241861}
   - component: {fileID: 1610389608257831513}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: loop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3640,6 +3669,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1321554022}
+  - {fileID: 6132795332366083666}
   m_Father: {fileID: 1006604311458396032}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3704,7 +3734,7 @@ GameObject:
   - component: {fileID: 6738762522135073140}
   - component: {fileID: 6738762522135073139}
   - component: {fileID: 6738762522135073138}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: loop_Part_4
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -3718,12 +3748,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6738762522135073137}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.049113054, y: 1.6358098, z: 0.8053843}
-  m_LocalScale: {x: 0.39196646, y: 0.39196667, z: 0.39196667}
+  m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: 0.049113043, y: 1.6358099, z: 0.8053847}
+  m_LocalScale: {x: 0.3919665, y: 0.39196706, z: 0.39196706}
   m_Children: []
-  m_Father: {fileID: 1005083079}
-  m_RootOrder: 13
+  m_Father: {fileID: 6132795332366083666}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2642908960577096550
 MeshFilter:
@@ -3825,7 +3855,7 @@ GameObject:
   - component: {fileID: 6263794797699408064}
   - component: {fileID: 1278820998804078707}
   - component: {fileID: 5759325758411477230}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: 'de dude '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3909,7 +3939,7 @@ GameObject:
   - component: {fileID: 6965265599821503197}
   - component: {fileID: 6965265599821503196}
   - component: {fileID: 5893159219453851843}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: onderstel_Part_13
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -4035,7 +4065,7 @@ GameObject:
   - component: {fileID: 6994404161014636863}
   - component: {fileID: 6994404161014636862}
   - component: {fileID: 6994404161014636861}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: koepel_Part_10
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -4159,7 +4189,7 @@ GameObject:
   - component: {fileID: 7488358206103097095}
   - component: {fileID: 7488358206103097094}
   - component: {fileID: 7488358206103097093}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: loop_Part_2
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -4173,12 +4203,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7488358206103097092}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.0049779685, y: 1.6432647, z: 0.8433763}
-  m_LocalScale: {x: 0.39196646, y: 0.39196667, z: 0.39196667}
+  m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: 0.0049777534, y: 1.6432645, z: 0.8433761}
+  m_LocalScale: {x: 0.3919665, y: 0.39196706, z: 0.39196706}
   m_Children: []
-  m_Father: {fileID: 1005083079}
-  m_RootOrder: 11
+  m_Father: {fileID: 6132795332366083666}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &390141533196397013
 MeshFilter:
@@ -4278,7 +4308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1006604311458396032}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LoopPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4314,7 +4344,7 @@ GameObject:
   - component: {fileID: 8750680587909953546}
   - component: {fileID: 8750680587909953545}
   - component: {fileID: 8750680587909953544}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: koepel_Part_9
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -4437,7 +4467,7 @@ GameObject:
   - component: {fileID: 9130234140748451881}
   - component: {fileID: 9130234140748451880}
   - component: {fileID: 9130234140748451879}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: koepel_Part_2
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -4556,7 +4586,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1673830959491407041}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PhysicsColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4571,7 +4601,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9201387689953600002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.033, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7455587678849666706}
