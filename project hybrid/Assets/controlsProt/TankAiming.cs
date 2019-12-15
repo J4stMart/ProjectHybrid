@@ -14,6 +14,10 @@ public class TankAiming : MonoBehaviour
     private float reloadTime = 2f;
     public ParticleSystem nozzleflash;
     private bool canShoot = true;
+    private AudioSource audioSource;
+    public AudioClip chargingSound;
+    public AudioClip reloadSound;
+    private bool canPlayCharge = true;
 
     [SerializeField] bool UseCameraToAim = true;
 
@@ -22,6 +26,7 @@ public class TankAiming : MonoBehaviour
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         canShoot = true;
         aaa = startFirepower;
         if (UseCameraToAim)
@@ -37,14 +42,23 @@ public class TankAiming : MonoBehaviour
 
     void Update() {
 
+        Debug.Log(aaa);
         //temp input for shooting
         if (Input.GetKey(KeyCode.Space) && canShoot)
         {
             aaa += chargeUp * Time.deltaTime;
+            if(canPlayCharge)
+            {
+                canPlayCharge = false;
+                audioSource.PlayOneShot(chargingSound, 1f);
+            }
+
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) && canShoot)
+        if ((Input.GetKeyUp(KeyCode.Space) && canShoot) || (aaa > (chargeUp * reloadTime) && canShoot))
         {
+            audioSource.Stop();
+            canPlayCharge = true;
             arc.targetIndicator.gameObject.SetActive(false); 
             arc.enabled = false;
             GetComponent<LineRenderer>().enabled = false;
@@ -98,8 +112,11 @@ public class TankAiming : MonoBehaviour
     IEnumerator Shooting()
     {
         nozzleflash.Play();
-        yield return new WaitForSeconds(reloadTime);
+        yield return new WaitForSeconds(reloadTime - 0.2f);
+        audioSource.PlayOneShot(reloadSound, 1f);
+        yield return new WaitForSeconds(0.2f);
         arc.enabled = true;
+        yield return new WaitForSeconds(0.1f);
         arc.targetIndicator.gameObject.SetActive(true);
         canShoot = true;
     }
