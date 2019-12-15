@@ -45,7 +45,7 @@ public class TankAiming : MonoBehaviour
             }
         }
 
-        if ((shootInputEnd && canShoot) || (aaa > (chargeUp * reloadTime) && canShoot)) {
+        if ((shootInputEnd && canShoot) || (aaa > (1.5f *chargeUp * reloadTime) && canShoot)) {
             audioSource.Stop();
             canPlayCharge = true;
             arc.targetIndicator.gameObject.SetActive(false); 

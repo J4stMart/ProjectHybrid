@@ -19,8 +19,10 @@ public class MobileTankContolls : MonoBehaviour
     [SerializeField] bool aimByPointingCamera;
 
     Transform aimSourcePos;
+    private LayerMask raycastLayerMask;
 
     private void Awake() {
+        raycastLayerMask = LayerMask.GetMask("Level", "Aimcatcher");
         aiming = GetComponent<TankAiming>();
         aimSourcePos = GameObject.FindGameObjectWithTag("AimingSource").transform;
     }
@@ -197,7 +199,7 @@ public class MobileTankContolls : MonoBehaviour
             }
             
             RaycastHit hit = new RaycastHit();
-            if (Physics.Raycast(ray, out hit, 500)) {
+            if (Physics.Raycast(ray, out hit, 1300, raycastLayerMask)) {
                 aimSourcePos.position = transform.position - (hit.point - transform.position);
             }
         }
