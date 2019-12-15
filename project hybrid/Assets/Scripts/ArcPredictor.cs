@@ -13,7 +13,7 @@ public class ArcPredictor : MonoBehaviour
     public Vector3 offsetPosition;
     private LayerMask raycastLayerMask;
 
-    private Transform targetIndicator;
+    [SerializeField] public Transform targetIndicator;
     
 
     void Awake() {

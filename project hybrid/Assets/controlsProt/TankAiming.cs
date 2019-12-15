@@ -11,7 +11,9 @@ public class TankAiming : MonoBehaviour
     public float rotationspeed = 1f;
     public float startFirepower = 3f;
     public Transform loopPivot;
-
+    private float reloadTime = 2f;
+    public ParticleSystem nozzleflash;
+    private bool canShoot = true;
 
     [SerializeField] bool UseCameraToAim = true;
 
@@ -20,6 +22,7 @@ public class TankAiming : MonoBehaviour
 
     private void Awake()
     {
+        canShoot = true;
         aaa = startFirepower;
         if (UseCameraToAim)
         {
@@ -29,20 +32,26 @@ public class TankAiming : MonoBehaviour
         {
             trackingPosition = GameObject.FindGameObjectWithTag("AimingSource").transform;
         }
+        nozzleflash.Pause();
     }
 
     void Update() {
 
         //temp input for shooting
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && canShoot)
         {
             aaa += chargeUp * Time.deltaTime;
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space) && canShoot)
         {
+            arc.targetIndicator.gameObject.SetActive(false); 
+            arc.enabled = false;
+            GetComponent<LineRenderer>().enabled = false;
+            canShoot = false;
             GetComponent<Tank_Fire>().shoot(aaa);
             aaa = startFirepower;
+            StartCoroutine(Shooting());
         }
 
 
@@ -54,20 +63,14 @@ public class TankAiming : MonoBehaviour
         TurretTransform.rotation = Quaternion.Slerp(TurretTransform.rotation, Quaternion.LookRotation(dir, Vector3.up) * Quaternion.Euler(0, -offset, 0f), rotationspeed * Time.deltaTime);
         TurretTransform.localRotation = Quaternion.Euler(0, TurretTransform.localRotation.eulerAngles.y, 0);
 
-        loopPivot.rotation = Quaternion.Slerp(loopPivot.rotation, Quaternion.LookRotation(dir, transform.up), rotationspeed * Time.deltaTime);
+        loopPivot.rotation = Quaternion.Slerp(loopPivot.rotation, Quaternion.LookRotation(dir, transform.up), 1.5f* rotationspeed * Time.deltaTime);
         float loopRotatieAngle = Mathf.Clamp((loopPivot.localRotation.eulerAngles.x + 180f) % 360, 140f, 220f);
         loopPivot.localRotation = Quaternion.Euler(loopRotatieAngle + 180, 0, 0);
-
-
-
 
         Vector3 arcDir = arcStartPos.up;
         Vector3 horizontal = new Vector3(arcDir.x, 0, arcDir.z);
         arc.initialUpWardSpeed = arcStartPos.up.y * aaa;
         arc.initialForwardSpeed = new Vector3(arcStartPos.up.x, 0, arcStartPos.up.z).magnitude * aaa;
-        //arc.initialUpWardSpeed = Mathf.Sin(Vector3.Angle(arcDir, horizontal) * Mathf.Deg2Rad) * aaa;
-        //arc.initialForwardSpeed = Mathf.Cos(Vector3.Angle(arcDir, horizontal) * Mathf.Deg2Rad) * aaa;
-        Debug.Log(Vector3.Angle(arcDir, horizontal));
 
         arc.aimDirection = TurretTransform.rotation.eulerAngles.y - 90;
 
@@ -91,4 +94,13 @@ public class TankAiming : MonoBehaviour
     //    point = dir + pivot; // calculate rotated point
     //    return point; // return it
     //}
+
+    IEnumerator Shooting()
+    {
+        nozzleflash.Play();
+        yield return new WaitForSeconds(reloadTime);
+        arc.enabled = true;
+        arc.targetIndicator.gameObject.SetActive(true);
+        canShoot = true;
+    }
 }
