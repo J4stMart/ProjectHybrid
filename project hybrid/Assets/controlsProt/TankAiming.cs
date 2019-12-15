@@ -26,6 +26,8 @@ public class TankAiming : MonoBehaviour
 
     private void Awake()
     {
+        shootInput = false;
+        shootInputEnd = false;
         audioSource = GetComponent<AudioSource>();
         canShoot = true;
         aaa = startFirepower;
