@@ -13,6 +13,7 @@ public class Shell : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        StartCoroutine(ArmTimer());
     }
 
     private void Update()
@@ -22,13 +23,11 @@ public class Shell : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Player")
+        if ( collision.transform.tag == "Player")
         {
-            Debug.Log("Hit");
-            collision.transform.GetComponent<HitDetection>().gotHit = true;
+            collision.transform.parent.GetComponent<Tank_Destruction>().gotHit = true;
             StartCoroutine(Explosion());
         }
-        //dirty check. change to tag later
         else
         {
             StartCoroutine(Explosion());
@@ -39,7 +38,8 @@ public class Shell : MonoBehaviour
     {
         AudioClip explosion;
         int randomNumber = Random.Range(0, 3);
-        if (randomNumber == 0) {
+        if (randomNumber == 0)
+        {
             explosion = explosionSound1;
         }
         else if (randomNumber == 1)
@@ -53,10 +53,10 @@ public class Shell : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(explosion, 1f);
         GetComponent<CapsuleCollider>().enabled = false;
         transform.GetChild(0).gameObject.SetActive(false);
-        Instantiate(impactEffect, transform.position + transform.forward *1.1f -transform.up*0.2f, Quaternion.RotateTowards(Quaternion.LookRotation(Vector3.up), transform.rotation, 5));
+        Instantiate(impactEffect, transform.position + transform.forward * 1.1f - transform.up * 0.2f, Quaternion.RotateTowards(Quaternion.LookRotation(Vector3.up), transform.rotation, 5));
 
         yield return new WaitForSeconds(0.01f);
-        Vector3 explosionPos = transform.position + transform.forward*1.1f;
+        Vector3 explosionPos = transform.position + transform.forward * 1.1f;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, 9f);
         foreach (Collider hit in colliders)
         {
@@ -67,6 +67,12 @@ public class Shell : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1f);
-        Destroy(gameObject);        
+        Destroy(gameObject);
+    }
+
+    IEnumerator ArmTimer()
+    {
+        yield return new WaitForSeconds(1);
+        gameObject.layer = 12;
     }
 }

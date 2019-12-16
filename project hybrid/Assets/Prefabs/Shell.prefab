@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5758037887179407954}
   - component: {fileID: 912456569997365886}
   - component: {fileID: 1666200907514184733}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Shell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,16 +185,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7153270982181495687}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 64005041b3f13044eb26dcf9f416b25b,
-        type: 3}
-      propertyPath: m_Name
-      value: bom
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 64005041b3f13044eb26dcf9f416b25b,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 64005041b3f13044eb26dcf9f416b25b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -264,6 +254,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.7857333
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 64005041b3f13044eb26dcf9f416b25b,
+        type: 3}
+      propertyPath: m_Name
+      value: bom
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 64005041b3f13044eb26dcf9f416b25b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64005041b3f13044eb26dcf9f416b25b, type: 3}
