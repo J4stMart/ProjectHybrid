@@ -969,10 +969,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountOfScreenUsedForControls: 0.3
-  debug: 0
+  debug: 1
   raycastAiming: 1
   aimByPointingCamera: 1
   arCamera: {fileID: 1735816050}
+  tankTransform: {fileID: 0}
 --- !u!4 &988063949
 Transform:
   m_ObjectHideFlags: 0
