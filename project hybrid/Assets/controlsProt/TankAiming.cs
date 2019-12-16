@@ -48,7 +48,7 @@ public class TankAiming : MonoBehaviour
         if ((shootInputEnd && canShoot) || (aaa > (1.5f *chargeUp * reloadTime) && canShoot)) {
             audioSource.Stop();
             canPlayCharge = true;
-            arc.targetIndicator.gameObject.SetActive(false); 
+            arc.targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = false;
             arc.enabled = false;
             GetComponent<LineRenderer>().enabled = false;
             canShoot = false;
@@ -89,7 +89,7 @@ public class TankAiming : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         arc.enabled = true;
         yield return new WaitForSeconds(0.1f);
-        arc.targetIndicator.gameObject.SetActive(true);
+        arc.targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = true;
         canShoot = true;
     }
 }

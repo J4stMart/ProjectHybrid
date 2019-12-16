@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 547727097}
   - component: {fileID: 547727098}
   m_Layer: 10
-  m_Name: New Sprite (1)
+  m_Name: foreGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1120,7 +1120,7 @@ GameObject:
   - component: {fileID: 1314778858}
   - component: {fileID: 1314778859}
   m_Layer: 10
-  m_Name: New Sprite
+  m_Name: backgroundStatic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1649,6 +1649,20 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.4139998
       objectReference: {fileID: 0}
+    - target: {fileID: 1029298624705233968, guid: 4905e4f98ad85e8419929e27d4003100,
+        type: 3}
+      propertyPath: ArCamera
+      value: 
+      objectReference: {fileID: 1599696807}
+    - target: {fileID: 1029298624705233968, guid: 4905e4f98ad85e8419929e27d4003100,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 925997833}
+    - target: {fileID: 570370655, guid: 4905e4f98ad85e8419929e27d4003100, type: 3}
+      propertyPath: debugControls
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 570370640, guid: 4905e4f98ad85e8419929e27d4003100, type: 3}
       propertyPath: referenceCylinder
       value: 
@@ -1661,10 +1675,6 @@ PrefabInstance:
       propertyPath: targetIndicator
       value: 
       objectReference: {fileID: 925997833}
-    - target: {fileID: 570370655, guid: 4905e4f98ad85e8419929e27d4003100, type: 3}
-      propertyPath: debugControls
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1321554022, guid: 4905e4f98ad85e8419929e27d4003100, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.54463905
@@ -1677,16 +1687,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 66
       objectReference: {fileID: 0}
-    - target: {fileID: 1029298624705233968, guid: 4905e4f98ad85e8419929e27d4003100,
-        type: 3}
-      propertyPath: ArCamera
-      value: 
-      objectReference: {fileID: 1599696807}
-    - target: {fileID: 1029298624705233968, guid: 4905e4f98ad85e8419929e27d4003100,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 925997833}
     - target: {fileID: 1321554021, guid: 4905e4f98ad85e8419929e27d4003100, type: 3}
       propertyPath: m_TagString
       value: AimingSource

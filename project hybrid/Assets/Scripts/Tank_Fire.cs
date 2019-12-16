@@ -19,6 +19,5 @@ public class Tank_Fire : MonoBehaviour
         //shell.layer = 8;
         // per unit of distance 105 units of force
         shell.GetComponent<Rigidbody>().velocity = spawnLocation.up * aim.aaa;
-
     }
 }

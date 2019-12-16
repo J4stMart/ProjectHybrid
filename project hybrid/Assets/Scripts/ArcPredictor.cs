@@ -64,7 +64,7 @@ public class ArcPredictor : MonoBehaviour
 
             if (hit.collider != null) {
                 points[i] = hit.point;
-                targetIndicator.gameObject.SetActive(true);
+                targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = true;
                 targetIndicator.position = hit.point + (hit.normal / 100);
 
                 //Vector3 rot = new Vector3(hit.normal.x, hit.normal.y,0);
@@ -80,7 +80,7 @@ public class ArcPredictor : MonoBehaviour
             }
 
             if (i == lengthOfLineRenderer - 4) {
-                targetIndicator.gameObject.SetActive(false);
+                targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = false;
             }
         }
         
