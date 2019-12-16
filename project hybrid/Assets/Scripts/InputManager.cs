@@ -12,6 +12,18 @@ public class InputManager : MonoBehaviour
     private float horizontal;
     private float vertical;
 
+    [SerializeField]
+    private bool raycastAiming;
+    [SerializeField]
+    private bool aimByPointingCamera;
+
+    private Transform aimSourcePos;
+    private Transform aimingTarget;
+    private LayerMask raycastLayerMask;
+
+    public Transform arCamera;
+    public Transform tankTransform = null;
+
     [HideInInspector]
     public delegate void StartShooting();
     [HideInInspector]
@@ -25,17 +37,23 @@ public class InputManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        raycastLayerMask = LayerMask.GetMask("Level", "AimCatcher");
+        aimSourcePos = GameObject.FindGameObjectWithTag("AimingSource").transform;
+        aimingTarget = GameObject.FindGameObjectWithTag("TargetGreen").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (aimByPointingCamera)
+        {
+            raycastAim(Vector2.zero);
+        }
+
         if (debug)
         {
             DebugControls();
         }
-
 
         for (int i = 0; i < Input.touchCount; i++)
         {
@@ -103,6 +121,16 @@ public class InputManager : MonoBehaviour
             pos.x = 10;
         }
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            startShooting();
+        }
+
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            endShooting();
+        }
+
         setAxes(pos);
     }
 
@@ -114,5 +142,36 @@ public class InputManager : MonoBehaviour
     public float Vertical
     {
         get { return vertical; }
+    }
+
+    void raycastAim(Vector2 pos)
+    {
+        if (raycastAiming)
+        {
+            Ray ray;
+            if (aimByPointingCamera)
+            { 
+                if (arCamera == null)
+                {
+                    arCamera = Camera.main.transform;
+                }
+
+                ray = new Ray(arCamera.position, arCamera.forward);
+                Debug.DrawLine(Camera.main.transform.position + Vector3.down, Camera.main.transform.position + Camera.main.transform.forward * 500, Color.green);
+            }
+            else
+            {
+                ray = Camera.main.ScreenPointToRay(pos);
+            }
+
+            RaycastHit hit = new RaycastHit();
+            if (Physics.Raycast(ray, out hit, 1300, raycastLayerMask))
+            {
+                aimSourcePos.position = tankTransform.position - (hit.point - tankTransform.position);
+
+                aimingTarget.position = hit.point + (hit.normal / 100);
+                aimingTarget.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+            }
+        }
     }
 }

@@ -34,5 +34,10 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - PlayAudio
+  - PlayExplosionAudio
+  - PlayNozzleFlash
+  - PlayChargingAudio
+  - PlayReloadAudio
   DisableAutoOpenWizard: 1
   ShowSettings: 1

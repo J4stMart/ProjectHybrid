@@ -13,6 +13,9 @@ namespace Multiplayer
         public InputManager inputManager;
         public GameObject arCamera;
 
+        public AudioClip chargingSound;
+        public AudioClip reloadSound;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -30,7 +33,9 @@ namespace Multiplayer
 
                     var instance = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnpoint, Quaternion.identity);
                     instance.GetComponent<TankMultiplayer>().SetInputManager(inputManager);
-                    instance.GetComponentInChildren<TankTurret>().SetVariables(arCamera.transform, inputManager);
+                    var turret = instance.GetComponentInChildren<TankTurret>();
+                    turret.SetVariables(arCamera.transform, inputManager);
+                    turret.SetAudio(chargingSound, reloadSound);
                 }
                 else
                 {

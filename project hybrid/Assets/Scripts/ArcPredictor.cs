@@ -12,9 +12,9 @@ public class ArcPredictor : MonoBehaviour
     public float aimDirection = 0f;
     public Vector3 offsetPosition;
     private LayerMask raycastLayerMask;
-    private LineRenderer lineRenderer;
 
-    [SerializeField] public Transform targetIndicator;
+    public LineRenderer lineRenderer;
+    public Transform targetIndicator;
     
 
     void Awake() {

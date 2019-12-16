@@ -1239,6 +1239,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 46.404003, z: 34.88}
+--- !u!21 &675812612
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'tank_en_bom_2_output_LRMaterial
+
+    105824'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 17df775c20f74895a13b5942115e8c14, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1001 &680566773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1822,7 +1850,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1174853186}
+  - {fileID: 675812612}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2244,34 +2272,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1174853186
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'tank_en_bom_2_output_LRMaterial
-
-    83560'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 17df775c20f74895a13b5942115e8c14, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!21 &1181059652
 Material:
   serializedVersion: 6
@@ -5145,24 +5145,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4905e4f98ad85e8419929e27d4003100, type: 3}
---- !u!1 &1029298624705233966 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9201387689953600002, guid: 4905e4f98ad85e8419929e27d4003100,
-    type: 3}
-  m_PrefabInstance: {fileID: 1029298624705233965}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1029298624705233967 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1005083078, guid: 4905e4f98ad85e8419929e27d4003100,
-    type: 3}
-  m_PrefabInstance: {fileID: 1029298624705233965}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1029298624705233968 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1129532058, guid: 4905e4f98ad85e8419929e27d4003100,
-    type: 3}
-  m_PrefabInstance: {fileID: 1029298624705233965}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1150121568189918567
 GameObject:
   m_ObjectHideFlags: 0
