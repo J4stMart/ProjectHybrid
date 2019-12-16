@@ -25,7 +25,7 @@ public class Tank_Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-        Physics.gravity =  new Vector3(0,-6f, 0);
+        Physics.gravity =  new Vector3(0, -6f, 0);
 
         if (rb /* && input*/)
         {
