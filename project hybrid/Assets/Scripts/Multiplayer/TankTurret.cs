@@ -19,16 +19,25 @@ public class TankTurret : MonoBehaviourPun
     private float chargeUpSpeed = 15;
     private float chargeUp = 0;
 
+    [SerializeField]
+    private Color arcColor1 = Color.white;
+    [SerializeField]
+    private Color arcColor2 = Color.white;
+
     private InputManager inputManager;
 
     private bool isShooting = false;
 
     private void Start()
     {
-        if(photonView.IsMine)
+        if(photonView.IsMine || !PhotonNetwork.IsConnected)
         {
             inputManager.startShooting += new InputManager.StartShooting(StartShooting);
             inputManager.endShooting += new InputManager.EndShooting(EndShooting);
+
+            arc = gameObject.AddComponent<ArcPredictor>();
+            arc.c1 = arcColor1;
+            arc.c2 = arcColor2;
         }
     }
 

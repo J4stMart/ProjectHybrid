@@ -9,7 +9,7 @@ public class ArcPredictor : MonoBehaviour
 
     public Color c1 = Color.white;
     public Color c2 = Color.white;
-    public int lengthOfLineRenderer;
+    public int lengthOfLineRenderer = 50;
     public float initialUpWardSpeed = 5f;
     public float initialForwardSpeed = 1f;
     public float aimDirection = 0f;
@@ -25,9 +25,13 @@ public class ArcPredictor : MonoBehaviour
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         lineRenderer.widthMultiplier = 0.05f;
         lineRenderer.positionCount = lengthOfLineRenderer;
+    }
 
+    private void Start()
+    {
         // A simple 2 color gradient with a fixed alpha of 1.0f.
         float alpha = 1.0f;
+
         Gradient gradient = new Gradient();
         gradient.SetKeys(
             new GradientColorKey[] { new GradientColorKey(c1, 0.0f), new GradientColorKey(c2, 1.0f) },

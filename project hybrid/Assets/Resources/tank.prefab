@@ -601,25 +601,6 @@ MonoBehaviour:
   m_SynchronizePosition: 0
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &7651504580390473061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945434851369598998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2487d1619b345da47aa7b463aa735ae2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  c1: {r: 1, g: 1, b: 1, a: 1}
-  c2: {r: 1, g: 1, b: 1, a: 1}
-  lengthOfLineRenderer: 50
-  initialUpWardSpeed: 5
-  initialForwardSpeed: 1
-  aimDirection: 0
-  offsetPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &8093136681402878665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,9 +616,11 @@ MonoBehaviour:
   shellPrefab: {fileID: 298998893675776905, guid: adcdf75b2aade2e43867f741546e0b2a,
     type: 3}
   shootPosition: {fileID: 1321554022}
-  arc: {fileID: 7651504580390473061}
+  arc: {fileID: 0}
   shootForce: 105
   chargeUpSpeed: 15
+  arcColor1: {r: 1, g: 1, b: 1, a: 1}
+  arcColor2: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &967975508599263674
 GameObject:
   m_ObjectHideFlags: 0
@@ -3950,15 +3933,15 @@ PrefabInstance:
       propertyPath: m_TagString
       value: TankRed
       objectReference: {fileID: 0}
-    - target: {fileID: 7339993732059161679, guid: e15381ca32c45b74f980b1f51f619a43,
+    - target: {fileID: -2950185119235728603, guid: e15381ca32c45b74f980b1f51f619a43,
         type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.0012243438
+      propertyPath: m_Name
+      value: base
       objectReference: {fileID: 0}
-    - target: {fileID: 7339993732059161679, guid: e15381ca32c45b74f980b1f51f619a43,
+    - target: {fileID: 8571268679721659267, guid: e15381ca32c45b74f980b1f51f619a43,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9999992
+      propertyPath: m_Name
+      value: tank turret
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e15381ca32c45b74f980b1f51f619a43,
         type: 3}
@@ -4030,10 +4013,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.414
       objectReference: {fileID: 0}
-    - target: {fileID: 8571268679721659267, guid: e15381ca32c45b74f980b1f51f619a43,
+    - target: {fileID: 7339993732059161679, guid: e15381ca32c45b74f980b1f51f619a43,
         type: 3}
-      propertyPath: m_Name
-      value: tank turret
+      propertyPath: m_LocalRotation.x
+      value: 0.0012243438
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339993732059161679, guid: e15381ca32c45b74f980b1f51f619a43,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999992
       objectReference: {fileID: 0}
     - target: {fileID: -278387286004083654, guid: e15381ca32c45b74f980b1f51f619a43,
         type: 3}
@@ -4054,11 +4042,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: The dude
-      objectReference: {fileID: 0}
-    - target: {fileID: -2950185119235728603, guid: e15381ca32c45b74f980b1f51f619a43,
-        type: 3}
-      propertyPath: m_Name
-      value: base
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e15381ca32c45b74f980b1f51f619a43, type: 3}

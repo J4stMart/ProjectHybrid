@@ -44,8 +44,6 @@ public class TankMultiplayer : MonoBehaviourPun
         {
             HandleMovement();
         }
-
-        Debug.Log(Physics.gravity);
     }
 
     protected virtual void HandleMovement()

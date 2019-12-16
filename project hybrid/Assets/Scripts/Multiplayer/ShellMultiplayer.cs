@@ -20,7 +20,10 @@ public class ShellMultiplayer : MonoBehaviourPun
         transform.forward = rb.velocity.normalized;
 
         if (transform.position.z < -40)
+        {
+            Debug.Log("hit");
             PhotonNetwork.Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
