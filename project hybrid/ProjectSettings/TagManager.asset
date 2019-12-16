@@ -7,6 +7,8 @@ TagManager:
   - Fractures
   - TankRed
   - TargetRed
+  - AimingSource
+  - TargetGreen
   layers:
   - Default
   - TransparentFX
@@ -18,11 +20,11 @@ TagManager:
   - 
   - NoCollision
   - Level
-  - 
-  - 
-  - 
-  - 
-  - 
+  - NoMarker
+  - VideoBackGround
+  - Shell
+  - Red
+  - Aimcatcher
   - 
   - 
   - 

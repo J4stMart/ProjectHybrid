@@ -33,10 +33,11 @@ public class Tank_Controller : MonoBehaviour
         }
     }
 
-    protected virtual void HandleMovement()
-    {
+    protected virtual void HandleMovement() {
+        //rb.AddForce((transform.forward * controls.vertical * tankSpeed * Time.deltaTime));
         Vector3 wantedPosition = transform.position + (transform.forward * /*Input.GetAxis("Vertical")*/ controls.vertical * tankSpeed * Time.deltaTime);
         rb.MovePosition(wantedPosition);
+        
 
         Quaternion wantedRotation = transform.rotation * Quaternion.Euler(Vector3.up * (tankRotationSpeed * /*Input.GetAxis("Horizontal")*/ controls.horizontal * Time.deltaTime));
         rb.MoveRotation(wantedRotation);

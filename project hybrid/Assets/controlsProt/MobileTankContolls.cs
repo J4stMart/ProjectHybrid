@@ -13,42 +13,51 @@ public class MobileTankContolls : MonoBehaviour
     TankAiming aiming;
 
     [Range(0, 1f), SerializeField] private float amountOfScreenUsedForControls = .3f;
-    [SerializeField] bool debugControls = false;
+    public bool debugControls = false;
 
     [SerializeField] bool raycastAiming;
     [SerializeField] bool aimByPointingCamera;
-    [SerializeField] Transform aimSourcePos;
+
+    Transform aimSourcePos;
+    Transform aimingTarget;
+    private LayerMask raycastLayerMask;
 
     private void Awake() {
+        raycastLayerMask = LayerMask.GetMask("Level", "Aimcatcher");
         aiming = GetComponent<TankAiming>();
+        aimSourcePos = GameObject.FindGameObjectWithTag("AimingSource").transform;
+        aimingTarget = GameObject.FindGameObjectWithTag("TargetGreen").transform;
     }
 
-    void Update()
-    {
-        if (aimByPointingCamera)
-        {
+    void Update() {
+        if (aimByPointingCamera) {
             raycastAim(Vector2.zero);
         }
 
-        if (debugControls)
-        {
+        aiming.shootInputEnd = false;
+        aiming.shootInput = false;
+
+        if (debugControls) {
             dbugControls();
         }
 
-        if (Input.touchCount > 0)
-        {
+        if (Input.touchCount > 0) {
             Touch touch = Input.touches[0];
-            Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? (touch.position.y / (Screen.height / 10)) / amountOfScreenUsedForControls : 10);
+            Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? ((touch.position.y / (Screen.height / 10)) - .6f) / amountOfScreenUsedForControls : 10);
 
             switch (touch.phase) {
-                case TouchPhase.Ended:
-                    setAxes(Vector2.zero);
 
-                    if (touch.position.y / Screen.height > amountOfScreenUsedForControls) {
-                        GetComponent<Tank_Fire>().shoot(aiming.aaa);
-                        aiming.aaa = 0;
+                case TouchPhase.Ended:
+                    if (touch.position.y / Screen.height < amountOfScreenUsedForControls) {
+                        setAxes(Vector2.zero);
+                    }
+                    else {
+                        raycastAim(touch.position);
+                        aiming.shootInputEnd = true;
+                        aiming.shootInput = true;
                     }
                     break;
+
                 case TouchPhase.Began:
 
                     if (touch.position.y / Screen.height < amountOfScreenUsedForControls) {
@@ -56,84 +65,78 @@ public class MobileTankContolls : MonoBehaviour
                     }
                     else {
                         raycastAim(touch.position);
-                        aiming.aaa += aiming.chargeUp * Time.deltaTime;
+                        aiming.shootInput = true;
                     }
-
                     break;
+
                 case TouchPhase.Moved:
                     if (touch.position.y / Screen.height < amountOfScreenUsedForControls) {
                         setAxes(pos);
                     }
                     else {
                         raycastAim(touch.position);
-                        aiming.aaa += aiming.chargeUp * Time.deltaTime;
+                        aiming.shootInput = true;
                     }
                     break;
+
                 case TouchPhase.Stationary:
                     if (touch.position.y / Screen.height < amountOfScreenUsedForControls) {
                         setAxes(pos);
                     }
                     else {
                         raycastAim(touch.position);
-                        aiming.aaa += aiming.chargeUp * Time.deltaTime;
+                        aiming.shootInput = true;
                     }
                     break;
-                
             }
         }
 
-        if (Input.touchCount > 1)
-        {
+        if (Input.touchCount > 1 && false) {
             Touch touch = Input.touches[1];
-            Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? (touch.position.y / (Screen.height / 10)) / amountOfScreenUsedForControls : 10);
+            Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? (touch.position.y / (Screen.height / 5)) / amountOfScreenUsedForControls : 10);
 
-            switch (touch.phase)
-            {
+            switch (touch.phase) {
+
                 case TouchPhase.Ended:
-                    setAxes(Vector2.zero);
-
-                    if (touch.position.y / Screen.height > amountOfScreenUsedForControls)
-                    {
-                        GetComponent<Tank_Fire>().shoot(aiming.aaa);
-                        aiming.aaa = 0;
+                    if (touch.position.y / Screen.height < amountOfScreenUsedForControls) {
+                        setAxes(Vector2.zero);
+                    }
+                    else {
+                        raycastAim(touch.position);
+                        aiming.shootInputEnd = true;
                     }
                     break;
+
                 case TouchPhase.Began:
 
-                    if (touch.position.y / Screen.height < amountOfScreenUsedForControls)
-                    {
-                        setAxes(pos);
-                    }
-                    else
-                    {
-                        raycastAim(touch.position);
-                        aiming.aaa += aiming.chargeUp * Time.deltaTime;
-                    }
-
-                    break;
-                case TouchPhase.Moved:
-                    if (touch.position.y / Screen.height < amountOfScreenUsedForControls)
-                    {
-                        setAxes(pos);
-                    }
-                    else
-                    {
-
-                        raycastAim(touch.position);
-                        aiming.aaa += aiming.chargeUp * Time.deltaTime;
-                    }
-                    break;
-                case TouchPhase.Stationary:
-                    if (touch.position.y / Screen.height < amountOfScreenUsedForControls)
-                    {
+                    if (touch.position.y / Screen.height < amountOfScreenUsedForControls) {
                         setAxes(pos);
                     }
                     else {
-                        raycastAim(touch.position); 
-                        aiming.aaa += aiming.chargeUp * Time.deltaTime;
+                        raycastAim(touch.position);
+                        aiming.shootInput = true;
                     }
                     break;
 
+                case TouchPhase.Moved:
+                    if (touch.position.y / Screen.height < amountOfScreenUsedForControls) {
+                        setAxes(pos);
+                    }
+                    else {
+                        raycastAim(touch.position);
+                        aiming.shootInput = true;
+                    }
+                    break;
+
+                case TouchPhase.Stationary:
+                    if (touch.position.y / Screen.height < amountOfScreenUsedForControls) {
+                        setAxes(pos);
+                    }
+                    else {
+                        raycastAim(touch.position);
+                        aiming.shootInput = true;
+                    }
+                    break;
             }
         }
     }
@@ -153,30 +156,32 @@ public class MobileTankContolls : MonoBehaviour
     //    }
     //}
 
-    void setAxes(Vector2 pos)
-    {
+    void setAxes(Vector2 pos) {
         horizontal = pos.x / 5;
-        vertical = pos.y / 10;
+        vertical = pos.y / 7;
     }
 
-    void dbugControls()
-    {
+    void dbugControls() {
         Vector2 pos = new Vector2();
 
-        if (Input.GetKey(KeyCode.W))
-        {
+        if (Input.GetKey(KeyCode.W)) {
             pos.y = 4;
         }
-        if (Input.GetKey(KeyCode.A))
-        {
+        if (Input.GetKey(KeyCode.A)) {
             pos.x = -4;
         }
-        if (Input.GetKey(KeyCode.D))
-        {
+        if (Input.GetKey(KeyCode.D)) {
             pos.x = 4;
         }
 
         setAxes(pos);
+
+        if (Input.GetKey(KeyCode.Space)) {
+            aiming.shootInput = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Space)) {
+            aiming.shootInputEnd = true;
+        }
     }
 
     void raycastAim(Vector2 pos) {
@@ -196,8 +201,11 @@ public class MobileTankContolls : MonoBehaviour
             }
             
             RaycastHit hit = new RaycastHit();
-            if (Physics.Raycast(ray, out hit, 500)) {
+            if (Physics.Raycast(ray, out hit, 1300, raycastLayerMask)) {
                 aimSourcePos.position = transform.position - (hit.point - transform.position);
+
+                aimingTarget.position = hit.point + (hit.normal /100);
+                aimingTarget.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
             }
         }
     }

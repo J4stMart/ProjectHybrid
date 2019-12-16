@@ -10,8 +10,8 @@ QualitySettings:
     name: Very Low
     pixelLightCount: 0
     shadows: 1
-    shadowResolution: 0
-    shadowProjection: 1
+    shadowResolution: 1
+    shadowProjection: 0
     shadowCascades: 1
     shadowDistance: 400
     shadowNearPlaneOffset: 3
@@ -219,5 +219,5 @@ QualitySettings:
   m_PerPlatformDefaultQuality:
     Android: 0
     Standalone: 0
-    WebGL: 0
+    WebGL: 3
     Windows Store Apps: 0

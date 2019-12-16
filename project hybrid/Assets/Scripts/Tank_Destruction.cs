@@ -7,8 +7,7 @@ public class Tank_Destruction : MonoBehaviour
     private GameObject tank;
     public GameObject onderstelFractures;
     public GameObject koepelFractures;
-    public GameObject physicsColliders;
-    public GameObject ArCamera;
+    public GameObject loopFractures;
     public bool isDestroyed;
     public bool gotHit;
     public int explosionForce = 0;
@@ -20,7 +19,6 @@ public class Tank_Destruction : MonoBehaviour
     void Awake()
     {
         tank = gameObject;
-        ArCamera = GameObject.FindWithTag("MainCamera");
 
         foreach (Transform fracture in onderstelFractures.transform)
         {
@@ -30,6 +28,13 @@ public class Tank_Destruction : MonoBehaviour
             }
         }
         foreach (Transform fracture in koepelFractures.transform)
+        {
+            if (fracture.tag == "Fractures")
+            {
+                fractures.Add(fracture.gameObject);
+            }
+        }
+        foreach (Transform fracture in loopFractures.transform)
         {
             if (fracture.tag == "Fractures")
             {

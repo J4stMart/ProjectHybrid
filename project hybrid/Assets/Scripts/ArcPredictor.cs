@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 public class ArcPredictor : MonoBehaviour
 {
-    // Creates a line renderer that follows a Sin() function
-    // and animates it.
-
     public Color c1 = Color.white;
     public Color c2 = Color.white;
     public int lengthOfLineRenderer = 50;
@@ -14,12 +11,14 @@ public class ArcPredictor : MonoBehaviour
     public float initialForwardSpeed = 1f;
     public float aimDirection = 0f;
     public Vector3 offsetPosition;
-
-    private Transform targetIndicator;
+    private LayerMask raycastLayerMask;
     private LineRenderer lineRenderer;
 
-    void Awake()
-    {
+    [SerializeField] public Transform targetIndicator;
+    
+
+    void Awake() {
+        raycastLayerMask = LayerMask.GetMask("Level");
         targetIndicator = GameObject.FindWithTag("TargetRed").transform;
         lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
@@ -40,8 +39,9 @@ public class ArcPredictor : MonoBehaviour
         lineRenderer.colorGradient = gradient;
     }
 
-    void Update()
-    {
+    void FixedUpdate() {
+
+        LineRenderer lineRenderer = GetComponent<LineRenderer>();
         var points = new Vector3[lengthOfLineRenderer];
 
         if (initialForwardSpeed != 0)
@@ -55,12 +55,10 @@ public class ArcPredictor : MonoBehaviour
             lineRenderer.enabled = false;
         }
 
-        var t = Time.time;
         float gravity = Physics.gravity.magnitude;
         Quaternion aimAngle = Quaternion.Euler(0f, aimDirection, 0f);
-        for (int i = 0; i < lengthOfLineRenderer; i++)
-        {
-            points[i] = new Vector3((i * 0.1f) * initialForwardSpeed, initialUpWardSpeed * (i * 0.1f) - 0.5f * gravity * (i * 0.1f) * (i * 0.1f), 0.0f);
+        for (int i = 0; i < lengthOfLineRenderer; i++) {
+            points[i] = new Vector3((i * 10 * Time.deltaTime) * initialForwardSpeed, initialUpWardSpeed * (i * 10 * Time.deltaTime) - 0.5f * gravity * (i * 10 * Time.deltaTime) * (i * 10 * Time.deltaTime), 0.0f);
             points[i] = (aimAngle * points[i]) + transform.position + offsetPosition;
         }
 
@@ -68,7 +66,7 @@ public class ArcPredictor : MonoBehaviour
         {
             Ray ray = new Ray(points[i], points[i + 2] - points[i]);
             RaycastHit hit = new RaycastHit();
-            Physics.Raycast(ray, out hit, Vector3.Distance(points[i], points[i + 2]));
+            Physics.Raycast(ray, out hit, Vector3.Distance(points[i], points[i + 2]),raycastLayerMask);
 
             if (hit.collider != null)
             {
