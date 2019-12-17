@@ -622,6 +622,7 @@ MonoBehaviour:
   initialForwardSpeed: 1
   aimDirection: 0
   offsetPosition: {x: 0, y: 0, z: 0}
+  lineRenderer: {fileID: 0}
   targetIndicator: {fileID: 0}
 --- !u!114 &570370655
 MonoBehaviour:
