@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641216, b: 0.5748184, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.49641293, b: 0.5748197, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -980,7 +980,8 @@ MonoBehaviour:
   arCamera: {fileID: 1735816045}
   chargingSound: {fileID: 8300000, guid: 7e5f988b5da59364fb08032701701ace, type: 3}
   reloadSound: {fileID: 8300000, guid: f0b49cf8daaacf64bb3ba5a5452271b9, type: 3}
-  respawnLine: {fileID: 1651935371}
+  spawnTargetPrefab: {fileID: 2257558645779190132, guid: e31d27a82608ee14285764179f1eed5a,
+    type: 3}
 --- !u!4 &820397591
 Transform:
   m_ObjectHideFlags: 0
@@ -1136,7 +1137,7 @@ PrefabInstance:
     - target: {fileID: 99265200266783105, guid: 0497a132d98fcd842b0a2c12205220e7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 99265200266783105, guid: 0497a132d98fcd842b0a2c12205220e7,
         type: 3}
