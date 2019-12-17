@@ -17,14 +17,14 @@ MonoBehaviour:
     ufoLicenseKey: QVQvSENHci8vLy8vQUFBQUtBQ3UvNk1GTGtoUHNjTjUySzRQWXF0bzltWnNxNG5KSU9zazk1ZGlPczlYOU4vVVpwZC9GOG8wREdzYjdLWitLNWJZK1JONTBYSjFHSytBNENrYko5WkJJOHE3ajVsVG00ZU03VUxxKzRVRzRoVFlUbWZtaFV0aTE4dkJTUDdlYmxOc3B0VTR1bCsvYTNZZ1YvQ0crUGtRUE51b0kxTWRhSjR3REc3MUxyTTBVSVUzT0FBbU5oSTFYd0RQbUw1N2w4Z2NyQWo4RGZzVGF1Vm80b0VUNHQvS0ErZmlYQ3dRNFEvL0c2WkJic1Npby9qR05LK0JBdUMrbmJjUERVZVB4UDBjYVcxYi9rUzMrWnNoaVkwUndjZFRhckErVklOZkdURWJWMHpHNTY1Mm1iMjJ5S3pudWVVNnFXOXJuVVlNTm95dGI5cU9veVRPSjZxSTBmWlViQmUrcWVSUmVUb1NQaS9yd2RVTHBJdk4=
     delayedInitialization: 0
     cameraDeviceModeSetting: -1
-    maxSimultaneousImageTargets: 5
-    maxSimultaneousObjectTargets: 5
+    maxSimultaneousImageTargets: 1
+    maxSimultaneousObjectTargets: 1
     useDelayedLoadingObjectTargets: 0
     modelTargetRecoWhileExtendedTracked: 1
     version: 8.5.9
     eulaAcceptedVersions: '{"Values":["8.5"]}'
   database:
-    disableModelExtraction: 1
+    disableModelExtraction: 0
   videoBackground:
     numDivisions: 2
     videoBackgroundShader: {fileID: 4800000, guid: f40623b353e2f1943b1b3ba42975db7a,
@@ -39,6 +39,6 @@ MonoBehaviour:
     autoInitTracker: 0
     autoStartTracker: 0
   webcam:
-    deviceNameSetInEditor: Logitech HD Webcam C270
+    deviceNameSetInEditor: Logitech HD Pro Webcam C920
     turnOffWebCam: 0
     renderTextureLayer: 30
