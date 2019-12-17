@@ -2,6 +2,9 @@
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
     <ImageTarget name="tank_en_bom_2_output_LR" size="25.700001 25.700003" />
+    <CylinderTarget name="Emmer2" sideLength="25.400000"/>
+    <CylinderTarget name="douglas2" sideLength="17.100000"/>
+    <CylinderTarget name="sterren2" sideLength="21.600000"/>
     <CylinderTarget name="euro" sideLength="21.799999"/>
     <CylinderTarget name="sterren" sideLength="21.299999"/>
     <CylinderTarget name="emmer" sideLength="25.500000"/>
