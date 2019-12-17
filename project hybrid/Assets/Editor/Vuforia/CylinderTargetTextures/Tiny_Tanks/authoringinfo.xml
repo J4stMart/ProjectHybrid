@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<VuforiaUnityInfo version="7.0">
-    <TargetSet version="5.0" toolVersion="2.8.0">
-        <CylinderTarget name="kerst1" version="3.0" targetId="eaee3d7b083f46b280aadf98204c6e05" sideLength="14.200000" topDiameter="21.400000" bottomDiameter="21.400000" sideImage="kerst1.Body_scaled.jpg"/>
-    </TargetSet>
-</VuforiaUnityInfo>

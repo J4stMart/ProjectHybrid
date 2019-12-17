@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VuforiaUnityInfo version="7.0">
     <TargetSet version="5.0" toolVersion="2.8.0">
-        <CylinderTarget name="Emmer2" version="3.0" targetId="3eb41e8b7bb147e79e5cba64fbd60544" sideLength="25.400000" topDiameter="17.980000" bottomDiameter="17.980000" sideImage="Emmer2.Body_scaled.jpg"/>
-        <CylinderTarget name="douglas2" version="3.0" targetId="f9999eb6aabc4900b6dbba8a8af09390" sideLength="17.100000" topDiameter="15.780000" bottomDiameter="15.780000" sideImage="douglas2.Body_scaled.jpg"/>
-        <CylinderTarget name="sterren2" version="3.0" targetId="7e82e0f8bbf4483a8de88de88b460920" sideLength="21.600000" topDiameter="16.299999" bottomDiameter="16.299999" sideImage="sterren2.Body_scaled.jpg"/>
+        <CylinderTarget name="douglas2" version="3.0" targetId="f9999eb6aabc4900b6dbba8a8af09390" sideLength="17.100000" topDiameter="15.780000" bottomDiameter="15.780000" sideImage="douglas2.Body_scaled.jpg" bottomImage="douglas2.Bottom_scaled.jpg"/>
+        <CylinderTarget name="sterren2" version="3.0" targetId="7e82e0f8bbf4483a8de88de88b460920" sideLength="21.600000" topDiameter="16.299999" bottomDiameter="16.299999" sideImage="sterren2.Body_scaled.jpg" bottomImage="sterren2.Bottom_scaled.jpg"/>
+        <CylinderTarget name="Emmer2" version="3.0" targetId="3eb41e8b7bb147e79e5cba64fbd60544" sideLength="25.400000" topDiameter="17.980000" bottomDiameter="17.980000" sideImage="Emmer2.Body_scaled.jpg" bottomImage="Emmer2.Bottom_scaled.jpg"/>
         <CylinderTarget name="euro" version="3.0" targetId="8769874fc2d746d8a6f4172ce301d15d" sideLength="21.799999" topDiameter="15.060000" bottomDiameter="15.060000" sideImage="euro.Body_scaled.jpg" bottomImage="euro.Bottom_scaled.jpg"/>
-        <CylinderTarget name="sterren" version="3.0" targetId="3ded221d2b8c4121aeadddcd18448c3f" sideLength="21.299999" topDiameter="16.000000" bottomDiameter="16.000000" sideImage="sterren.Body_scaled.jpg" bottomImage="sterren.Bottom_scaled.jpg"/>
-        <CylinderTarget name="emmer" version="3.0" targetId="c812942502d141a689d795be4271b16a" sideLength="25.500000" topDiameter="17.700001" bottomDiameter="17.700001" sideImage="emmer.Body_scaled.jpg" bottomImage="emmer.Bottom_scaled.jpg"/>
-        <CylinderTarget name="douglas" version="3.0" targetId="5e9a47af6a5b4acd92340221ddd4fc63" sideLength="17.000000" topDiameter="15.500000" bottomDiameter="15.500000" sideImage="douglas.Body_scaled.jpg" bottomImage="douglas.Bottom_scaled.jpg"/>
         <CylinderTarget name="green" version="3.0" targetId="545e2d92be834b53a7ac1656b563ea01" sideLength="14.500000" topDiameter="21.639999" bottomDiameter="21.639999" sideImage="green.Body_scaled.jpg" bottomImage="green.Bottom_scaled.jpg"/>
     </TargetSet>
 </VuforiaUnityInfo>
