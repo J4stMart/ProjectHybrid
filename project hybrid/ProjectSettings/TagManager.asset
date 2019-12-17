@@ -9,6 +9,7 @@ TagManager:
   - TargetRed
   - AimingSource
   - TargetGreen
+  - UI
   layers:
   - Default
   - TransparentFX

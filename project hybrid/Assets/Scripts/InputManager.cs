@@ -20,6 +20,7 @@ public class InputManager : MonoBehaviour
     private Transform aimSourcePos;
     private Transform aimingTarget;
     private LayerMask raycastLayerMask;
+    [SerializeField]private InputUi inputUi;
 
     public Transform arCamera;
     public Transform tankTransform = null;
@@ -40,6 +41,13 @@ public class InputManager : MonoBehaviour
         raycastLayerMask = LayerMask.GetMask("Level", "AimCatcher");
         aimSourcePos = GameObject.FindGameObjectWithTag("AimingSource").transform;
         aimingTarget = GameObject.FindGameObjectWithTag("TargetGreen").transform;
+
+        if (GameObject.FindGameObjectWithTag("UI").GetComponent<InputUi>() != null) {
+            inputUi = GameObject.FindGameObjectWithTag("UI").GetComponent<InputUi>();
+        }
+        else {
+            Debug.LogError("de ui met scrit inputUI heeft geet tag 'UI'");
+        }
     }
 
     // Update is called once per frame
@@ -58,10 +66,12 @@ public class InputManager : MonoBehaviour
             DebugControls();
         }
 
+        inputUi.setControlPad(inputUi.centerstartpos, false);
+
         for (int i = 0; i < Input.touchCount; i++)
         {
             Touch touch = Input.touches[0];
-            Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? (touch.position.y / (Screen.height / 10)) / amountOfScreenUsedForControls : 10);
+            Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? ((touch.position.y / (Screen.height / 10)) - .6f) / amountOfScreenUsedForControls : 10);
 
             if (touch.position.y / Screen.height < amountOfScreenUsedForControls)
             {
@@ -69,9 +79,11 @@ public class InputManager : MonoBehaviour
                 {
                     case TouchPhase.Began:
                         setAxes(pos);
+                        inputUi.setControlPad(touch.position, true);
                         break;
                     case TouchPhase.Moved:
                         setAxes(pos);
+                        inputUi.setControlPad(touch.position, true);
                         break;
                     case TouchPhase.Ended:
                         setAxes(Vector2.zero);
@@ -103,8 +115,13 @@ public class InputManager : MonoBehaviour
 
     private void setAxes(Vector2 pos)
     {
-        horizontal = pos.x / 5;
-        vertical = pos.y / 10;
+        Vector2 temPos = new Vector2(pos.x / 5, pos.y / 7);
+        if (temPos.magnitude > 1)
+        {
+            temPos.Normalize();
+        }
+        horizontal = temPos.x;
+        vertical = temPos.y;
     }
 
     private void DebugControls()
