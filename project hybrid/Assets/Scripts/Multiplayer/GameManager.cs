@@ -17,15 +17,20 @@ namespace Multiplayer
         public AudioClip reloadSound;
 
         public static bool respawn = true;
-        public GameObject respawnLine;
-        private LineRenderer lineRenderer;
+        //public GameObject respawnLine;
+        //private LineRenderer lineRenderer;
         private LayerMask raycastLayerMask;
+
+        [SerializeField] GameObject spawnTargetPrefab;
+        Transform spawntarget;
+
 
         // Start is called before the first frame update
         void Start()
         {
             raycastLayerMask = LayerMask.GetMask("Level");
-            lineRenderer = respawnLine.GetComponent<LineRenderer>();
+            //lineRenderer = respawnLine.GetComponent<LineRenderer>();
+            spawntarget = GameObject.Instantiate(spawnTargetPrefab, transform).transform;
         }
 
         // Update is called once per frame
@@ -39,31 +44,39 @@ namespace Multiplayer
 
         public void Respawn()
         {
-            respawnLine.SetActive(true);
-            Vector3 laserSpawn = respawnLine.transform.position - respawnLine.transform.up;
-            Vector3 laserAim = respawnLine.transform.forward;
+            //respawnLine.SetActive(true);
+            //Vector3 laserSpawn = respawnLine.transform.position - respawnLine.transform.up;
+            //Vector3 laserAim = respawnLine.transform.forward;
 
-            lineRenderer.SetPosition(0, laserSpawn);
+            //lineRenderer.SetPosition(0, laserSpawn);
 
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
-            if (Physics.Raycast(respawnLine.transform.position, respawnLine.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, raycastLayerMask))
+            if (Physics.Raycast(arCamera.transform.position, arCamera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, raycastLayerMask))
             {
-                lineRenderer.SetPosition(1, hit.point);
-                lineRenderer.endColor = Color.green;
-                lineRenderer.startColor = Color.green;
+                spawntarget.GetComponentInChildren<MeshRenderer>().enabled = true;
+
+                spawntarget.GetComponentInChildren<MeshRenderer>().enabled = true;
+                spawntarget.position = hit.point + (hit.normal / 100);
+                spawntarget.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+
+                //lineRenderer.SetPosition(1, hit.point);
+                //lineRenderer.endColor = Color.green;
+                //lineRenderer.startColor = Color.green;
                 if (Input.GetKey("v") || Input.touchCount > 0)
                 {
                     SpawnTank(hit.point + new Vector3(0, 20, 0));
                     respawn = false;
-                    respawnLine.SetActive(false);
+                    //respawnLine.SetActive(false);
                 }
             }
             else
             {
-                lineRenderer.SetPosition(1, transform.TransformDirection(Vector3.forward) * 1000);
-                lineRenderer.endColor = Color.red;
-                lineRenderer.startColor = Color.red;
+                spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+
+                //lineRenderer.SetPosition(1, transform.TransformDirection(Vector3.forward) * 1000);
+                //lineRenderer.endColor = Color.red;
+                //lineRenderer.startColor = Color.red;
             }
         }
 

@@ -719,7 +719,7 @@ GameObject:
   - component: {fileID: 99265200266783134}
   m_Layer: 5
   m_Name: tankContolsUi
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -824,3 +824,4 @@ MonoBehaviour:
   controlPadEdge: {fileID: 99265199995536236}
   edge1: {fileID: 21300000, guid: 380465919d9157544a0552c046273630, type: 3}
   edge2: {fileID: 21300000, guid: 31fb5f7236c67fb449c82f5e07cc2875, type: 3}
+  centerstartpos: {x: 0, y: 0}
