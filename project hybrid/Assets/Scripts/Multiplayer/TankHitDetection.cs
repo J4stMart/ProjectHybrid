@@ -20,6 +20,8 @@ public class TankHitDetection : MonoBehaviourPun
 
     private void Awake()
     {
+        fractures = new List<GameObject>();
+
         foreach (Transform fracture in onderstelFractures.transform)
         {
             if (fracture.tag == "Fractures")

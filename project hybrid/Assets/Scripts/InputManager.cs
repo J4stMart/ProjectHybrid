@@ -45,6 +45,9 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (tankTransform == null)
+            return;
+
         if (aimByPointingCamera)
         {
             raycastAim(Vector2.zero);

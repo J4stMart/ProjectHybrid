@@ -22,7 +22,6 @@ public class MarkerChecker : MonoBehaviour, ITrackableEventHandler
 
         if (activeTrackables.Count == 0)
         {
-            Debug.LogWarning("No marker found.");
             cam.cullingMask = 3 << 10;
             if (audioPlayed == false){
                 GetComponent<AudioSource>().Play();
