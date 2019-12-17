@@ -6,26 +6,31 @@ public class ArcPredictor : MonoBehaviour
 {
     public Color c1 = Color.white;
     public Color c2 = Color.white;
-    public int lengthOfLineRenderer;
+    public int lengthOfLineRenderer = 50;
     public float initialUpWardSpeed = 5f;
     public float initialForwardSpeed = 1f;
     public float aimDirection = 0f;
     public Vector3 offsetPosition;
     private LayerMask raycastLayerMask;
 
-    [SerializeField] public Transform targetIndicator;
+    public LineRenderer lineRenderer;
+    public Transform targetIndicator;
     
 
     void Awake() {
         raycastLayerMask = LayerMask.GetMask("Level");
         targetIndicator = GameObject.FindWithTag("TargetRed").transform;
-        LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         lineRenderer.widthMultiplier = 0.05f;
         lineRenderer.positionCount = lengthOfLineRenderer;
+    }
 
+    private void Start()
+    {
         // A simple 2 color gradient with a fixed alpha of 1.0f.
         float alpha = 1.0f;
+
         Gradient gradient = new Gradient();
         gradient.SetKeys(
             new GradientColorKey[] { new GradientColorKey(c1, 0.0f), new GradientColorKey(c2, 1.0f) },
@@ -47,7 +52,7 @@ public class ArcPredictor : MonoBehaviour
         else
         {
             targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = false;
-            lineRenderer.enabled = false;   
+            lineRenderer.enabled = false;
         }
 
         float gravity = Physics.gravity.magnitude;
@@ -57,14 +62,16 @@ public class ArcPredictor : MonoBehaviour
             points[i] = (aimAngle * points[i]) + transform.position + offsetPosition;
         }
 
-        for (int i = 0; i < lengthOfLineRenderer - 2; i += 2) {
+        for (int i = 0; i < lengthOfLineRenderer - 2; i += 2)
+        {
             Ray ray = new Ray(points[i], points[i + 2] - points[i]);
             RaycastHit hit = new RaycastHit();
             Physics.Raycast(ray, out hit, Vector3.Distance(points[i], points[i + 2]),raycastLayerMask);
 
-            if (hit.collider != null) {
+            if (hit.collider != null)
+            {
                 points[i] = hit.point;
-                targetIndicator.gameObject.SetActive(true);
+                targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = true;
                 targetIndicator.position = hit.point + (hit.normal / 100);
 
                 //Vector3 rot = new Vector3(hit.normal.x, hit.normal.y,0);
@@ -72,18 +79,20 @@ public class ArcPredictor : MonoBehaviour
 
                 //Debug.DrawLine(targetIndicator.position, hit.normal + targetIndicator.position);
 
-                for (int p = i; p < lengthOfLineRenderer; p++) {
+                for (int p = i; p < lengthOfLineRenderer; p++)
+                {
                     points[p] = hit.point;
                     //points.RemoveAt(points.Count - 1);
                 }
                 break;
             }
 
-            if (i == lengthOfLineRenderer - 4) {
-                targetIndicator.gameObject.SetActive(false);
+            if (i == lengthOfLineRenderer - 4)
+            {
+                targetIndicator.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
             }
         }
-        
+
         lineRenderer.SetPositions(points);
     }
 }

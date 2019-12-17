@@ -24,7 +24,7 @@ MonoBehaviour:
     version: 8.5.9
     eulaAcceptedVersions: '{"Values":["8.5"]}'
   database:
-    disableModelExtraction: 0
+    disableModelExtraction: 1
   videoBackground:
     numDivisions: 2
     videoBackgroundShader: {fileID: 4800000, guid: f40623b353e2f1943b1b3ba42975db7a,
@@ -39,6 +39,6 @@ MonoBehaviour:
     autoInitTracker: 0
     autoStartTracker: 0
   webcam:
-    deviceNameSetInEditor: Logitech HD Pro Webcam C920
+    deviceNameSetInEditor: HD Pro Webcam C920
     turnOffWebCam: 0
     renderTextureLayer: 30

@@ -8,7 +8,8 @@ public class HitDetection : MonoBehaviour
 
     void Update()
     {
-        if(gotHit){
+        if (gotHit)
+        {
             Debug.Log("Got hit");
         }
     }

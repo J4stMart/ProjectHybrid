@@ -16,9 +16,8 @@ public class Tank_Fire : MonoBehaviour
     
     public void shoot(float Distance){
         GameObject shell = Instantiate(shellPrefab, spawnLocation.position, spawnLocation.rotation);
+        //shell.layer = 8;
         // per unit of distance 105 units of force
-        Debug.Log(spawnLocation.up);
         shell.GetComponent<Rigidbody>().velocity = spawnLocation.up * aim.aaa;
-
     }
 }
