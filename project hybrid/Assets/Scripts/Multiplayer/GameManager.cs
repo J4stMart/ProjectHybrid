@@ -16,8 +16,55 @@ namespace Multiplayer
         public AudioClip chargingSound;
         public AudioClip reloadSound;
 
+        public static bool respawn = true;
+        private LayerMask raycastLayerMask;
+
+        [SerializeField] GameObject spawnTargetPrefab;
+        Transform spawntarget;
+
+
         // Start is called before the first frame update
         void Start()
+        {
+            raycastLayerMask = LayerMask.GetMask("Level");
+            spawntarget = GameObject.Instantiate(spawnTargetPrefab, transform).transform;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (respawn)
+            {
+                Respawn();
+            }
+        }
+
+        public void Respawn()
+        {
+            RaycastHit hit;
+            // Does the ray intersect any objects excluding the player layer
+            if (Physics.Raycast(arCamera.transform.position, arCamera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, raycastLayerMask))
+            {
+                spawntarget.GetComponentInChildren<MeshRenderer>().enabled = true;
+
+                spawntarget.GetComponentInChildren<MeshRenderer>().enabled = true;
+                spawntarget.position = hit.point + (hit.normal / 100);
+                spawntarget.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+                
+                if (Input.GetKey("v") || Input.touchCount > 0)
+                {
+                    SpawnTank(hit.point + new Vector3(0, 20, 0));
+                    respawn = false;
+                    spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+                }
+            }
+            else
+            {
+                spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+            }
+        }
+
+        private void SpawnTank(Vector3 spawnpoint)
         {
             if (playerPrefab == null)
             {
@@ -25,29 +72,14 @@ namespace Multiplayer
             }
             else
             {
-                if (TankMultiplayer.localPlayerInstance == null)
-                {
-                    Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
+                Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
 
-                    Vector3 spawnpoint = new Vector3(Mathf.Cos(PhotonNetwork.CountOfPlayers * Mathf.PI) * 15, 2, 0);
-
-                    var instance = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnpoint, Quaternion.identity);
-                    instance.GetComponent<TankMultiplayer>().SetInputManager(inputManager);
-                    var turret = instance.GetComponentInChildren<TankTurret>();
-                    turret.SetVariables(arCamera.transform, inputManager);
-                    turret.SetAudio(chargingSound, reloadSound);
-                }
-                else
-                {
-                    Debug.LogFormat("Ignoring scene load for {0}", SceneManagerHelper.ActiveSceneName);
-                }
+                var instance = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnpoint, Quaternion.identity);
+                instance.GetComponent<TankMultiplayer>().SetInputManager(inputManager);
+                var turret = instance.GetComponentInChildren<TankTurret>();
+                turret.SetVariables(arCamera.transform, inputManager);
+                turret.SetAudio(chargingSound, reloadSound);
             }
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
 
         public void LeaveRoom()

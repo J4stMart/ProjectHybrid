@@ -19,6 +19,7 @@ public class ShellMultiplayer : MonoBehaviourPun
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        StartCoroutine(ArmTimer());
 
         if (PhotonNetwork.IsMasterClient)
             audioSource.Play();
@@ -44,12 +45,15 @@ public class ShellMultiplayer : MonoBehaviourPun
 
         if (collision.transform.tag == "Player")
         {
-            Debug.Log("Hit");
-            collision.transform.GetComponent<HitDetection>().gotHit = true;
+            var hitDetection = collision.transform.parent.GetComponent<TankHitDetection>();
+            if (!hitDetection.gotHit)
+            {
+                hitDetection.gotHit = true;
+            }
+
             StartCoroutine(Explosion());
         }
-        //dirty check. change to tag later
-        else if (collision.transform.name == "Tafel")
+        else
         {
             StartCoroutine(Explosion());
         }
@@ -97,5 +101,11 @@ public class ShellMultiplayer : MonoBehaviourPun
             explosion = explosionSound3;
         }
         audioSource.PlayOneShot(explosion, 1f);
+    }
+
+    private IEnumerator ArmTimer()
+    {
+        yield return new WaitForSeconds(0.2f);
+        gameObject.layer = 0;
     }
 }
