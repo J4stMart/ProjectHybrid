@@ -89,7 +89,7 @@ public class ArcPredictor : MonoBehaviour
 
             if (i == lengthOfLineRenderer - 4)
             {
-                targetIndicator.gameObject.SetActive(false);
+                targetIndicator.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
             }
         }
 

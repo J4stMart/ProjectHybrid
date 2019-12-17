@@ -6,8 +6,6 @@ using Photon.Pun;
 [RequireComponent(typeof(Rigidbody))]
 public class TankMultiplayer : MonoBehaviourPun
 {
-
-
     [SerializeField]
     private float tankSpeed = 15f;
     [SerializeField]

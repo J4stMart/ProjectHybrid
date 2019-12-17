@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class BackgroundImageLayerSetter : MonoBehaviour
 {
+    [SerializeField] private int ammountOfChildren;
+
     private Transform videoBackgroundTransform;
 
     void Update()
     {
-        if (gameObject.transform.childCount == 3)
+        if (gameObject.transform.childCount == ammountOfChildren)
         {
-            videoBackgroundTransform = gameObject.transform.GetChild(2);
+            videoBackgroundTransform = gameObject.transform.GetChild(ammountOfChildren-1);
             videoBackgroundTransform.gameObject.layer = 11;
             this.enabled = false;
         }
