@@ -11,6 +11,8 @@ public class MarkerChecker : MonoBehaviour, ITrackableEventHandler
 
     private bool audioPlayed = false;
 
+    private const int mask = 3 << 10;
+
     void Start()
     {
         cam = gameObject.GetComponent<Camera>();
@@ -22,7 +24,7 @@ public class MarkerChecker : MonoBehaviour, ITrackableEventHandler
 
         if (activeTrackables.Count == 0)
         {
-            cam.cullingMask = 3 << 10;
+            cam.cullingMask = mask;
             if (audioPlayed == false){
                 GetComponent<AudioSource>().Play();
                 audioPlayed = true;
@@ -30,7 +32,7 @@ public class MarkerChecker : MonoBehaviour, ITrackableEventHandler
         }
         else
         {
-            cam.cullingMask = 1 << 0 | 1 << 11;
+            cam.cullingMask = ~mask | (1 << 11);
             audioPlayed = false;
         }
     }
