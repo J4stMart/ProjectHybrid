@@ -16,7 +16,7 @@ public class InputUi : MonoBehaviour
     [SerializeField] private Sprite edge1;
     [SerializeField] private Sprite edge2;
 
-    Vector2 centerstartpos;
+    [HideInInspector] public Vector2 centerstartpos;
 
     private void Awake() {
         centerstartpos = controlPadCenter.rectTransform.position;

@@ -21,12 +21,14 @@ public class MobileTankContolls : MonoBehaviour
     Transform aimSourcePos;
     Transform aimingTarget;
     private LayerMask raycastLayerMask;
+    private InputUi inputUi;
 
     private void Awake() {
         raycastLayerMask = LayerMask.GetMask("Level", "Aimcatcher");
         aiming = GetComponent<TankAiming>();
         aimSourcePos = GameObject.FindGameObjectWithTag("AimingSource").transform;
         aimingTarget = GameObject.FindGameObjectWithTag("TargetGreen").transform;
+        inputUi = GameObject.FindGameObjectWithTag("UI").GetComponent<InputUi>();
     }
 
     void Update() {
@@ -40,6 +42,8 @@ public class MobileTankContolls : MonoBehaviour
         if (debugControls) {
             dbugControls();
         }
+
+        inputUi.setControlPad(inputUi.centerstartpos, false);
 
         if (Input.touchCount > 0) {
             Touch touch = Input.touches[0];
@@ -62,6 +66,7 @@ public class MobileTankContolls : MonoBehaviour
 
                     if (touch.position.y / Screen.height < amountOfScreenUsedForControls) {
                         setAxes(pos);
+                        inputUi.setControlPad(touch.position, true);
                     }
                     else {
                         raycastAim(touch.position);
@@ -72,6 +77,7 @@ public class MobileTankContolls : MonoBehaviour
                 case TouchPhase.Moved:
                     if (touch.position.y / Screen.height < amountOfScreenUsedForControls) {
                         setAxes(pos);
+                        inputUi.setControlPad(touch.position, true);
                     }
                     else {
                         raycastAim(touch.position);
@@ -82,6 +88,7 @@ public class MobileTankContolls : MonoBehaviour
                 case TouchPhase.Stationary:
                     if (touch.position.y / Screen.height < amountOfScreenUsedForControls) {
                         setAxes(pos);
+                        inputUi.setControlPad(touch.position, true);
                     }
                     else {
                         raycastAim(touch.position);
@@ -111,6 +118,7 @@ public class MobileTankContolls : MonoBehaviour
 
                     if (touch.position.y / Screen.height < amountOfScreenUsedForControls) {
                         setAxes(pos);
+                        inputUi.setControlPad(touch.position, true);
                     }
                     else {
                         raycastAim(touch.position);
@@ -121,6 +129,7 @@ public class MobileTankContolls : MonoBehaviour
                 case TouchPhase.Moved:
                     if (touch.position.y / Screen.height < amountOfScreenUsedForControls) {
                         setAxes(pos);
+                        inputUi.setControlPad(touch.position, true);
                     }
                     else {
                         raycastAim(touch.position);
@@ -131,6 +140,7 @@ public class MobileTankContolls : MonoBehaviour
                 case TouchPhase.Stationary:
                     if (touch.position.y / Screen.height < amountOfScreenUsedForControls) {
                         setAxes(pos);
+                        inputUi.setControlPad(touch.position, true);
                     }
                     else {
                         raycastAim(touch.position);

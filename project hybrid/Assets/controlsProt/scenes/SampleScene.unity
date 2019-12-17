@@ -756,6 +756,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tankContolsUi
       objectReference: {fileID: 0}
+    - target: {fileID: 99265200266783109, guid: 0497a132d98fcd842b0a2c12205220e7,
+        type: 3}
+      propertyPath: m_TagString
+      value: UI
+      objectReference: {fileID: 0}
     - target: {fileID: 99265200266783105, guid: 0497a132d98fcd842b0a2c12205220e7,
         type: 3}
       propertyPath: m_LocalPosition.x
