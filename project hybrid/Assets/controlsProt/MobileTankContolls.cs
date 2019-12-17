@@ -157,8 +157,12 @@ public class MobileTankContolls : MonoBehaviour
     //}
 
     void setAxes(Vector2 pos) {
-        horizontal = pos.x / 5;
-        vertical = pos.y / 7;
+        Vector2 temPos = new Vector2(pos.x / 5, pos.y / 7);
+        if (temPos.magnitude > 1) {
+            temPos.Normalize();
+        }
+        horizontal = temPos.x;
+        vertical = temPos.y;
     }
 
     void dbugControls() {
