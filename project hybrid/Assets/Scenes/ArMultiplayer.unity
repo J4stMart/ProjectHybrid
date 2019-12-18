@@ -2502,7 +2502,7 @@ MonoBehaviour:
   inputManager: {fileID: 988063948}
   arCamera: {fileID: 1735816045}
   noMarker: {fileID: 2130636489}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 911330711}
   chargingSound: {fileID: 8300000, guid: 7e5f988b5da59364fb08032701701ace, type: 3}
   reloadSound: {fileID: 8300000, guid: f0b49cf8daaacf64bb3ba5a5452271b9, type: 3}
   spawnTargetPrefab: {fileID: 2257558645779190132, guid: e31d27a82608ee14285764179f1eed5a,
@@ -2715,9 +2715,7 @@ PrefabInstance:
     - target: {fileID: 5810335256620509285, guid: 0497a132d98fcd842b0a2c12205220e7,
         type: 3}
       propertyPath: m_Text
-      value: 'score:
-
-'
+      value: 'score: 0'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0497a132d98fcd842b0a2c12205220e7, type: 3}
@@ -2731,6 +2729,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc938b65d6cad78499928f740a5bfb6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &911330711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5810335256620509285, guid: 0497a132d98fcd842b0a2c12205220e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 911330709}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &956447416
