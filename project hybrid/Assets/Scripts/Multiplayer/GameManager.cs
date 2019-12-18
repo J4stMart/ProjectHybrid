@@ -1,14 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
+using ExitGames.Client.Photon;
 
 namespace Multiplayer
 {
     public class GameManager : MonoBehaviourPunCallbacks
-    {
+    { 
+        public static GameManager Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+        private static GameManager instance;
+
         public GameObject playerPrefab;
         public InputManager inputManager;
         public GameObject arCamera;
@@ -25,13 +33,26 @@ namespace Multiplayer
         Transform spawntarget;
 
         private int playersSpawned = 0;
-        private int playerId;
+        public int playerId;
 
         private bool startOnce = false;
 
+        private const string CountdownStartTime = "StartTime";
+
+        private bool isTimerRunning = false;
+        private float startTime = 0f;
+
+        public float gameLength = 180f;
+
+        private int[] scores = new int[4];
+
+        [SerializeField]
+        private InputUi ui;
+
         private void Awake()
         {
-            playerId = PhotonNetwork.PlayerList.Length;
+            instance = this;
+            playerId = PhotonNetwork.PlayerList.Length - 1;
         }
 
         // Start is called before the first frame update
@@ -45,6 +66,9 @@ namespace Multiplayer
             {
                 respawn = false;
                 spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+
+                inputManager.gameObject.SetActive(false);
+                ui.gameObject.SetActive(false);
             }
         }
 
@@ -56,12 +80,30 @@ namespace Multiplayer
                 Respawn();
             }
 
+            if(isTimerRunning)
+            {
+                float timer = (float)PhotonNetwork.Time - startTime;
+                float countdown = gameLength - timer;
+
+                if (!PhotonNetwork.IsMasterClient)
+                    ui.setTime(countdown);
+
+                if(countdown < 0)
+                {
+                    isTimerRunning = false;
+                    
+                    //Victory screen
+                }
+            }
+
             if (PhotonNetwork.IsMasterClient)
             {
                 if (!startOnce && GameHasStarted)
                 {
                     startOnce = true;
-                    photonView.RPC("EnableInput", RpcTarget.All);
+                    photonView.RPC("StartGame", RpcTarget.All);
+                    Hashtable ht = new Hashtable { { "StartTime", PhotonNetwork.Time } };
+                    PhotonNetwork.CurrentRoom.SetCustomProperties(ht);
                 }
             }
         }
@@ -133,7 +175,7 @@ namespace Multiplayer
         }
 
         [PunRPC]
-        private void EnableInput()
+        private void StartGame()
         {
             inputManager.canShoot = true;
             inputManager.canDrive = true;
@@ -182,9 +224,25 @@ namespace Multiplayer
             }
         }
 
+        public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
+        {
+            object startTimeFromProps;
+
+            if (propertiesThatChanged.TryGetValue(CountdownStartTime, out startTimeFromProps))
+            {
+                isTimerRunning = true;
+                startTime = (float)startTimeFromProps;
+            }
+        }
+
         public bool GameHasStarted
         {
             get { return playersSpawned >= 4; }
+        }
+
+        public void AddScore(int playerId)
+        {
+            scores[playerId] += 1;
         }
     }
 }

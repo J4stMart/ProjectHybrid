@@ -33,14 +33,16 @@ public class InputUi : MonoBehaviour
     //}
 
     public void setTime(float time) {
-        if (time != 0) {
-            timeSlider.rectTransform.position = new Vector3(-.5f * Screen.width + (Screen.width * time), timeSlider.rectTransform.position.y, timeSlider.rectTransform.position.z);
+        float percentage = maxtime / time;
+
+        if (percentage != 0) {
+            timeSlider.rectTransform.position = new Vector3(-.5f * Screen.width + (Screen.width * percentage), timeSlider.rectTransform.position.y, timeSlider.rectTransform.position.z);
         }
         else {
             timeSlider.rectTransform.position = new Vector3(-Screen.width, timeSlider.rectTransform.position.y, timeSlider.rectTransform.position.z);
         }
         
-        timeText.text = ((int)(maxtime * time)).ToString() + " / " + maxtime.ToString();
+        timeText.text = ((int)(maxtime * percentage)).ToString() + " / " + maxtime.ToString();
     }
 
     public void setControlPad(Vector2 pos, bool isUsed) {

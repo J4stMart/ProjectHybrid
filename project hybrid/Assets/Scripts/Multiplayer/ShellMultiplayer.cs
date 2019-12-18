@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Multiplayer;
 
 [RequireComponent(typeof(Rigidbody), typeof(AudioSource))]
 public class ShellMultiplayer : MonoBehaviourPun
@@ -49,6 +50,7 @@ public class ShellMultiplayer : MonoBehaviourPun
             if (!hitDetection.gotHit)
             {
                 hitDetection.gotHit = true;
+                photonView.RPC("AddScore", RpcTarget.All, GameManager.Instance.playerId);
             }
 
             StartCoroutine(Explosion());
@@ -101,6 +103,12 @@ public class ShellMultiplayer : MonoBehaviourPun
             explosion = explosionSound3;
         }
         audioSource.PlayOneShot(explosion, 1f);
+    }
+
+    [PunRPC]
+    void AddScore(int player)
+    {
+        GameManager.Instance.AddScore(player);
     }
 
     private IEnumerator ArmTimer()
