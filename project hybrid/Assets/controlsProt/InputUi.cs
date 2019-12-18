@@ -33,7 +33,7 @@ public class InputUi : MonoBehaviour
     //}
 
     public void setTime(float time) {
-        float percentage = maxtime / time;
+        float percentage = time / maxtime;
 
         if (percentage != 0) {
             timeSlider.rectTransform.position = new Vector3(-.5f * Screen.width + (Screen.width * percentage), timeSlider.rectTransform.position.y, timeSlider.rectTransform.position.z);
