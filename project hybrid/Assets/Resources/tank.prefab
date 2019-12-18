@@ -778,7 +778,7 @@ MonoBehaviour:
   shootPosition: {fileID: 1321554022}
   rotationspeed: 2
   chargeUpSpeed: 15
-  startChargeUp: 3
+  startChargeUp: 8
   arcColor1: {r: 1, g: 1, b: 1, a: 1}
   arcColor2: {r: 1, g: 1, b: 1, a: 1}
   nozzleflash: {fileID: 8857693036865390346}
