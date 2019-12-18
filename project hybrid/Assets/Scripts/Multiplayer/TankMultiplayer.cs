@@ -39,7 +39,7 @@ public class TankMultiplayer : MonoBehaviourPun
     private void OnDestroy()
     {
         if (photonView.IsMine)
-            controls.canShoot = false;
+            controls.CanShoot = false;
     }
 
     void FixedUpdate()
@@ -70,6 +70,6 @@ public class TankMultiplayer : MonoBehaviourPun
     private IEnumerator TurnOnShooting()
     {
         yield return new WaitForSeconds(2f);
-        controls.canShoot = true;
+        controls.CanShoot = true;
     }
 }

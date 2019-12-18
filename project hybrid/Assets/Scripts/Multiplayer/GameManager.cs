@@ -61,6 +61,7 @@ namespace Multiplayer
                 if (!startOnce && GameHasStarted)
                 {
                     startOnce = true;
+                    photonView.RPC("EnableInput", RpcTarget.All);
                 }
             }
         }
@@ -129,6 +130,13 @@ namespace Multiplayer
         private void PlayerHasSpawned()
         {
             playersSpawned += 1;
+        }
+
+        [PunRPC]
+        private void EnableInput()
+        {
+            inputManager.canShoot = true;
+            inputManager.canDrive = true;
         }
 
         public void LeaveRoom()

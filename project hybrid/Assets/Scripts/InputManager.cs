@@ -25,6 +25,9 @@ public class InputManager : MonoBehaviour
     public bool canShoot = false;
     public bool canDrive = false;
 
+    [SerializeField]
+    private GameManager manager;
+
     public Transform arCamera;
     public Transform tankTransform = null;
 
@@ -205,7 +208,7 @@ public class InputManager : MonoBehaviour
     {
         set
         {
-            if (GameManager.gameHasStarted) {
+            if (manager.GameHasStarted) {
                 canShoot = value;
             }
         }
