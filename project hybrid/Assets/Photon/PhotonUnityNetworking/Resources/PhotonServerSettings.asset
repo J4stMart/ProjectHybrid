@@ -40,5 +40,7 @@ MonoBehaviour:
   - PlayChargingAudio
   - PlayReloadAudio
   - Explosion
+  - EnableInput
+  - PlayerHasSpawned
   DisableAutoOpenWizard: 1
   ShowSettings: 1

@@ -340,10 +340,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontal: 0
   vertical: 0
-  amountOfScreenUsedForControls: 0.3
+  amountOfScreenUsedForControls: 0.42
   debugControls: 1
   raycastAiming: 1
-  aimByPointingCamera: 0
+  aimByPointingCamera: 1
 --- !u!114 &882934298427867059
 MonoBehaviour:
   m_ObjectHideFlags: 0

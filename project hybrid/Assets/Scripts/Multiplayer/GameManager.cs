@@ -1,14 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
+using ExitGames.Client.Photon;
 
 namespace Multiplayer
 {
     public class GameManager : MonoBehaviourPunCallbacks
-    {
+    { 
+        public static GameManager Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+        private static GameManager instance;
+
         public GameObject playerPrefab;
         public InputManager inputManager;
         public GameObject arCamera;
@@ -19,15 +27,49 @@ namespace Multiplayer
         public static bool respawn = true;
         private LayerMask raycastLayerMask;
 
+        private GameObject RespawnText;
+
         [SerializeField] GameObject spawnTargetPrefab;
         Transform spawntarget;
 
+        private int playersSpawned = 0;
+        public int playerId;
+
+        private bool startOnce = false;
+
+        private const string CountdownStartTime = "StartTime";
+
+        private bool isTimerRunning = false;
+        private float startTime = 0f;
+
+        public float gameLength = 180f;
+
+        private int[] scores = new int[4];
+
+        [SerializeField]
+        private InputUi ui;
+
+        private void Awake()
+        {
+            instance = this;
+            playerId = PhotonNetwork.PlayerList.Length - 1;
+        }
 
         // Start is called before the first frame update
         void Start()
         {
             raycastLayerMask = LayerMask.GetMask("Level");
             spawntarget = GameObject.Instantiate(spawnTargetPrefab, transform).transform;
+            RespawnText = GameObject.FindGameObjectWithTag("RespawnTextTag");
+
+            if (PhotonNetwork.IsMasterClient)
+            {
+                respawn = false;
+                spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+
+                inputManager.gameObject.SetActive(false);
+                ui.gameObject.SetActive(false);
+            }
         }
 
         // Update is called once per frame
@@ -36,6 +78,33 @@ namespace Multiplayer
             if (respawn)
             {
                 Respawn();
+            }
+
+            if(isTimerRunning)
+            {
+                float timer = (float)PhotonNetwork.Time - startTime;
+                float countdown = gameLength - timer;
+
+                if (!PhotonNetwork.IsMasterClient)
+                    ui.setTime(countdown);
+
+                if(countdown < 0)
+                {
+                    isTimerRunning = false;
+                    
+                    //Victory screen
+                }
+            }
+
+            if (PhotonNetwork.IsMasterClient)
+            {
+                if (!startOnce && GameHasStarted)
+                {
+                    startOnce = true;
+                    photonView.RPC("StartGame", RpcTarget.All);
+                    Hashtable ht = new Hashtable { { "StartTime", PhotonNetwork.Time } };
+                    PhotonNetwork.CurrentRoom.SetCustomProperties(ht);
+                }
             }
         }
 
@@ -47,17 +116,17 @@ namespace Multiplayer
             {
                 spawntarget.GetComponentInChildren<MeshRenderer>().enabled = true;
 
-                spawntarget.GetComponentInChildren<MeshRenderer>().enabled = true;
                 spawntarget.position = hit.point + (hit.normal / 100);
                 spawntarget.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-
-
 
                 if (Input.GetKey("v"))
                 {
                     SpawnTank(hit.point + new Vector3(0, 20, 0));
                     respawn = false;
                     spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+                    RespawnText.SetActive(false);
+
+                    photonView.RPC("PlayerHasSpawned", RpcTarget.MasterClient);
                 }
 
                 if (Input.touches.Length == 0)
@@ -70,6 +139,9 @@ namespace Multiplayer
                     SpawnTank(hit.point + new Vector3(0, 20, 0));
                     respawn = false;
                     spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+                    RespawnText.SetActive(false);
+
+                    photonView.RPC("PlayerHasSpawned", RpcTarget.MasterClient);
                 }
             }
             else
@@ -94,6 +166,19 @@ namespace Multiplayer
                 turret.SetVariables(arCamera.transform, inputManager);
                 turret.SetAudio(chargingSound, reloadSound);
             }
+        }
+
+        [PunRPC]
+        private void PlayerHasSpawned()
+        {
+            playersSpawned += 1;
+        }
+
+        [PunRPC]
+        private void StartGame()
+        {
+            inputManager.canShoot = true;
+            inputManager.canDrive = true;
         }
 
         public void LeaveRoom()
@@ -137,6 +222,27 @@ namespace Multiplayer
             {
                 //LoadArena();
             }
+        }
+
+        public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
+        {
+            object startTimeFromProps;
+
+            if (propertiesThatChanged.TryGetValue(CountdownStartTime, out startTimeFromProps))
+            {
+                isTimerRunning = true;
+                startTime = (float)startTimeFromProps;
+            }
+        }
+
+        public bool GameHasStarted
+        {
+            get { return playersSpawned >= 4; }
+        }
+
+        public void AddScore(int playerId)
+        {
+            scores[playerId] += 1;
         }
     }
 }
