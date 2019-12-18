@@ -79,6 +79,9 @@ namespace Multiplayer
                 ui.gameObject.SetActive(false);
                 noMarker.SetActive(false);
             }
+
+            for (int i = 0; i < scores.Length; i++)
+                scores[i] = 0;
         }
 
         // Update is called once per frame
@@ -107,7 +110,7 @@ namespace Multiplayer
 
                     if (PhotonNetwork.IsMasterClient)
                     {
-                        PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 5 });
+                        SceneManager.LoadScene("Launcher");
                     }
                     else
                     {
@@ -121,7 +124,7 @@ namespace Multiplayer
                             }
                         }
 
-                        if (playerId == bestplayer)
+                        if (playerId == bestplayer + 1)
                             SceneManager.LoadScene("VictoryScene");
                         else
                             SceneManager.LoadScene("LostScene");
@@ -269,28 +272,18 @@ namespace Multiplayer
             }
         }
 
-        public override void OnJoinedRoom()
-        {
-            Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
-
-            if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
-            {
-                PhotonNetwork.LoadLevel("ArMultiplayer");
-            }
-        }
-
         public bool GameHasStarted
         {
-            get { return playersSpawned >= 1; }
+            get { return playersSpawned >= 2; }
         }
 
         public void AddScore(int playerId)
         {
-            scores[playerId] += 1;
+            scores[playerId - 1] += 1;
 
             if (playerId == this.playerId)
             {
-                scoreText.text = "Score: \n" + scores[playerId].ToString();
+                scoreText.text = "Score: \n" + scores[playerId - 1].ToString();
             }
         }
     }
