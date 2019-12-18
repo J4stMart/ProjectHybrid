@@ -709,7 +709,7 @@ Transform:
   m_GameObject: {fileID: 286265653}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 21.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1735816050}
   m_RootOrder: 0
@@ -1987,7 +1987,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc323265c3de1994c982e8eccaccdd1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfScreenUsedForControls: 0.3
   debug: 1
   raycastAiming: 1
   aimByPointingCamera: 1
