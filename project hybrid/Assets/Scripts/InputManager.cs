@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [Range(0, 1f), SerializeField]
-    private float amountOfScreenUsedForControls = 3;
+    //[Range(0, 1f), SerializeField]
+    private float amountOfScreenUsedForControls = .42f;
     [SerializeField]
     private bool debug = false;
 
