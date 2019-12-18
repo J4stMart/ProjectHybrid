@@ -69,7 +69,7 @@ public class InputManager : MonoBehaviour
         if (tankTransform == null)
             return;
 
-        if (debug)
+        if (debug && canDrive)
         {
             DebugControls();
         }
@@ -149,12 +149,12 @@ public class InputManager : MonoBehaviour
             pos.x = 10;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canShoot)
         {
             startShooting();
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space) && canShoot)
         {
             endShooting();
         }
