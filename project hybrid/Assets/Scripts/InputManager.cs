@@ -91,8 +91,10 @@ public class InputManager : MonoBehaviour
                         setAxes(Vector2.zero);
                         break;
                     case TouchPhase.Stationary:
-                        if (debug)
-                            setAxes(pos);
+                        setAxes(pos);
+                        inputUi.setControlPad(touch.position, true);
+                        //if (debug)
+                        //    setAxes(pos);
                         break;
                 }
 
