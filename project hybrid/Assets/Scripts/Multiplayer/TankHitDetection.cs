@@ -96,6 +96,7 @@ public class TankHitDetection : MonoBehaviourPun
 
         if (photonView.IsMine)
         {
+            GameManager.Instance.inputManager.canShoot = false;
             StartCoroutine(RespawnTimer());
         }
     }
