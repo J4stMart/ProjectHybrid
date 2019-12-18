@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
@@ -138,10 +139,17 @@ namespace Multiplayer
                 {
                     startOnce = true;
                     photonView.RPC("StartGame", RpcTarget.All);
-                    Hashtable ht = new Hashtable { { "StartTime", PhotonNetwork.Time } };
+                    ExitGames.Client.Photon.Hashtable ht = new ExitGames.Client.Photon.Hashtable { { "StartTime", PhotonNetwork.Time } };
                     PhotonNetwork.CurrentRoom.SetCustomProperties(ht);
                 }
             }
+        }
+
+        private IEnumerator TryAgain()
+        {
+            yield return new WaitForSeconds(0.2f);
+            ExitGames.Client.Photon.Hashtable ht = new ExitGames.Client.Photon.Hashtable { { "StartTime", PhotonNetwork.Time } };
+            PhotonNetwork.CurrentRoom.SetCustomProperties(ht);
         }
 
         public void Respawn()
@@ -261,7 +269,7 @@ namespace Multiplayer
             Debug.LogFormat("OnPlayerLeftRoom() {0}", otherPlayer.NickName);
         }
 
-        public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
+        public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
         {
             object startTimeFromProps;
 
@@ -274,7 +282,7 @@ namespace Multiplayer
 
         public bool GameHasStarted
         {
-            get { return playersSpawned >= 2; }
+            get { return playersSpawned >= 4; }
         }
 
         public void AddScore(int playerId)
@@ -283,7 +291,7 @@ namespace Multiplayer
 
             if (playerId == this.playerId)
             {
-                scoreText.text = "Score: \n" + scores[playerId - 1].ToString();
+                scoreText.text = "Score: " + scores[playerId - 1].ToString();
             }
         }
     }
