@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class tankBeakeon : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float startheight = 30;
+    [SerializeField] float endheight = 100;
+
+    LineRenderer LineRenderer;
+
+    private void Awake()
     {
-        
+        LineRenderer = GetComponent<LineRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        Vector3[] positions = new Vector3[2];
+        positions[0] = transform.position + Vector3.up * startheight;
+        positions[1] = transform.position + Vector3.up * endheight;
+        LineRenderer.SetPositions(positions);
     }
 }
