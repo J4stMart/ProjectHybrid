@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="kerstkaar4" size="14.300000 14.300000" />
+    <ImageTarget name="kerstkaar3" size="14.300000 14.375362" />
+    <ImageTarget name="kerstkaart2" size="14.300000 14.300000" />
+    <ImageTarget name="kerstkaart1" size="14.300000 14.300000" />
     <CylinderTarget name="douglas2" sideLength="17.100000"/>
     <CylinderTarget name="sterren2" sideLength="21.600000"/>
     <CylinderTarget name="Emmer2" sideLength="25.400000"/>
