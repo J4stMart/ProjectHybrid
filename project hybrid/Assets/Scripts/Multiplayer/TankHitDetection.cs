@@ -90,8 +90,13 @@ public class TankHitDetection : MonoBehaviourPun
 
         if (photonView.IsMine)
         {
+            var renderers = gameObject.GetComponentsInChildren<MeshRenderer>();
+            foreach (var renderer in renderers)
+            {
+                renderer.enabled = false;
+            }
+
             StartCoroutine(RespawnTimer());
-            PhotonNetwork.Destroy(gameObject);
         }
     }
 
@@ -99,5 +104,6 @@ public class TankHitDetection : MonoBehaviourPun
     {
         yield return new WaitForSeconds(5);
         GameManager.respawn = true;
+        PhotonNetwork.Destroy(gameObject);
     }
 }
