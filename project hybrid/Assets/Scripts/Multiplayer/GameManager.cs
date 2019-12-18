@@ -226,21 +226,11 @@ namespace Multiplayer
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
             Debug.LogFormat("OnPlayerEnteredRoom() {0}", newPlayer.NickName);
-
-            if (PhotonNetwork.IsMasterClient)
-            {
-                //LoadArena();
-            }
         }
 
         public override void OnPlayerLeftRoom(Player otherPlayer)
         {
             Debug.LogFormat("OnPlayerLeftRoom() {0}", otherPlayer.NickName);
-
-            if (PhotonNetwork.IsMasterClient)
-            {
-                //LoadArena();
-            }
         }
 
         public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
