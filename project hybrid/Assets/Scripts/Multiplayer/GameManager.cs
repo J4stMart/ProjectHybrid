@@ -30,7 +30,7 @@ namespace Multiplayer
 
         public AudioClip chargingSound;
         public AudioClip reloadSound;
-    
+
         public static bool respawn = true;
         private LayerMask raycastLayerMask;
 
@@ -104,7 +104,28 @@ namespace Multiplayer
                     isTimerRunning = false;
 
                     LeaveRoom();
-                    SceneManager.LoadScene("VictoryScene");
+
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 5 });
+                    }
+                    else
+                    {
+                        int highscore = 0, bestplayer = 0;
+                        for (int i = 0; i < scores.Length; i++)
+                        {
+                            if(scores[i] > highscore)
+                            {
+                                highscore = scores[i];
+                                bestplayer = i;
+                            }
+                        }
+
+                        if (playerId == bestplayer)
+                            SceneManager.LoadScene("VictoryScene");
+                        else
+                            SceneManager.LoadScene("LostScene");
+                    }
                 }
             }
 
@@ -168,7 +189,7 @@ namespace Multiplayer
 
             GameObject instance;
 
-            switch(playerId)
+            switch (playerId)
             {
                 case 1:
                     instance = PhotonNetwork.Instantiate(this.playerPrefab1.name, spawnpoint, Quaternion.identity);
@@ -245,6 +266,16 @@ namespace Multiplayer
             {
                 isTimerRunning = true;
                 startTime = (float)(double)startTimeFromProps;
+            }
+        }
+
+        public override void OnJoinedRoom()
+        {
+            Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+
+            if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+            {
+                PhotonNetwork.LoadLevel("ArMultiplayer");
             }
         }
 
