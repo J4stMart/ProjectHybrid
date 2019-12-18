@@ -5,8 +5,8 @@
     <ImageTarget name="kerstkaar3" size="14.300000 14.375362" />
     <ImageTarget name="kerstkaart2" size="14.300000 14.300000" />
     <ImageTarget name="kerstkaart1" size="14.300000 14.300000" />
-    <CylinderTarget name="douglas2" sideLength="17.100000"/>
     <CylinderTarget name="sterren2" sideLength="21.600000"/>
+    <CylinderTarget name="douglas2" sideLength="17.100000"/>
     <CylinderTarget name="Emmer2" sideLength="25.400000"/>
     <CylinderTarget name="euro" sideLength="21.799999"/>
     <CylinderTarget name="green" sideLength="14.500000"/>
