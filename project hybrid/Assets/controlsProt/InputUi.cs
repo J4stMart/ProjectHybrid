@@ -44,11 +44,11 @@ public class InputUi : MonoBehaviour
     }
 
     public void setControlPad(Vector2 pos, bool isUsed) {
-        if (pos.y < Screen.height * .3f) {
+        if (pos.y < Screen.height * .42f) {
             controlPadCenter.rectTransform.position = pos;
         }
         else {
-            controlPadCenter.rectTransform.position = new Vector2(pos.x, Screen.height * .3f);
+            controlPadCenter.rectTransform.position = new Vector2(pos.x, Screen.height * .42f);
         }
 
         if (isUsed) {

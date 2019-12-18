@@ -50,8 +50,22 @@ namespace Multiplayer
                 spawntarget.GetComponentInChildren<MeshRenderer>().enabled = true;
                 spawntarget.position = hit.point + (hit.normal / 100);
                 spawntarget.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-                
-                if (Input.GetKey("v") || Input.touchCount > 0)
+
+
+
+                if (Input.GetKey("v"))
+                {
+                    SpawnTank(hit.point + new Vector3(0, 20, 0));
+                    respawn = false;
+                    spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+                }
+
+                if (Input.touches.Length == 0)
+                {
+                    return;
+                }
+
+                if (Input.touches[0].phase == TouchPhase.Began)
                 {
                     SpawnTank(hit.point + new Vector3(0, 20, 0));
                     respawn = false;

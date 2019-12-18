@@ -12,7 +12,7 @@ public class MobileTankContolls : MonoBehaviour
 
     TankAiming aiming;
 
-    [Range(0, 1f), SerializeField] private float amountOfScreenUsedForControls = .3f;
+    [Range(0, 1f), SerializeField] private float amountOfScreenUsedForControls = .42f;
     public bool debugControls = false;
 
     [SerializeField] bool raycastAiming;

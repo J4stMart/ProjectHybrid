@@ -90,8 +90,14 @@ public class TankHitDetection : MonoBehaviourPun
 
         if (photonView.IsMine)
         {
-            GameManager.respawn = true;
+            RespawnTimer();
             PhotonNetwork.Destroy(gameObject);
         }
+    }
+
+    private IEnumerator RespawnTimer()
+    {
+        yield return new WaitForSeconds(5);
+        GameManager.respawn = true;
     }
 }

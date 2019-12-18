@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [Range(0, 1f), SerializeField]
-    private float amountOfScreenUsedForControls = 3;
+    //[Range(0, 1f), SerializeField]
+    private float amountOfScreenUsedForControls = .42f;
     [SerializeField]
     private bool debug = false;
 
@@ -92,8 +92,10 @@ public class InputManager : MonoBehaviour
                         setAxes(Vector2.zero);
                         break;
                     case TouchPhase.Stationary:
-                        if (debug)
-                            setAxes(pos);
+                        setAxes(pos);
+                        inputUi.setControlPad(touch.position, true);
+                        //if (debug)
+                        //    setAxes(pos);
                         break;
                 }
 
