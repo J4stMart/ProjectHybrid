@@ -1027,26 +1027,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 882934299844319267, guid: cb63ef2b143b4f442861ab7c3bc4e2de,
-        type: 3}
-      propertyPath: aimByPointingCamera
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 882934299844319267, guid: cb63ef2b143b4f442861ab7c3bc4e2de,
-        type: 3}
-      propertyPath: amountOfScreenUsedForControls
-      value: 0.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 146399647804372556, guid: cb63ef2b143b4f442861ab7c3bc4e2de,
-        type: 3}
-      propertyPath: isDestroyed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 146399647804372556, guid: cb63ef2b143b4f442861ab7c3bc4e2de,
-        type: 3}
-      propertyPath: gotHit
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb63ef2b143b4f442861ab7c3bc4e2de, type: 3}
 --- !u!1001 &970957853459662073
