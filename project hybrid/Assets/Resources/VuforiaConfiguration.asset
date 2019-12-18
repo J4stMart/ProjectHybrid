@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: VuforiaConfiguration
   m_EditorClassIdentifier: 
   vuforia:
-    vuforiaLicenseKey: AY/u7cb/////AAABmXK7gav+10xNvAETCuXFe5EtwK250G4L6OC4Xm2y5slISaiM6GXiuEW+tW/L5SyonFc75+uckvSDovWeidrTKWn5/mSMXiazd87WViQ6WhoTYTUPWd2XNHbY0n2iiZl4urQVhwQvxXMojuZpfzkErDwW2q1A2vegjF+aJ70TeBprfOrv+rSnAdOjeXcmVgIPHYtMeAJbIt2X3zuBQNx+NqevoIMHqyeQ0uEOrHoaEYyKqQZvvFqqYGzzhcMIOEUjOYFKpIsn8IVSQCQNn4zvxtelkRe+qTrrBqZ2jhFxV0PT+sahRJnjWcEXOSMo9+kIMhVTLpKPePY0TBeJh/09fbzUMpbZFB6oP0CU+8DtgDBg
-    ufoLicenseKey: QVQvSENHci8vLy8vQUFBQUtBQ3UvNk1GTGtoUHNjTjUySzRQWXF0bzltWnNxNG5KSU9zazk1ZGlPczlYOU4vVVpwZC9GOG8wREdzYjdLWitLNWJZK1JONTBYSjFHSytBNENrYko5WkJJOHE3ajVsVG00ZU03VUxxKzRVRzRoVFlUbWZtaFV0aTE4dkJTUDdlYmxOc3B0VTR1bCsvYTNZZ1YvQ0crUGtRUE51b0kxTWRhSjR3REc3MUxyTTBVSVUzT0FBbU5oSTFYd0RQbUw1N2w4Z2NyQWo4RGZzVGF1Vm80b0VUNHQvS0ErZmlYQ3dRNFEvL0c2WkJic1Npby9qR05LK0JBdUMrbmJjUERVZVB4UDBjYVcxYi9rUzMrWnNoaVkwUndjZFRhckErVklOZkdURWJWMHpHNTY1Mm1iMjJ5S3pudWVVNnFXOXJuVVlNTm95dGI5cU9veVRPSjZxSTBmWlViQmUrcWVSUmVUb1NQaS9yd2RVTHBJdk4=
+    vuforiaLicenseKey: AY0cMS3/////AAABmX388O9zfkbUvv2qaNquslF6/5P9853yc5XoVNVTvPdFxUqA3MCyrAqhzk1DwmeWcKGpGQeraNEKIdfvIgR3/ksGIuSGYgj7tWSD8CcskBXlAl1qlB3zXh1gGUA8c69dzly9z+wLuTHVzgjxpUCStCkrAfRaEAOTo/VuQcoiy+ULNuoIS946SlCzSsA37npsZPJh/iUC+3VzjQgYg0E94/NOYcQ+V0P4sMRBtjS/MEKYCHANhefqpvEFWvvn4h3M/QPr0f+jDYxEZ9aVqPKYfkUUSsiqDRRlsVVOS9zsjGl3lFwagDB6eaA+cT9bBQ057kUAda8LJkJ/acMAJ3x+g0Ozec6gAofc/s0r8YFHxhpC
+    ufoLicenseKey: QVhiM0Y1Ly8vLy8vQUFBQUtPbnFIeHJFSGs1N3VrMlg4U050eVBzK2pkOFZxMDhrazlwYjBsYS9aZUIxQlV1ckZWcWt0ZllSQWpnT2tIRlY2VzdOMDRTRjNYRUhmbTF5L1BnYlB4eWdHWEF6RUNheXowc3dyNVNYa2ozdERuRjhka1FpOHRscHdkMDcrcEJEY1FjTjNJcUM1bEgwOTYzQkdZdjRsQStRb0hSQU9nRGthelp5TlY0WHVwWU9EaE05NWw5bXAzbnBDMjM5MWZBWXBFdEdiL2loTDNab3N4b25ZblhjK1JtSS9wLzRoTDIwVGhmTXR6WFJNYkpUTXZLZzJoQ0N0TEJXNEptZ0pSOUtSdStzQWM3QjVNOWFFMGVHQ1dUT1VRSUUweEpiZC9ZL2cvS29iNDhBRXdQOGFwbWR5NmRWU0FHU2psVzRZY2FEU2Zud3J1ZHhucVNmSUZiajNTUnIzM0lKVlFIaW1rL0oyOGNFeDdyekcySXg=
     delayedInitialization: 0
     cameraDeviceModeSetting: -1
     maxSimultaneousImageTargets: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
     version: 8.5.9
     eulaAcceptedVersions: '{"Values":["8.5"]}'
   database:
-    disableModelExtraction: 1
+    disableModelExtraction: 0
   videoBackground:
     numDivisions: 2
     videoBackgroundShader: {fileID: 4800000, guid: f40623b353e2f1943b1b3ba42975db7a,
@@ -39,6 +39,6 @@ MonoBehaviour:
     autoInitTracker: 0
     autoStartTracker: 0
   webcam:
-    deviceNameSetInEditor: Logitech HD Webcam C270
+    deviceNameSetInEditor: Logitech HD Pro Webcam C920
     turnOffWebCam: 0
     renderTextureLayer: 30
