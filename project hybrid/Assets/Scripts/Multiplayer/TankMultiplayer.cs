@@ -24,6 +24,7 @@ public class TankMultiplayer : MonoBehaviourPun
         if (photonView.IsMine)
         {
             localPlayerInstance = this.gameObject;
+            gameObject.GetComponentInChildren<tankBeakeon>().gameObject.SetActive(true);
         }
     }
 
