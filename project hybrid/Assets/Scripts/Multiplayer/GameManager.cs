@@ -291,7 +291,7 @@ namespace Multiplayer
 
             if (playerId == this.playerId)
             {
-                scoreText.text = "Score: \n" + scores[playerId - 1].ToString();
+                scoreText.text = "Score: " + scores[playerId - 1].ToString();
             }
         }
     }
