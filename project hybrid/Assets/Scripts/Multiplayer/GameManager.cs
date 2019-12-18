@@ -22,12 +22,27 @@ namespace Multiplayer
         [SerializeField] GameObject spawnTargetPrefab;
         Transform spawntarget;
 
+        private int playersSpawned = 0;
+        private int playerId;
+
+        private bool startOnce = false;
+
+        private void Awake()
+        {
+            playerId = PhotonNetwork.PlayerList.Length;
+        }
 
         // Start is called before the first frame update
         void Start()
         {
             raycastLayerMask = LayerMask.GetMask("Level");
             spawntarget = GameObject.Instantiate(spawnTargetPrefab, transform).transform;
+
+            if (PhotonNetwork.IsMasterClient)
+            {
+                respawn = false;
+                spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+            }
         }
 
         // Update is called once per frame
@@ -36,6 +51,14 @@ namespace Multiplayer
             if (respawn)
             {
                 Respawn();
+            }
+
+            if (PhotonNetwork.IsMasterClient)
+            {
+                if (!startOnce && GameHasStarted)
+                {
+                    startOnce = true;
+                }
             }
         }
 
@@ -47,17 +70,16 @@ namespace Multiplayer
             {
                 spawntarget.GetComponentInChildren<MeshRenderer>().enabled = true;
 
-                spawntarget.GetComponentInChildren<MeshRenderer>().enabled = true;
                 spawntarget.position = hit.point + (hit.normal / 100);
                 spawntarget.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-
-
 
                 if (Input.GetKey("v"))
                 {
                     SpawnTank(hit.point + new Vector3(0, 20, 0));
                     respawn = false;
                     spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+
+                    photonView.RPC("PlayerHasSpawned", RpcTarget.MasterClient);
                 }
 
                 if (Input.touches.Length == 0)
@@ -70,6 +92,8 @@ namespace Multiplayer
                     SpawnTank(hit.point + new Vector3(0, 20, 0));
                     respawn = false;
                     spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+
+                    photonView.RPC("PlayerHasSpawned", RpcTarget.MasterClient);
                 }
             }
             else
@@ -94,6 +118,12 @@ namespace Multiplayer
                 turret.SetVariables(arCamera.transform, inputManager);
                 turret.SetAudio(chargingSound, reloadSound);
             }
+        }
+
+        [PunRPC]
+        private void PlayerHasSpawned()
+        {
+            playersSpawned += 1;
         }
 
         public void LeaveRoom()
@@ -137,6 +167,11 @@ namespace Multiplayer
             {
                 //LoadArena();
             }
+        }
+
+        public bool GameHasStarted
+        {
+            get { return playersSpawned >= 4; }
         }
     }
 }
