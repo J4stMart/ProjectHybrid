@@ -255,7 +255,7 @@ namespace Multiplayer
 
         public bool GameHasStarted
         {
-            get { return playersSpawned >= 4; }
+            get { return playersSpawned >= 2; }
         }
 
         public void AddScore(int playerId)
