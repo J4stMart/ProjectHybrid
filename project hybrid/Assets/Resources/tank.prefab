@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1005083079}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: fractures koepel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1129532059}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: fractures onderstel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1321554022}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: ShootPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 78010541117845522}
   - component: {fileID: 78010541117845521}
   - component: {fileID: 78010541117845520}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: koepel_Part_8
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 362795846005521047}
   - component: {fileID: 362795846005521046}
   - component: {fileID: 4089722931715410184}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_2
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 490306559037710394}
   - component: {fileID: 490306559037710393}
   - component: {fileID: 3311772596407979892}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_6
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 7307136784304404047}
   - component: {fileID: 3719902195833483957}
   - component: {fileID: 4244453413914148670}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: 'thank koepel '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 967975508599263676}
   - component: {fileID: 967975508599263675}
   - component: {fileID: 7809171221335413575}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_11
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -955,7 +955,7 @@ GameObject:
   - component: {fileID: 6092724194508624223}
   - component: {fileID: 2872603244181544154}
   - component: {fileID: 981302439273942691}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: koepel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1038,7 +1038,7 @@ GameObject:
   - component: {fileID: 1533138082954278031}
   - component: {fileID: 1533138082954278030}
   - component: {fileID: 2977323312296897027}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_3
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -1209,7 +1209,7 @@ GameObject:
   - component: {fileID: 2355667739626347260}
   - component: {fileID: 2355667739626347259}
   - component: {fileID: 2355667739626347258}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: koepel_Part_6
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -1334,7 +1334,7 @@ GameObject:
   - component: {fileID: 2513670009354869755}
   - component: {fileID: 2513670009354869754}
   - component: {fileID: 2513670009354869753}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: loop_Part_1
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -1458,7 +1458,7 @@ GameObject:
   - component: {fileID: 2905121298388799732}
   - component: {fileID: 2905121298388799731}
   - component: {fileID: 2905121298388799730}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: koepel_Part_3
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -1583,7 +1583,7 @@ GameObject:
   - component: {fileID: 3027936740424264420}
   - component: {fileID: 3027936740424264419}
   - component: {fileID: 3027936740424264418}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: loop_Part_3
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -1707,7 +1707,7 @@ GameObject:
   - component: {fileID: 3067503519878230995}
   - component: {fileID: 3067503519878230994}
   - component: {fileID: 3067503519878230993}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: koepel_Part_7
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -1831,7 +1831,7 @@ GameObject:
   - component: {fileID: 3072015497857931983}
   - component: {fileID: 3072015497857931982}
   - component: {fileID: 3072015497857931981}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: koepel_Part_1
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -1954,7 +1954,7 @@ GameObject:
   - component: {fileID: 942375376477973111}
   - component: {fileID: 1152286712}
   - component: {fileID: 1152286714}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2064,7 +2064,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6132795332366083666}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: fractures loop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2103,7 +2103,7 @@ GameObject:
   - component: {fileID: 3791887462517784707}
   - component: {fileID: 3791887462517784706}
   - component: {fileID: 6911602044721200055}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_12
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2229,7 +2229,7 @@ GameObject:
   - component: {fileID: 3898348939816606435}
   - component: {fileID: 3898348939816606434}
   - component: {fileID: 3898348939816606433}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: koepel_Part_4
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2354,7 +2354,7 @@ GameObject:
   - component: {fileID: 3929205706741168298}
   - component: {fileID: 3929205706741168297}
   - component: {fileID: 7007457861851083226}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_5
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2480,7 +2480,7 @@ GameObject:
   - component: {fileID: 4312820045134170362}
   - component: {fileID: 4312820045134170361}
   - component: {fileID: 3041362948441783478}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_10
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2605,7 +2605,7 @@ GameObject:
   - component: {fileID: 4524231936053506199}
   - component: {fileID: 4524231936053506198}
   - component: {fileID: 4524231936053506197}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: 'de dude '
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2731,7 +2731,7 @@ GameObject:
   - component: {fileID: 4661360806172668296}
   - component: {fileID: 4661360806172668295}
   - component: {fileID: 4661360806172668294}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: koepel_Part_5
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2854,7 +2854,7 @@ GameObject:
   - component: {fileID: 4981211756547664323}
   - component: {fileID: 4981211756547664322}
   - component: {fileID: 2192453837931221290}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_4
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -2980,7 +2980,7 @@ GameObject:
   - component: {fileID: 5454643748215579562}
   - component: {fileID: 5454643748215579561}
   - component: {fileID: 3473524122553814971}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_14
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -3103,7 +3103,7 @@ GameObject:
   - component: {fileID: 5492537965221033517}
   - component: {fileID: 5492537965221033516}
   - component: {fileID: 1632061515983457522}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_1
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -3228,7 +3228,7 @@ GameObject:
   - component: {fileID: 5998593924715013947}
   - component: {fileID: 5998593924715013946}
   - component: {fileID: 2839076300611552149}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_15
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -3354,7 +3354,7 @@ GameObject:
   - component: {fileID: 6013849230666100276}
   - component: {fileID: 6013849230666100275}
   - component: {fileID: 3819062037608488843}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_8
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -3478,7 +3478,7 @@ GameObject:
   - component: {fileID: 6085039137020760448}
   - component: {fileID: 6085039137020760447}
   - component: {fileID: 8189907725191600556}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_9
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -3603,7 +3603,7 @@ GameObject:
   - component: {fileID: 6103723936977208429}
   - component: {fileID: 6103723936977208428}
   - component: {fileID: 6561335214470793479}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_7
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -3771,7 +3771,7 @@ GameObject:
   - component: {fileID: 562774797552500655}
   - component: {fileID: 2407992103397241861}
   - component: {fileID: 1610389608257831513}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: loop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3855,7 +3855,7 @@ GameObject:
   - component: {fileID: 6738762522135073140}
   - component: {fileID: 6738762522135073139}
   - component: {fileID: 6738762522135073138}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: loop_Part_4
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -3976,7 +3976,7 @@ GameObject:
   - component: {fileID: 6263794797699408064}
   - component: {fileID: 1278820998804078707}
   - component: {fileID: 5759325758411477230}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: 'de dude '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4060,7 +4060,7 @@ GameObject:
   - component: {fileID: 6965265599821503197}
   - component: {fileID: 6965265599821503196}
   - component: {fileID: 5893159219453851843}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: onderstel_Part_13
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -4186,7 +4186,7 @@ GameObject:
   - component: {fileID: 6994404161014636863}
   - component: {fileID: 6994404161014636862}
   - component: {fileID: 6994404161014636861}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: koepel_Part_10
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -4310,7 +4310,7 @@ GameObject:
   - component: {fileID: 7488358206103097095}
   - component: {fileID: 7488358206103097094}
   - component: {fileID: 7488358206103097093}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: loop_Part_2
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -4431,7 +4431,7 @@ GameObject:
   - component: {fileID: 1006604311458396032}
   - component: {fileID: 9116014436701664171}
   - component: {fileID: 5939015019315815209}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: LoopPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4504,7 +4504,7 @@ GameObject:
   - component: {fileID: 8750680587909953546}
   - component: {fileID: 8750680587909953545}
   - component: {fileID: 8750680587909953544}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: koepel_Part_9
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -4627,7 +4627,7 @@ GameObject:
   - component: {fileID: 9130234140748451881}
   - component: {fileID: 9130234140748451880}
   - component: {fileID: 9130234140748451879}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: koepel_Part_2
   m_TagString: Fractures
   m_Icon: {fileID: 0}
@@ -4780,6 +4780,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Nozzleflash
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597897778215394750, guid: 4a3c75ea684e87c4ba101a10f25e34be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8597897778215394749, guid: 4a3c75ea684e87c4ba101a10f25e34be,
         type: 3}
