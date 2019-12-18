@@ -250,7 +250,7 @@ namespace Multiplayer
             if (propertiesThatChanged.TryGetValue(CountdownStartTime, out startTimeFromProps))
             {
                 isTimerRunning = true;
-                startTime = (float)startTimeFromProps;
+                startTime = (float)(double)startTimeFromProps;
             }
         }
 
