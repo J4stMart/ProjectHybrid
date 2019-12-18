@@ -42,5 +42,7 @@ MonoBehaviour:
   - Explosion
   - EnableInput
   - PlayerHasSpawned
+  - AddScore
+  - StartGame
   DisableAutoOpenWizard: 1
   ShowSettings: 1

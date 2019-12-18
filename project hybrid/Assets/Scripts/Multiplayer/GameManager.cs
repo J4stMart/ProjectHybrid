@@ -7,7 +7,7 @@ using ExitGames.Client.Photon;
 namespace Multiplayer
 {
     public class GameManager : MonoBehaviourPunCallbacks
-    { 
+    {
         public static GameManager Instance
         {
             get
@@ -17,9 +17,14 @@ namespace Multiplayer
         }
         private static GameManager instance;
 
-        public GameObject playerPrefab;
+        public GameObject playerPrefab1;
+        public GameObject playerPrefab2;
+        public GameObject playerPrefab3;
+        public GameObject playerPrefab4;
+
         public InputManager inputManager;
         public GameObject arCamera;
+        public GameObject noMarker;
 
         public AudioClip chargingSound;
         public AudioClip reloadSound;
@@ -69,6 +74,7 @@ namespace Multiplayer
 
                 inputManager.gameObject.SetActive(false);
                 ui.gameObject.SetActive(false);
+                noMarker.SetActive(false);
             }
         }
 
@@ -80,7 +86,7 @@ namespace Multiplayer
                 Respawn();
             }
 
-            if(isTimerRunning)
+            if (isTimerRunning)
             {
                 float timer = (float)PhotonNetwork.Time - startTime;
                 float countdown = gameLength - timer;
@@ -88,11 +94,12 @@ namespace Multiplayer
                 if (!PhotonNetwork.IsMasterClient)
                     ui.setTime(countdown);
 
-                if(countdown < 0)
+                if (countdown < 0)
                 {
                     isTimerRunning = false;
-                    
-                    //Victory screen
+
+                    LeaveRoom();
+                    SceneManager.LoadScene("VictoryScene");
                 }
             }
 
@@ -152,20 +159,31 @@ namespace Multiplayer
 
         private void SpawnTank(Vector3 spawnpoint)
         {
-            if (playerPrefab == null)
-            {
-                Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'", this);
-            }
-            else
-            {
-                Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
+            Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
 
-                var instance = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnpoint, Quaternion.identity);
-                instance.GetComponent<TankMultiplayer>().SetInputManager(inputManager);
-                var turret = instance.GetComponentInChildren<TankTurret>();
-                turret.SetVariables(arCamera.transform, inputManager);
-                turret.SetAudio(chargingSound, reloadSound);
+            GameObject instance;
+
+            switch(playerId)
+            {
+                case 1:
+                    instance = PhotonNetwork.Instantiate(this.playerPrefab1.name, spawnpoint, Quaternion.identity);
+                    break;
+                case 2:
+                    instance = PhotonNetwork.Instantiate(this.playerPrefab2.name, spawnpoint, Quaternion.identity);
+                    break;
+                case 3:
+                    instance = PhotonNetwork.Instantiate(this.playerPrefab3.name, spawnpoint, Quaternion.identity);
+                    break;
+                default:
+                    instance = PhotonNetwork.Instantiate(this.playerPrefab4.name, spawnpoint, Quaternion.identity);
+                    break;
             }
+
+            instance.GetComponent<TankMultiplayer>().SetInputManager(inputManager);
+            var turret = instance.GetComponentInChildren<TankTurret>();
+            turret.SetVariables(arCamera.transform, inputManager);
+            turret.SetAudio(chargingSound, reloadSound);
+
         }
 
         [PunRPC]
