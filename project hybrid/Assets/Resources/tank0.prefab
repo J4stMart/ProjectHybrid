@@ -4863,6 +4863,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4510122213185994895}
     m_Modifications:
+    - target: {fileID: 8351381710075380600, guid: 6cfd06d19b6c81e4d980bc057fd281ab,
+        type: 3}
+      propertyPath: m_Name
+      value: TankLocator
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351381710075380600, guid: 6cfd06d19b6c81e4d980bc057fd281ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351381710075380600, guid: 6cfd06d19b6c81e4d980bc057fd281ab,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8351381710075380602, guid: 6cfd06d19b6c81e4d980bc057fd281ab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4917,16 +4932,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8351381710075380600, guid: 6cfd06d19b6c81e4d980bc057fd281ab,
-        type: 3}
-      propertyPath: m_Name
-      value: TankLocator
-      objectReference: {fileID: 0}
-    - target: {fileID: 8351381710075380600, guid: 6cfd06d19b6c81e4d980bc057fd281ab,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8351381710075380603, guid: 6cfd06d19b6c81e4d980bc057fd281ab,
         type: 3}
