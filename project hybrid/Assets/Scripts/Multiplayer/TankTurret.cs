@@ -61,8 +61,11 @@ public class TankTurret : MonoBehaviourPun
 
     private void OnDestroy()
     {
-        inputManager.startShooting -= StartShooting;
-        inputManager.endShooting -= EndShooting;
+        if (photonView.IsMine)
+        {
+            inputManager.startShooting -= StartShooting;
+            inputManager.endShooting -= EndShooting;
+        }
     }
 
     void Update()

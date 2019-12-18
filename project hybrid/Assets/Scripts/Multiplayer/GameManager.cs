@@ -72,6 +72,7 @@ namespace Multiplayer
                 respawn = false;
                 spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
 
+                arCamera.GetComponent<MarkerChecker>().enabled = false;
                 inputManager.gameObject.SetActive(false);
                 ui.gameObject.SetActive(false);
                 noMarker.SetActive(false);
