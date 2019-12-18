@@ -52,7 +52,7 @@ public class TankHitDetection : MonoBehaviourPun
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -61,7 +61,7 @@ public class TankHitDetection : MonoBehaviourPun
         if (Input.GetKey("b"))
             gotHit = true;
 
-        if(gotHit || (photonView.IsMine && transform.position.y < -40f))
+        if (gotHit || (photonView.IsMine && transform.position.y < -40f))
         {
             photonView.RPC("Explosion", RpcTarget.All);
         }
@@ -79,7 +79,7 @@ public class TankHitDetection : MonoBehaviourPun
 
         Vector3 explosionPos = transform.position;
         float radius = GetComponent<CapsuleCollider>().radius;
-        var colliders = Physics.OverlapSphere(explosionPos, radius);
+        var colliders = Physics.OverlapSphere(explosionPos, radius, 1 << 16);
         foreach (var hit in colliders)
         {
             Rigidbody rb = hit.GetComponent<Rigidbody>();
@@ -88,10 +88,15 @@ public class TankHitDetection : MonoBehaviourPun
                 rb.AddExplosionForce(explosionForce, explosionPos, radius, radius / 4);
         }
 
+        var renderers = gameObject.GetComponentsInChildren<MeshRenderer>();
+        foreach (var renderer in renderers)
+        {
+            renderer.enabled = false;
+        }
+
         if (photonView.IsMine)
         {
             StartCoroutine(RespawnTimer());
-            PhotonNetwork.Destroy(gameObject);
         }
     }
 
@@ -99,5 +104,6 @@ public class TankHitDetection : MonoBehaviourPun
     {
         yield return new WaitForSeconds(5);
         GameManager.respawn = true;
+        PhotonNetwork.Destroy(gameObject);
     }
 }

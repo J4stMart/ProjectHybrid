@@ -5,7 +5,7 @@ using UnityEngine;
 public class tankBeakeon : MonoBehaviour
 {
     [SerializeField] float startheight = 30;
-    [SerializeField] float endheight = 100;
+    [SerializeField] public float endheight = 100;
 
     LineRenderer LineRenderer;
 
