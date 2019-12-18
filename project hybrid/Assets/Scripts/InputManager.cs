@@ -79,7 +79,7 @@ public class InputManager : MonoBehaviour
         for (int i = 0; i < Input.touchCount; i++)
         {
             Touch touch = Input.touches[0];
-            Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? ((touch.position.y / (Screen.height / 10)) - .6f) / amountOfScreenUsedForControls : 10);
+            Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? ((touch.position.y / (Screen.height / 10)) - 1.5f) / amountOfScreenUsedForControls : 10);
 
             if (canDrive && touch.position.y / Screen.height < amountOfScreenUsedForControls)
             {
