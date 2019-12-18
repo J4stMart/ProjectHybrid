@@ -32,7 +32,7 @@ public class ShellMultiplayer : MonoBehaviourPun
 
         transform.forward = rb.velocity.normalized;
 
-        if (transform.position.z < -40)
+        if (transform.position.y < -40)
         {
             PhotonNetwork.Destroy(gameObject);
         }
