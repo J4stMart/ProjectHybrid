@@ -10,6 +10,7 @@ TagManager:
   - AimingSource
   - TargetGreen
   - UI
+  - RespawnTextTag
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Shell
   - Red
   - Aimcatcher
-  - 
+  - Tank
   - 
   - 
   - 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Multiplayer;
 
 public class InputManager : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class InputManager : MonoBehaviour
     private LayerMask raycastLayerMask;
     [SerializeField] private InputUi inputUi;
     public bool canShoot = false;
+    public bool canDrive = false;
 
     public Transform arCamera;
     public Transform tankTransform = null;
@@ -76,7 +78,7 @@ public class InputManager : MonoBehaviour
             Touch touch = Input.touches[0];
             Vector2 pos = new Vector2((touch.position.x / (Screen.width / 5) * 2) - 5, (touch.position.y / Screen.height < amountOfScreenUsedForControls) ? ((touch.position.y / (Screen.height / 10)) - .6f) / amountOfScreenUsedForControls : 10);
 
-            if (touch.position.y / Screen.height < amountOfScreenUsedForControls)
+            if (canDrive && touch.position.y / Screen.height < amountOfScreenUsedForControls)
             {
                 switch (touch.phase)
                 {
@@ -195,6 +197,16 @@ public class InputManager : MonoBehaviour
 
                 if (tankTransform != null)
                     aimSourcePos.position = tankTransform.position - (hit.point - tankTransform.position);
+            }
+        }
+    }
+
+    public bool CanShoot
+    {
+        set
+        {
+            if (GameManager.gameHasStarted) {
+                canShoot = value;
             }
         }
     }

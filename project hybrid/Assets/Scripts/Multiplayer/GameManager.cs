@@ -19,6 +19,8 @@ namespace Multiplayer
         public static bool respawn = true;
         private LayerMask raycastLayerMask;
 
+        private GameObject RespawnText;
+
         [SerializeField] GameObject spawnTargetPrefab;
         Transform spawntarget;
 
@@ -37,6 +39,7 @@ namespace Multiplayer
         {
             raycastLayerMask = LayerMask.GetMask("Level");
             spawntarget = GameObject.Instantiate(spawnTargetPrefab, transform).transform;
+            RespawnText = GameObject.FindGameObjectWithTag("RespawnTextTag");
 
             if (PhotonNetwork.IsMasterClient)
             {
@@ -78,6 +81,7 @@ namespace Multiplayer
                     SpawnTank(hit.point + new Vector3(0, 20, 0));
                     respawn = false;
                     spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+                    RespawnText.SetActive(false);
 
                     photonView.RPC("PlayerHasSpawned", RpcTarget.MasterClient);
                 }
@@ -92,6 +96,7 @@ namespace Multiplayer
                     SpawnTank(hit.point + new Vector3(0, 20, 0));
                     respawn = false;
                     spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+                    RespawnText.SetActive(false);
 
                     photonView.RPC("PlayerHasSpawned", RpcTarget.MasterClient);
                 }
