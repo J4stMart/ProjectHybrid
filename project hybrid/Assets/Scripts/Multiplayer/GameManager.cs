@@ -19,6 +19,8 @@ namespace Multiplayer
         public static bool respawn = true;
         private LayerMask raycastLayerMask;
 
+        private GameObject RespawnText;
+
         [SerializeField] GameObject spawnTargetPrefab;
         Transform spawntarget;
 
@@ -28,6 +30,7 @@ namespace Multiplayer
         {
             raycastLayerMask = LayerMask.GetMask("Level");
             spawntarget = GameObject.Instantiate(spawnTargetPrefab, transform).transform;
+            RespawnText = GameObject.FindGameObjectWithTag("RespawnTextTag");
         }
 
         // Update is called once per frame
@@ -51,13 +54,12 @@ namespace Multiplayer
                 spawntarget.position = hit.point + (hit.normal / 100);
                 spawntarget.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 
-
-
                 if (Input.GetKey("v"))
                 {
                     SpawnTank(hit.point + new Vector3(0, 20, 0));
                     respawn = false;
                     spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+                    RespawnText.SetActive(false);
                 }
 
                 if (Input.touches.Length == 0)
@@ -70,6 +72,7 @@ namespace Multiplayer
                     SpawnTank(hit.point + new Vector3(0, 20, 0));
                     respawn = false;
                     spawntarget.GetComponentInChildren<MeshRenderer>().enabled = false;
+                    RespawnText.SetActive(false);
                 }
             }
             else

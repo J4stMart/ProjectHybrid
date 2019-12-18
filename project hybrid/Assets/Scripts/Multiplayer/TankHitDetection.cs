@@ -16,6 +16,8 @@ public class TankHitDetection : MonoBehaviourPun
     [SerializeField]
     private int explosionForce = 0;
 
+    private GameObject RespawnText;
+
     private List<GameObject> fractures;
 
     private void Awake()
@@ -52,7 +54,7 @@ public class TankHitDetection : MonoBehaviourPun
     // Start is called before the first frame update
     void Start()
     {
-        
+        RespawnText = GameObject.FindGameObjectWithTag("RespawnTextTag");
     }
 
     // Update is called once per frame
@@ -61,7 +63,7 @@ public class TankHitDetection : MonoBehaviourPun
         if (Input.GetKey("b"))
             gotHit = true;
 
-        if(gotHit || (photonView.IsMine && transform.position.y < -40f))
+        if (gotHit || (photonView.IsMine && transform.position.y < -40f))
         {
             photonView.RPC("Explosion", RpcTarget.All);
         }
@@ -90,7 +92,8 @@ public class TankHitDetection : MonoBehaviourPun
 
         if (photonView.IsMine)
         {
-            RespawnTimer();
+            RespawnText.SetActive(true);
+             RespawnTimer();
             PhotonNetwork.Destroy(gameObject);
         }
     }
