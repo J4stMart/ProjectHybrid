@@ -21,6 +21,7 @@ public class InputManager : MonoBehaviour
     private Transform aimingTarget;
     private LayerMask raycastLayerMask;
     [SerializeField] private InputUi inputUi;
+    public bool canShoot = false;
 
     public Transform arCamera;
     public Transform tankTransform = null;
@@ -102,11 +103,11 @@ public class InputManager : MonoBehaviour
                 switch (touch.phase)
                 {
                     case TouchPhase.Began:
-                        if (startShooting != null)
+                        if (startShooting != null && canShoot)
                             startShooting();
                         break;
                     case TouchPhase.Ended:
-                        if (endShooting != null)
+                        if (endShooting != null && canShoot)
                             endShooting();
                         break;
                 }

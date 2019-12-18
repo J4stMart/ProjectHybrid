@@ -29,6 +29,15 @@ public class TankMultiplayer : MonoBehaviourPun
     {
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0, -0.5f, 0);
+
+        if (photonView.IsMine)
+            StartCoroutine(TurnOnShooting());
+    }
+
+    private void OnDestroy()
+    {
+        if (photonView.IsMine)
+            controls.canShoot = false;
     }
 
     void FixedUpdate()
@@ -54,5 +63,11 @@ public class TankMultiplayer : MonoBehaviourPun
     public void SetInputManager(InputManager im)
     {
         controls = im;
+    }
+
+    private IEnumerator TurnOnShooting()
+    {
+        yield return new WaitForSeconds(2f);
+        controls.canShoot = true;
     }
 }
