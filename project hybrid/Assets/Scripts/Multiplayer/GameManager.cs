@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
+using UnityEngine.UI;
 
 namespace Multiplayer
 {
@@ -25,10 +26,11 @@ namespace Multiplayer
         public InputManager inputManager;
         public GameObject arCamera;
         public GameObject noMarker;
+        public Text scoreText;
 
         public AudioClip chargingSound;
         public AudioClip reloadSound;
-
+    
         public static bool respawn = true;
         private LayerMask raycastLayerMask;
 
@@ -82,6 +84,8 @@ namespace Multiplayer
         // Update is called once per frame
         void Update()
         {
+
+
             if (respawn)
             {
                 Respawn();
@@ -262,6 +266,11 @@ namespace Multiplayer
         public void AddScore(int playerId)
         {
             scores[playerId] += 1;
+
+            if (playerId == this.playerId)
+            {
+                scoreText.text = "Score: \n" + scores[playerId].ToString();
+            }
         }
     }
 }

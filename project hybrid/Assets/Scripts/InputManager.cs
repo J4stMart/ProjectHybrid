@@ -117,7 +117,6 @@ public class InputManager : MonoBehaviour
                         break;
                 }
             }
-
         }
     }
 

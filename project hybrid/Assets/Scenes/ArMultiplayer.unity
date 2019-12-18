@@ -2294,6 +2294,13 @@ PrefabInstance:
       propertyPath: maxtime
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 5810335256620509285, guid: 0497a132d98fcd842b0a2c12205220e7,
+        type: 3}
+      propertyPath: m_Text
+      value: 'score:
+
+'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0497a132d98fcd842b0a2c12205220e7, type: 3}
 --- !u!114 &911330710 stripped
