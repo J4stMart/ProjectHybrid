@@ -58,6 +58,9 @@ public class TankHitDetection : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey("b"))
+            gotHit = true;
+
         if(gotHit || (photonView.IsMine && transform.position.y < -40f))
         {
             photonView.RPC("Explosion", RpcTarget.All);

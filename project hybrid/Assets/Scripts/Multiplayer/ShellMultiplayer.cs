@@ -45,9 +45,11 @@ public class ShellMultiplayer : MonoBehaviourPun
 
         if (collision.transform.tag == "Player")
         {
+            Debug.Log("hit1");
             var hitDetection = collision.transform.parent.GetComponent<TankHitDetection>();
             if (!hitDetection.gotHit)
             {
+                Debug.Log("hit2");
                 hitDetection.gotHit = true;
             }
 

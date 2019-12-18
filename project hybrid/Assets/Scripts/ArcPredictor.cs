@@ -46,12 +46,14 @@ public class ArcPredictor : MonoBehaviour
 
         if (initialForwardSpeed != 0)
         {
-            targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = true;
+            foreach (var renderer in targetIndicator.GetComponentsInChildren<MeshRenderer>())
+                renderer.enabled = true;
             lineRenderer.enabled = true;
         }
         else
         {
-            targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = false;
+            foreach (var renderer in targetIndicator.GetComponentsInChildren<MeshRenderer>())
+                renderer.enabled = false; ;
             lineRenderer.enabled = false;
         }
 
@@ -74,15 +76,11 @@ public class ArcPredictor : MonoBehaviour
                 targetIndicator.GetComponentInChildren<MeshRenderer>().enabled = true;
                 targetIndicator.position = hit.point + (hit.normal / 100);
 
-                //Vector3 rot = new Vector3(hit.normal.x, hit.normal.y,0);
-                targetIndicator.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);// Quaternion.Euler(hit.normal * Mathf.Rad2Deg);
-
-                //Debug.DrawLine(targetIndicator.position, hit.normal + targetIndicator.position);
+                targetIndicator.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 
                 for (int p = i; p < lengthOfLineRenderer; p++)
                 {
                     points[p] = hit.point;
-                    //points.RemoveAt(points.Count - 1);
                 }
                 break;
             }

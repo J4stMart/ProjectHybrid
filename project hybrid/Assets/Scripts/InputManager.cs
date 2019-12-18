@@ -20,7 +20,7 @@ public class InputManager : MonoBehaviour
     private Transform aimSourcePos;
     private Transform aimingTarget;
     private LayerMask raycastLayerMask;
-    [SerializeField]private InputUi inputUi;
+    [SerializeField] private InputUi inputUi;
 
     public Transform arCamera;
     public Transform tankTransform = null;
@@ -42,10 +42,12 @@ public class InputManager : MonoBehaviour
         aimSourcePos = GameObject.FindGameObjectWithTag("AimingSource").transform;
         aimingTarget = GameObject.FindGameObjectWithTag("TargetGreen").transform;
 
-        if (GameObject.FindGameObjectWithTag("UI").GetComponent<InputUi>() != null) {
+        if (GameObject.FindGameObjectWithTag("UI").GetComponent<InputUi>() != null)
+        {
             inputUi = GameObject.FindGameObjectWithTag("UI").GetComponent<InputUi>();
         }
-        else {
+        else
+        {
             Debug.LogError("de ui met scrit inputUI heeft geet tag 'UI'");
         }
     }
@@ -53,13 +55,13 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tankTransform == null)
-            return;
-
         if (aimByPointingCamera)
         {
             raycastAim(Vector2.zero);
         }
+
+        if (tankTransform == null)
+            return;
 
         if (debug)
         {
@@ -141,12 +143,12 @@ public class InputManager : MonoBehaviour
             pos.x = 10;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             startShooting();
         }
 
-        if(Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             endShooting();
         }
@@ -170,7 +172,7 @@ public class InputManager : MonoBehaviour
         {
             Ray ray;
             if (aimByPointingCamera)
-            { 
+            {
                 if (arCamera == null)
                 {
                     arCamera = Camera.main.transform;
@@ -187,10 +189,11 @@ public class InputManager : MonoBehaviour
             RaycastHit hit = new RaycastHit();
             if (Physics.Raycast(ray, out hit, 1300, raycastLayerMask))
             {
-                aimSourcePos.position = tankTransform.position - (hit.point - tankTransform.position);
-
                 aimingTarget.position = hit.point + (hit.normal / 100);
                 aimingTarget.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+
+                if (tankTransform != null)
+                    aimSourcePos.position = tankTransform.position - (hit.point - tankTransform.position);
             }
         }
     }

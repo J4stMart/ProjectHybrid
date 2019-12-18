@@ -23,8 +23,6 @@ public class TankMultiplayer : MonoBehaviourPun
         {
             localPlayerInstance = this.gameObject;
         }
-
-        DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()

@@ -44,8 +44,8 @@ public class TankTurret : MonoBehaviourPun
     {
         if (photonView.IsMine || !PhotonNetwork.IsConnected)
         {
-            inputManager.startShooting += new InputManager.StartShooting(StartShooting);
-            inputManager.endShooting += new InputManager.EndShooting(EndShooting);
+            inputManager.startShooting += StartShooting;
+            inputManager.endShooting += EndShooting;
             inputManager.tankTransform = transform;
 
             arc = gameObject.AddComponent<ArcPredictor>();
@@ -57,6 +57,12 @@ public class TankTurret : MonoBehaviourPun
         }
         audioSource = GetComponent<AudioSource>();
         nozzleflash.Pause();
+    }
+
+    private void OnDestroy()
+    {
+        inputManager.startShooting -= StartShooting;
+        inputManager.endShooting -= EndShooting;
     }
 
     void Update()
@@ -133,7 +139,8 @@ public class TankTurret : MonoBehaviourPun
             audioSource.Stop();
             canPlayCharge = true;
 
-            arc.targetIndicator.gameObject.SetActive(false);
+            foreach (var renderer in arc.targetIndicator.GetComponentsInChildren<MeshRenderer>())
+                renderer.enabled = false;
             arc.enabled = false;
             arc.lineRenderer.enabled = false;
 
@@ -154,7 +161,8 @@ public class TankTurret : MonoBehaviourPun
         yield return new WaitForSeconds(0.2f);
         arc.enabled = true;
         yield return new WaitForSeconds(0.1f);
-        arc.targetIndicator.gameObject.SetActive(true);
+        foreach (var renderer in arc.targetIndicator.GetComponentsInChildren<MeshRenderer>())
+            renderer.enabled = false;
         canShoot = true;
     }
 
