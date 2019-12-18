@@ -114,6 +114,6 @@ public class ShellMultiplayer : MonoBehaviourPun
     private IEnumerator ArmTimer()
     {
         yield return new WaitForSeconds(0.2f);
-        gameObject.layer = 0;
+        gameObject.layer = 12;
     }
 }
