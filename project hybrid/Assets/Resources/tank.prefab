@@ -778,7 +778,7 @@ MonoBehaviour:
   shootPosition: {fileID: 1321554022}
   rotationspeed: 2
   chargeUpSpeed: 15
-  startChargeUp: 3
+  startChargeUp: 8
   arcColor1: {r: 1, g: 1, b: 1, a: 1}
   arcColor2: {r: 1, g: 1, b: 1, a: 1}
   nozzleflash: {fileID: 8857693036865390346}
@@ -1192,9 +1192,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
-  m_Height: 1
+  m_Height: 0.9670375
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.016481262, z: -3.8686732e-16}
 --- !u!1 &2355667739626347257
 GameObject:
   m_ObjectHideFlags: 0
@@ -3757,9 +3757,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
-  m_Height: 1
+  m_Height: 0.93573326
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.032133397, z: -7.35763e-16}
 --- !u!1 &6464588328874777542
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class ArcPredictor : MonoBehaviour
 {
     public Color c1 = Color.white;
     public Color c2 = Color.white;
-    public int lengthOfLineRenderer = 50;
+    public int lengthOfLineRenderer = 200;
     public float initialUpWardSpeed = 5f;
     public float initialForwardSpeed = 1f;
     public float aimDirection = 0f;
@@ -60,7 +60,7 @@ public class ArcPredictor : MonoBehaviour
         float gravity = Physics.gravity.magnitude;
         Quaternion aimAngle = Quaternion.Euler(0f, aimDirection, 0f);
         for (int i = 0; i < lengthOfLineRenderer; i++) {
-            points[i] = new Vector3((i * 10 * Time.deltaTime) * initialForwardSpeed, initialUpWardSpeed * (i * 10 * Time.deltaTime) - 0.5f * gravity * (i * 10 * Time.deltaTime) * (i * 10 * Time.deltaTime), 0.0f);
+            points[i] = new Vector3((i * Time.deltaTime) * initialForwardSpeed, initialUpWardSpeed * (i  * Time.deltaTime) - 0.5f * gravity * (i * Time.deltaTime) * (i  * Time.deltaTime), 0.0f);
             points[i] = (aimAngle * points[i]) + transform.position + offsetPosition;
         }
 
