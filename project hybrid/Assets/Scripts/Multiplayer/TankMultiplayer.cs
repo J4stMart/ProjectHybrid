@@ -14,8 +14,6 @@ public class TankMultiplayer : MonoBehaviourPun
     private InputManager controls;
     private Rigidbody rb;
 
-    private bool allPlayersSpawned;
-
     [HideInInspector]
     public static GameObject localPlayerInstance = null;
 
@@ -33,7 +31,7 @@ public class TankMultiplayer : MonoBehaviourPun
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0, -0.5f, 0);
 
-        if (photonView.IsMine && allPlayersSpawned)
+        if (photonView.IsMine)
             StartCoroutine(TurnOnShooting());
     }
 
