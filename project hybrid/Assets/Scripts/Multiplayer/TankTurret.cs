@@ -160,7 +160,7 @@ public class TankTurret : MonoBehaviourPun
     {
         photonView.RPC("PlayNozzleFlash", RpcTarget.All);
         yield return new WaitForSeconds(reloadTime - 0.2f);
-        audioSource.PlayOneShot(chargingSound, 1f);
+        audioSource.PlayOneShot(reloadSound, 1f);
         yield return new WaitForSeconds(0.2f);
         arc.enabled = true;
         yield return new WaitForSeconds(0.1f);
