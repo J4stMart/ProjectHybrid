@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Multiplayer;
 
 [RequireComponent(typeof(Rigidbody))]
 public class TankMultiplayer : MonoBehaviourPun
@@ -69,6 +70,7 @@ public class TankMultiplayer : MonoBehaviourPun
     private IEnumerator TurnOnShooting()
     {
         yield return new WaitForSeconds(2f);
-        controls.CanShoot = true;
+        if (GameManager.Instance.gameStarted)
+            controls.canShoot = true;
     }
 }

@@ -54,6 +54,8 @@ namespace Multiplayer
 
         private int[] scores = new int[4];
 
+        public bool gameStarted = false;
+
         [SerializeField]
         private InputUi ui;
 
@@ -234,6 +236,7 @@ namespace Multiplayer
         {
             inputManager.canShoot = true;
             inputManager.canDrive = true;
+            gameStarted = true;
         }
 
         public void LeaveRoom()
